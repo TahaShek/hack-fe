@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary-fixed": "#00174b",
+              "on-primary-fixed": "#321200",
+              "outline": "#897367",
+              "outline-variant": "#dcc1b4",
+              "surface-container-high": "#ece8e0",
+              "on-tertiary-fixed": "#001f28",
+              "primary-container": "#e07b39",
+              "primary": "#9a4601",
+              "surface-bright": "#fef9f1",
+              "secondary-container": "#316bf3",
+              "inverse-surface": "#32302b",
+              "surface-container-highest": "#e7e2da",
+              "on-tertiary": "#ffffff",
+              "secondary-fixed-dim": "#b4c5ff",
+              "on-secondary-fixed-variant": "#003ea8",
+              "on-primary-fixed-variant": "#763400",
+              "on-surface-variant": "#554339",
+              "surface-container-lowest": "#ffffff",
+              "surface": "#fef9f1",
+              "surface-container": "#f2ede5",
+              "inverse-on-surface": "#f5f0e8",
+              "tertiary": "#00677e",
+              "on-error-container": "#93000a",
+              "on-surface": "#1d1c17",
+              "on-tertiary-container": "#003340",
+              "on-tertiary-fixed-variant": "#004e60",
+              "on-primary-container": "#4f2100",
+              "tertiary-container": "#00a3c6",
+              "on-secondary-container": "#fefcff",
+              "surface-tint": "#9a4601",
+              "inverse-primary": "#ffb68c",
+              "error": "#ba1a1a",
+              "surface-variant": "#e7e2da",
+              "background": "#fef9f1",
+              "on-secondary": "#ffffff",
+              "error-container": "#ffdad6",
+              "primary-fixed": "#ffdbc9",
+              "secondary": "#0051d5",
+              "on-primary": "#ffffff",
+              "tertiary-fixed": "#b5ebff",
+              "surface-dim": "#ded9d2",
+              "secondary-fixed": "#dbe1ff",
+              "tertiary-fixed-dim": "#5cd5fa",
+              "surface-container-low": "#f8f3eb",
+              "on-background": "#1d1c17",
+              "primary-fixed-dim": "#ffb68c",
+              "on-error": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+      }
+      body {
+        background-color: #fef9f1;
+        color: #1d1c17;
+        font-family: 'Inter', sans-serif;
+      }
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 4px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: #dcc1b4;
+        border-radius: 2px;
+      }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body antialiased">
+<!-- Top Navigation Anchor -->
+<nav class="fixed top-0 w-full z-50 h-16 border-b border-[#dcc1b4]/15 bg-[#fef9f1]/80 backdrop-blur-md flex justify-between items-center px-8 w-full">
+<div class="flex items-center gap-12">
+<span class="text-xl font-medium tracking-[0.1rem] uppercase text-[#0D0D0D]">MARKIT</span>
+<div class="hidden md:flex gap-8 items-center h-full">
+<a class="font-light tracking-tight text-[#9a4601] border-b border-[#9a4601] pb-1 transition-colors duration-200" href="#">Shop</a>
+<a class="font-light tracking-tight text-[#0D0D0D] hover:text-[#9a4601] transition-colors duration-200" href="#">Collections</a>
+<a class="font-light tracking-tight text-[#0D0D0D] hover:text-[#9a4601] transition-colors duration-200" href="#">Journal</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<button class="scale-95 active:opacity-80 transition-all text-[#0D0D0D] hover:text-[#9a4601]">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+</button>
+<button class="scale-95 active:opacity-80 transition-all text-[#0D0D0D] hover:text-[#9a4601]">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+</button>
+</div>
+</nav>
+<main class="pt-32 pb-24 px-8 max-w-7xl mx-auto">
+<div class="grid grid-cols-12 gap-12 items-start">
+<!-- Left Column: Media Gallery -->
+<div class="col-span-12 lg:col-span-7 flex flex-col gap-8">
+<!-- Main Product Image -->
+<div class="aspect-square w-full border border-outline-variant/30 overflow-hidden bg-surface-container-low">
+<img alt="Sculptural oak chair" class="w-full h-full object-cover" data-alt="Minimalist sculptural oak wooden chair with clean geometric lines set against a warm beige textured wall in soft natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjo2c83f77jI4DG-Rpq9ggMMqW7G1SNqWThjt1-o-Sup6Paos58rdGjurHBKt9MjaelhODIuYYsSH7OJsLVeFBjkq5S3I18eQMQdp4w1AVfjQp3FnAj2MglE1cAnW9w7MrzLRfA95Z3oEPm272z-eQdMbUgun2bZbOH3GKxp1acZdQAvrAJRd1S518EWBZmpWTnEXkKdvfDPNbRckcxsKhbJEZtzRWo8SzZUiUsd5dVlfz_lvBQCaj9pTsXU0rgvEsOfsxJZT35sk"/>
+</div>
+<!-- Thumbnails -->
+<div class="grid grid-cols-5 gap-4">
+<button class="aspect-square border-2 border-primary overflow-hidden transition-all scale-100 active:scale-95">
+<img alt="Thumbnail 1" class="w-full h-full object-cover" data-alt="Close-up detail of smooth oak wood grain and joints of a designer chair in warm lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWPjclNHc0c9FdzxvCxTiWX63mdyqiC6cQYIuMDmOfTjuEc2OPabKi1WZ4bPpK5rOSsO9DVXSyt7DeLvPZ7SKLruLMdwawWQsRvT-9GpGPQc9Xx5twdll3WUB4ZkppwurKTT9y_u8DJe9ZJyK_KiKuKktGx0aNPbZy0CfvNCDlbsLrtazO3kajRV3XyUgvoIGwQc5C0iwy8ZUDN_aCu96ghActiu2h_iu9aIVmumr4uIrcpBpW1UmIOisJckC3OthAHhZl0WWohMs"/>
+</button>
+<button class="aspect-square border border-outline-variant/30 overflow-hidden transition-all hover:border-primary/50 active:scale-95">
+<img alt="Thumbnail 2" class="w-full h-full object-cover" data-alt="Side profile view of a minimalist wooden chair showing the elegant curve of the backrest" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFR6YIa52mY6-vmpFwwvXICCeZsE9O2qZoBSeaSiwS8strgibEYGeMxFZJmAyEWbEgLhYsRgdmxZ3f2D2Oq3vuv1BOJc1oKcH2wwQgx5ONNTw8jiwL2q9-ogFtsNeLZHOqFr7v-UkAHrxegcSY8bdYbT_6YIr34RUA_xbXNWnoJ5rGICCnIN9Ikxd8z0vTuv51PvrKb31e88h8j8oEwk4OkahiRkXhqOhtQ6qLLf7aubNnonhmDLG_qTWW__ZbQMCHnvZTqFrN2Ho"/>
+</button>
+<button class="aspect-square border border-outline-variant/30 overflow-hidden transition-all hover:border-primary/50 active:scale-95">
+<img alt="Thumbnail 3" class="w-full h-full object-cover" data-alt="A modern dining room setting with a warm wooden table and artisanal chairs under soft pendant lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzn0O4_SSqKhkdypU3_zy8J-28vB3KZRs4ksemJJxiIJbTjAleAGawbX69pBJLGn7QxrjZ_3c6FtBjA_8D2Zwduu01mbFz0LBx--tEB0adY4Shj56s9brW5F7MNxUnrv-YIFHXWfhTxe08lkgyHFg37zEqxtqkjA6FGHI5zQdlfLjmpCQZZQp2RS-ZFCdDiwyptTcqiwV9zB1FrGBdUi2yyssdBflusLkZzq2csXhZ28owVCDw64eO5LKCw_71gAE-nirlrazFmeE"/>
+</button>
+<button class="aspect-square border border-outline-variant/30 overflow-hidden transition-all hover:border-primary/50 active:scale-95">
+<img alt="Thumbnail 4" class="w-full h-full object-cover" data-alt="Top down view of a handcrafted wooden stool with visible natural knots and organic texture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLRiyPuLa5RnVtHpN_4H62HTfb1s8rmQHxL9xjrIKrfj-ZUnHJHjLusOdw4bMQhSs7Lt1YgR4-h34J-uKwr0A8Er1ZcoCBgh6G7axI-YM7rGIieiC0eJcN5kYckGuQvjFH31FLsHWQyrSInwneGkJBe2xh-oh8XNNr30z5uSNl732J94FClIIfOil51ZJ1TKQk8llwdINMD7G7UNTB_yUGjwwFw7Ga7JqSVdl3Uic9yIIYtGVMcTH4uJcuSYLDhgytzaTR98I3Vmg"/>
+</button>
+<div class="aspect-square border border-outline-variant/30 overflow-hidden relative flex items-center justify-center bg-surface-container-high group cursor-pointer">
+<span class="text-xs font-medium tracking-[0.1rem] uppercase z-10">Video</span>
+<img alt="Thumbnail Video" class="absolute inset-0 w-full h-full object-cover opacity-30" data-alt="Atmospheric video still showing dust motes dancing in a sunbeam over a piece of handcrafted furniture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCY2O_9fpgSOhJ06i7WEbU07AzBX3WJC0ICG3czWtltZJJgP5Xq9l17_t2gKAIIiyT4XgyF5nVotCBRpuH_PgvBrjr0psfduTi3jl439zB-uEUP9UCy3t3-kuZl7O9MjTo1nIVm6W0L5hx1sc1JC6C_x_GHRGQZ-AuQ6TiXQLajpjQeAMAsiYek0XVUoYEHTfEY39v6ln4O6irSWwHlIMfQs0AykIa-BNMuvGOodRKLn3xkmnGaR-1ETnxe8j4wcu_N4U3SzhW-OzQ"/>
+</div>
+</div>
+<!-- Product Content Tabs -->
+<div class="mt-12">
+<div class="flex gap-12 border-b border-outline-variant/15">
+<button class="pb-4 text-[11px] font-medium tracking-[0.1rem] uppercase border-b-2 border-primary text-on-surface">Description</button>
+<button class="pb-4 text-[11px] font-medium tracking-[0.1rem] uppercase border-b-2 border-transparent text-on-surface-variant hover:text-primary transition-colors">Reviews (14)</button>
+<button class="pb-4 text-[11px] font-medium tracking-[0.1rem] uppercase border-b-2 border-transparent text-on-surface-variant hover:text-primary transition-colors">Seller Info</button>
+</div>
+<div class="py-8 space-y-6">
+<p class="body-md text-on-surface-variant leading-relaxed max-w-2xl">
+                            The Aethel Chair represents the pinnacle of reductive craftsmanship. Carved from sustainably harvested European White Oak, each joint is hand-finished using traditional mortise and tenon techniques. Its silhouette is a study in balance—mathematical precision meeting organic warmth.
+                        </p>
+<ul class="space-y-3">
+<li class="flex items-center gap-4 text-sm font-light">
+<span class="w-1 h-1 bg-primary rounded-full"></span>
+<span>Solid European White Oak with natural oil finish</span>
+</li>
+<li class="flex items-center gap-4 text-sm font-light">
+<span class="w-1 h-1 bg-primary rounded-full"></span>
+<span>Hand-sanded surfaces for tactile softness</span>
+</li>
+<li class="flex items-center gap-4 text-sm font-light">
+<span class="w-1 h-1 bg-primary rounded-full"></span>
+<span>Dimensions: 45cm x 52cm x 78cm</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Right Column: Product Details (Sticky) -->
+<aside class="col-span-12 lg:col-span-5 lg:sticky lg:top-24 space-y-10">
+<div class="space-y-4">
+<span class="text-[11px] font-medium tracking-[0.1rem] uppercase text-on-surface-variant">Furniture / Seating</span>
+<h1 class="text-4xl md:text-5xl font-light tracking-tighter leading-tight text-on-surface">Aethel Sculptural Chair</h1>
+<div class="flex items-baseline gap-4 pt-2">
+<span class="text-2xl font-medium text-primary">$1,240.00</span>
+<span class="text-sm text-on-surface-variant/60 line-through">$1,450.00</span>
+</div>
+</div>
+<div class="space-y-6">
+<div class="space-y-3">
+<label class="text-[11px] font-medium tracking-[0.1rem] uppercase block">Finish Selection</label>
+<div class="flex gap-3">
+<button class="w-12 h-12 border-2 border-primary bg-[#e7e2da] p-0.5" title="Natural Oak"></button>
+<button class="w-12 h-12 border border-outline-variant/30 bg-[#32302b] p-0.5 hover:border-primary/50 transition-colors" title="Smoked Oak"></button>
+<button class="w-12 h-12 border border-outline-variant/30 bg-[#0D0D0D] p-0.5 hover:border-primary/50 transition-colors" title="Charcoal Black"></button>
+</div>
+</div>
+<div class="space-y-3">
+<label class="text-[11px] font-medium tracking-[0.1rem] uppercase block">Quantity</label>
+<div class="inline-flex border border-outline-variant/30">
+<button class="w-12 h-12 flex items-center justify-center hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="remove">remove</span>
+</button>
+<span class="w-12 h-12 flex items-center justify-center font-light border-x border-outline-variant/30">1</span>
+<button class="w-12 h-12 flex items-center justify-center hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+</button>
+</div>
+</div>
+</div>
+<div class="space-y-4">
+<button class="w-full bg-gradient-to-br from-primary to-primary-container text-white h-14 font-medium tracking-wide flex items-center justify-center gap-3 active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined text-xl" data-icon="shopping_bag">shopping_bag</span>
+                        Add to Cart
+                    </button>
+<button class="w-full bg-surface-container-highest text-on-surface h-14 font-medium tracking-wide flex items-center justify-center gap-3 hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-xl" data-icon="favorite">favorite</span>
+                        Save to Wishlist
+                    </button>
+</div>
+<!-- Seller Info Row -->
+<div class="pt-10 border-t border-outline-variant/15 flex items-center justify-between group cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-surface-container-high flex items-center justify-center overflow-hidden border border-outline-variant/30">
+<img alt="Seller Avatar" class="w-full h-full object-cover" data-alt="Portrait of a professional artisan furniture maker in a sunlit workshop with wood shavings in the background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpZm0fHuUTWrD86Ru50GmLN7cCkB_DphWfSU7WXlcttWxabRr8NgUKvC_eH1RX0mFjY-R5dAOxjWVJsWPfdFUTMFJNzaHcrarUEpbHwT9aUAQK_QCoMK9q4ySuvre80WELlbWSKkhZbaLmmSL_zHlKRTJnthPWjWO3wIYn8twvVRFoMh01s46vHerEztXcJBt_2km7U4E0ClGK7XRU72dWkMfUE18_lvcjHy6KsSQK2H_KctWzgw8daiOos5pqeKPr1TE6JVigUeo"/>
+</div>
+<div>
+<p class="text-sm font-medium">Atelier Nord</p>
+<p class="text-[11px] font-medium tracking-[0.1rem] uppercase text-on-surface-variant/70">Verified Artisan • Copenhagen</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors" data-icon="arrow_forward">arrow_forward</span>
+</div>
+<!-- Shipping / Trust Markers -->
+<div class="grid grid-cols-2 gap-4 pt-4">
+<div class="p-4 bg-surface-container-low flex flex-col gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="local_shipping">local_shipping</span>
+<p class="text-[10px] font-medium tracking-[0.05rem] uppercase">Free Global Shipping</p>
+</div>
+<div class="p-4 bg-surface-container-low flex flex-col gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="verified">verified</span>
+<p class="text-[10px] font-medium tracking-[0.05rem] uppercase">2-Year Warranty</p>
+</div>
+</div>
+</aside>
+</div>
+<!-- Upsell Section (Asymmetric Layout) -->
+<section class="mt-40">
+<div class="flex flex-col gap-2 mb-12">
+<span class="text-[11px] font-medium tracking-[0.1rem] uppercase text-primary">The Curated Set</span>
+<h2 class="text-3xl font-light tracking-tighter">Complete the Space</h2>
+</div>
+<div class="grid grid-cols-12 gap-8">
+<div class="col-span-12 md:col-span-8 lg:col-span-6 bg-surface-container-low p-8 flex flex-col gap-6 group cursor-pointer">
+<div class="aspect-[16/9] overflow-hidden border border-outline-variant/15">
+<img alt="Related product table" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Minimalist circular wooden dining table with a single ceramic vase in a white sun-drenched room" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCHxfn717XJFHifOcnjhvs7EjBEVAwjxbZHAasxEfweS3ZthGecR0cZxGAWqELvZn-wda1wv2hdbFGBzzJHKCJRDnf7WZ1tEFe8s8SoJ4Zga9H91q8rJ2gc3pXN4y2VsAehJabY8iMaVriaA6LaGPpUN2NUwk8tPh0MZsjLEK5Ewln0cOAUvhlEYFcgtO1F1JytUjhNdC6qfkFqNUHfc-gK5caDVndLiXYI3K6dx2Y-RkWM3642zcWGVU7ZAAPzulBYqUmMSlXCSo"/>
+</div>
+<div class="flex justify-between items-end">
+<div class="space-y-1">
+<p class="text-[11px] font-medium tracking-[0.1rem] uppercase text-on-surface-variant">Furniture</p>
+<h3 class="text-xl font-light">Elowen Dining Table</h3>
+</div>
+<p class="text-lg font-medium text-primary">$3,800</p>
+</div>
+</div>
+<div class="col-span-12 md:col-span-4 lg:col-span-3 bg-surface-container-low p-8 flex flex-col gap-6 group cursor-pointer">
+<div class="aspect-square overflow-hidden border border-outline-variant/15">
+<img alt="Related product ceramic" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Handcrafted ceramic vase with a matte speckled glaze sitting on a wooden shelf" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0rbop9m7HbfGdAHIB4px5nGiltTaaPJziDZ0CXIl0qTo-DZ2vTmjSui1MgG1KULXC4a4TT8EfPVaT2nZygclVuMDklPSmIyOqFG6D6q5DQHIZLxGZc0TWVMyWfZEkX9siKm-_oZ_lzz_zKGMp7NWR0ahgUwQdQnEEdu6nxfXVO5mKlZuixOhEyYVc_bH1fq3qZh_t-62KB8XYbx_4zNuPgWZO3bREYH92SUZGii5SPB0mUfJzbebLOIYT2KtQs8yoyay6_jpze8I"/>
+</div>
+<div class="space-y-1">
+<p class="text-[11px] font-medium tracking-[0.1rem] uppercase text-on-surface-variant">Decor</p>
+<h3 class="text-lg font-light">Muted Earth Vase</h3>
+<p class="text-sm font-medium text-primary">$185</p>
+</div>
+</div>
+<div class="col-span-12 lg:col-span-3 hidden lg:flex bg-surface-container-low p-8 flex flex-col gap-6 group cursor-pointer">
+<div class="aspect-square overflow-hidden border border-outline-variant/15">
+<img alt="Related product lighting" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Contemporary pendant light with a wide shallow shade in brushed brass finish" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWUnVBcdKgQOHHbc5aRt8kweqN57N-TO5B_yA7-7LCAyxreYYAljqRJJ9FtCLK9q407ImJN4JGDJqJpmowdfYQXLun43owNiAZBw-F-7-Cigb7CjrtyPU0V8qucm8P_lvUIgZn_sSDGWqiYrRQCDnOT_P_gRelGTxEZm4-Fw6ILLwuWAuk-AkxOyMUiORaJYX2UscrJ9L4RAHI57QG5TwmGhSkPXBbMk6naXuydzN7s0XhrT0rBcMzkHf4OXktAS2RhLXPIfCSXPE"/>
+</div>
+<div class="space-y-1">
+<p class="text-[11px] font-medium tracking-[0.1rem] uppercase text-on-surface-variant">Lighting</p>
+<h3 class="text-lg font-light">Lucent Brass Pendant</h3>
+<p class="text-sm font-medium text-primary">$420</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Anchor -->
+<footer class="bg-[#0D0D0D] w-full py-16 px-12 grid grid-cols-1 md:grid-cols-4 gap-8">
+<div class="col-span-1 md:col-span-2">
+<span class="text-4xl font-light tracking-tighter text-white mb-8 block uppercase">MARKIT</span>
+<p class="text-zinc-400 font-light max-w-xs leading-relaxed">Curated objects for the intentional home. Engineered for longevity and timeless aesthetics.</p>
+</div>
+<div class="grid grid-cols-2 gap-8 col-span-1 md:col-span-2">
+<div class="space-y-4">
+<p class="text-[11px] font-medium tracking-[0.1rem] uppercase text-white">Company</p>
+<nav class="flex flex-col gap-2">
+<a class="text-zinc-500 hover:text-[#e07b39] transition-colors font-light text-sm" href="#">About</a>
+<a class="text-zinc-500 hover:text-[#e07b39] transition-colors font-light text-sm" href="#">Careers</a>
+<a class="text-zinc-500 hover:text-[#e07b39] transition-colors font-light text-sm" href="#">Sustainability</a>
+<a class="text-zinc-500 hover:text-[#e07b39] transition-colors font-light text-sm" href="#">Privacy</a>
+</nav>
+</div>
+<div class="space-y-4">
+<p class="text-[11px] font-medium tracking-[0.1rem] uppercase text-white">Support</p>
+<nav class="flex flex-col gap-2">
+<a class="text-zinc-500 hover:text-[#e07b39] transition-colors font-light text-sm" href="#">Shipping</a>
+<a class="text-zinc-500 hover:text-[#e07b39] transition-colors font-light text-sm" href="#">Returns</a>
+<a class="text-zinc-500 hover:text-[#e07b39] transition-colors font-light text-sm" href="#">Contact</a>
+<a class="text-zinc-500 hover:text-[#e07b39] transition-colors font-light text-sm" href="#">FAQ</a>
+</nav>
+</div>
+</div>
+<div class="col-span-full pt-12 mt-12 border-t border-zinc-800 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-zinc-500 text-[11px] font-medium tracking-[0.1rem] uppercase">© 2024 MARKIT. Engineered for curation.</p>
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-zinc-500 hover:text-white cursor-pointer transition-colors" data-icon="facebook">social_leaderboard</span>
+<span class="material-symbols-outlined text-zinc-500 hover:text-white cursor-pointer transition-colors" data-icon="photo_camera">photo_camera</span>
+<span class="material-symbols-outlined text-zinc-500 hover:text-white cursor-pointer transition-colors" data-icon="brand_awareness">brand_awareness</span>
+</div>
+</div>
+</footer>
+</body></html>

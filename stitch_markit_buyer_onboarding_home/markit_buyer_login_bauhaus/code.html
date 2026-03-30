@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary-fixed": "#00174b",
+              "on-primary-fixed": "#321200",
+              "outline": "#897367",
+              "outline-variant": "#dcc1b4",
+              "surface-container-high": "#ece8e0",
+              "on-tertiary-fixed": "#001f28",
+              "primary-container": "#e07b39",
+              "primary": "#9a4601",
+              "surface-bright": "#fef9f1",
+              "secondary-container": "#316bf3",
+              "inverse-surface": "#32302b",
+              "surface-container-highest": "#e7e2da",
+              "on-tertiary": "#ffffff",
+              "secondary-fixed-dim": "#b4c5ff",
+              "on-secondary-fixed-variant": "#003ea8",
+              "on-primary-fixed-variant": "#763400",
+              "on-surface-variant": "#554339",
+              "surface-container-lowest": "#ffffff",
+              "surface": "#fef9f1",
+              "surface-container": "#f2ede5",
+              "inverse-on-surface": "#f5f0e8",
+              "tertiary": "#00677e",
+              "on-error-container": "#93000a",
+              "on-surface": "#1d1c17",
+              "on-tertiary-container": "#003340",
+              "on-tertiary-fixed-variant": "#004e60",
+              "on-primary-container": "#4f2100",
+              "tertiary-container": "#00a3c6",
+              "on-secondary-container": "#fefcff",
+              "surface-tint": "#9a4601",
+              "inverse-primary": "#ffb68c",
+              "error": "#ba1a1a",
+              "surface-variant": "#e7e2da",
+              "background": "#fef9f1",
+              "on-secondary": "#ffffff",
+              "error-container": "#ffdad6",
+              "primary-fixed": "#ffdbc9",
+              "secondary": "#0051d5",
+              "on-primary": "#ffffff",
+              "tertiary-fixed": "#b5ebff",
+              "surface-dim": "#ded9d2",
+              "secondary-fixed": "#dbe1ff",
+              "tertiary-fixed-dim": "#5cd5fa",
+              "surface-container-low": "#f8f3eb",
+              "on-background": "#1d1c17",
+              "primary-fixed-dim": "#ffb68c",
+              "on-error": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #fef9f1;
+        color: #1d1c17;
+      }
+      .bauhaus-grid {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 1.5rem;
+      }
+      .active-negative-space {
+        padding: clamp(2rem, 8vw, 6rem);
+      }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen selection:bg-primary-fixed">
+<nav class="fixed top-0 w-full z-50 h-16 border-b border-[#dcc1b4]/15 bg-[#fef9f1]/80 backdrop-blur-md flex justify-between items-center px-8">
+<div class="text-xl font-medium tracking-[0.1rem] uppercase text-[#0D0D0D]">MARKIT</div>
+<div class="hidden md:flex items-center space-x-8 font-light tracking-tight">
+<a class="text-[#0D0D0D] hover:text-[#9a4601] transition-colors duration-200" href="#">Shop</a>
+<a class="text-[#0D0D0D] hover:text-[#9a4601] transition-colors duration-200" href="#">Collections</a>
+<a class="text-[#0D0D0D] hover:text-[#9a4601] transition-colors duration-200" href="#">Journal</a>
+</div>
+<div class="flex items-center space-x-6">
+<button class="material-symbols-outlined text-[#0D0D0D] scale-95 active:opacity-80 transition-all">shopping_cart</button>
+<button class="material-symbols-outlined text-[#0D0D0D] scale-95 active:opacity-80 transition-all">person</button>
+</div>
+</nav>
+<main class="pt-16 min-h-screen flex items-center justify-center active-negative-space">
+<div class="w-full max-w-6xl bauhaus-grid">
+<div class="col-span-12 md:col-span-6 lg:col-span-5 flex flex-col justify-center">
+<div class="mb-12">
+<span class="text-[11px] font-medium tracking-[0.1rem] uppercase text-primary mb-4 block">Access Curator Portal</span>
+<h1 class="text-6xl md:text-7xl font-light tracking-tighter leading-[1.1] mb-6">
+                        Welcome <br/>Back.
+                    </h1>
+<div class="w-24 h-[1px] bg-primary"></div>
+</div>
+<form class="space-y-10">
+<div class="space-y-8">
+<div class="group relative">
+<label class="text-[11px] font-medium tracking-[0.1rem] uppercase text-on-surface-variant block mb-2">Email or Phone</label>
+<input class="w-full bg-transparent border-t-0 border-x-0 border-b border-outline-variant focus:border-primary focus:ring-0 transition-colors duration-300 py-3 px-0 placeholder:text-outline-variant/60 font-light" placeholder="name@example.com" type="text"/>
+</div>
+<div class="group relative">
+<label class="text-[11px] font-medium tracking-[0.1rem] uppercase text-on-surface-variant block mb-2">Password</label>
+<input class="w-full bg-transparent border-t-0 border-x-0 border-b border-outline-variant focus:border-primary focus:ring-0 transition-colors duration-300 py-3 px-0 placeholder:text-outline-variant/60 font-light" placeholder="••••••••" type="password"/>
+<div class="absolute right-0 bottom-3">
+<a class="text-[11px] font-medium tracking-[0.1rem] uppercase text-primary border-b border-primary/30 pb-1 hover:border-primary transition-all" href="#">Forgot?</a>
+</div>
+</div>
+</div>
+<div class="pt-6 space-y-4">
+<button class="w-full bg-gradient-to-br from-primary to-primary-container text-white py-4 rounded-sm text-[11px] font-medium tracking-[0.2rem] uppercase shadow-sm hover:opacity-90 transition-all active:scale-[0.98]" type="submit">
+                            Login to Account
+                        </button>
+<div class="relative py-4 flex items-center">
+<div class="flex-grow border-t border-outline-variant/20"></div>
+<span class="flex-shrink mx-4 text-[10px] text-outline-variant uppercase tracking-widest">or</span>
+<div class="flex-grow border-t border-outline-variant/20"></div>
+</div>
+<button class="w-full bg-surface-container-highest text-on-surface py-4 rounded-sm text-[11px] font-medium tracking-[0.2rem] uppercase flex items-center justify-center space-x-3 hover:bg-surface-container-high transition-all active:scale-[0.98]" type="button">
+<svg class="w-4 h-4" viewbox="0 0 24 24">
+<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="currentColor"></path>
+<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="currentColor"></path>
+<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="currentColor"></path>
+<path d="M12 5.38c1.62 0 3.06.56 4.21 1.66l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="currentColor"></path>
+</svg>
+<span>Continue with Google</span>
+</button>
+</div>
+<p class="text-center text-on-surface-variant text-sm font-light mt-8">
+                        New to Markit? <a class="text-primary font-medium underline underline-offset-4" href="#">Create an account</a>
+</p>
+</form>
+</div>
+<div class="hidden md:flex col-span-12 md:col-span-6 lg:col-offset-1 lg:col-span-6 items-center justify-end">
+<div class="relative w-full aspect-[4/5] bg-surface-container-low overflow-hidden">
+<img alt="Curation" class="w-full h-full object-cover opacity-90" data-alt="Minimalist architectural interior with soft warm lighting casting long shadows on textured limestone walls and mid-century furniture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCN0R1VflPmOQI6RGw26xHbecgoZ4ux91J03-vErxrp6i8-eRX8ItJnrXKZ43leSleL_2Nt6k1U5xNygFZvdnClK0jxHm-Ri-nwikMpPHv739jJvF3DlEfPxdkUMDIx5vTtraznEC56IuuDwrVNbQAvHgzcYGJ2lthARBNjM8MvefbMLS_xrdAG7qqG6SPRYOm5vdrUns_hqZU--mWmDLqGVaHo7T4R9fMUJOxIDlKPHlQF0YRPKAQ8bzPy5R9Zn0MIaws4HaSudMU"/>
+<div class="absolute inset-0 bg-primary/5 mix-blend-multiply"></div>
+<div class="absolute bottom-12 left-12 right-12">
+<div class="p-8 bg-white/10 backdrop-blur-xl border border-white/20">
+<p class="text-white text-lg font-light italic leading-relaxed">
+                                "Design is not just what it looks like and feels like. Design is how it works."
+                            </p>
+<span class="mt-4 block text-[10px] tracking-[0.2rem] uppercase text-white/60">Curator Journal Vol. 04</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<footer class="w-full py-16 px-12 grid grid-cols-1 md:grid-cols-4 gap-8 bg-[#0D0D0D] border-t border-zinc-800">
+<div class="col-span-1 md:col-span-2">
+<div class="text-4xl font-light tracking-tighter text-white mb-8">MARKIT</div>
+<p class="font-['Inter'] font-light text-zinc-400 max-w-sm">
+                A digital gallery for the modern collector. Engineered for curation and tactile digital experiences.
+            </p>
+</div>
+<div>
+<h4 class="text-[11px] font-medium tracking-[0.1rem] uppercase text-[#e07b39] mb-6">Company</h4>
+<ul class="space-y-3 font-['Inter'] font-light text-zinc-500 text-sm">
+<li><a class="hover:text-[#e07b39] transition-colors" href="#">About</a></li>
+<li><a class="hover:text-[#e07b39] transition-colors" href="#">Careers</a></li>
+<li><a class="hover:text-[#e07b39] transition-colors" href="#">Sustainability</a></li>
+<li><a class="hover:text-[#e07b39] transition-colors" href="#">Privacy</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-[11px] font-medium tracking-[0.1rem] uppercase text-[#e07b39] mb-6">Support</h4>
+<ul class="space-y-3 font-['Inter'] font-light text-zinc-500 text-sm">
+<li><a class="hover:text-[#e07b39] transition-colors" href="#">Shipping</a></li>
+<li><a class="hover:text-[#e07b39] transition-colors" href="#">Returns</a></li>
+<li><a class="hover:text-[#e07b39] transition-colors" href="#">Contact</a></li>
+<li><a class="hover:text-[#e07b39] transition-colors" href="#">Journal</a></li>
+</ul>
+</div>
+<div class="col-span-1 md:col-span-4 pt-12 mt-12 border-t border-zinc-800/50 flex flex-col md:flex-row justify-between items-center text-[10px] tracking-widest uppercase text-zinc-600">
+<span>© 2024 MARKIT. Engineered for curation.</span>
+<div class="flex space-x-6 mt-4 md:mt-0">
+<a class="hover:text-white transition-colors" href="#">Instagram</a>
+<a class="hover:text-white transition-colors" href="#">Twitter</a>
+<a class="hover:text-white transition-colors" href="#">LinkedIn</a>
+</div>
+</div>
+</footer>
+</body></html>

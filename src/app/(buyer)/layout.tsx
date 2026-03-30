@@ -6,7 +6,7 @@ export default function BuyerLayout({ children }: { children: React.ReactNode })
   return (
     <>
       <Navbar />
-      <main className="flex-1 pt-16">{children}</main>
+      <main className="flex-1 pt-16 bg-[#fef9f1]">{children}</main>
       <Footer />
       <AIChatbot />
     </>

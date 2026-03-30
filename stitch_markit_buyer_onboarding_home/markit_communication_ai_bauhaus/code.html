@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MARKIT | Communication &amp; AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-secondary-fixed": "#00174b",
+                        "on-primary-fixed": "#321200",
+                        "outline": "#897367",
+                        "outline-variant": "#dcc1b4",
+                        "surface-container-high": "#ece8e0",
+                        "on-tertiary-fixed": "#001f28",
+                        "primary-container": "#e07b39",
+                        "primary": "#9a4601",
+                        "surface-bright": "#fef9f1",
+                        "secondary-container": "#316bf3",
+                        "inverse-surface": "#32302b",
+                        "surface-container-highest": "#e7e2da",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed-dim": "#b4c5ff",
+                        "on-secondary-fixed-variant": "#003ea8",
+                        "on-primary-fixed-variant": "#763400",
+                        "on-surface-variant": "#554339",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#fef9f1",
+                        "surface-container": "#f2ede5",
+                        "inverse-on-surface": "#f5f0e8",
+                        "tertiary": "#00677e",
+                        "on-error-container": "#93000a",
+                        "on-surface": "#1d1c17",
+                        "on-tertiary-container": "#003340",
+                        "on-tertiary-fixed-variant": "#004e60",
+                        "on-primary-container": "#4f2100",
+                        "tertiary-container": "#00a3c6",
+                        "on-secondary-container": "#fefcff",
+                        "surface-tint": "#9a4601",
+                        "inverse-primary": "#ffb68c",
+                        "error": "#ba1a1a",
+                        "surface-variant": "#e7e2da",
+                        "background": "#fef9f1",
+                        "on-secondary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "primary-fixed": "#ffdbc9",
+                        "secondary": "#0051d5",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed": "#b5ebff",
+                        "surface-dim": "#ded9d2",
+                        "secondary-fixed": "#dbe1ff",
+                        "tertiary-fixed-dim": "#5cd5fa",
+                        "surface-container-low": "#f8f3eb",
+                        "on-background": "#1d1c17",
+                        "primary-fixed-dim": "#ffb68c",
+                        "on-error": "#ffffff"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        .sharp-edge { border-radius: 0 !important; }
+        .bauhaus-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 1.75rem;
+        }
+        .saffron-gradient {
+            background: linear-gradient(135deg, #9a4601 0%, #e07b39 100%);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 h-16 border-b border-[#dcc1b4]/15 bg-[#fef9f1]/80 backdrop-blur-md flex justify-between items-center px-8 w-full">
+<div class="text-xl font-medium tracking-[0.1rem] uppercase text-[#0D0D0D]">MARKIT</div>
+<!-- Search with AI Autocomplete -->
+<div class="relative flex-1 max-w-md mx-12">
+<div class="flex items-center border-b border-outline w-full pb-1">
+<span class="material-symbols-outlined text-on-surface-variant mr-2" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 w-full text-sm font-light italic" placeholder="Search curated marketplace..." type="text" value="Handcrafted cer"/>
+</div>
+<!-- AI Autocomplete Dropdown -->
+<div class="absolute top-full left-0 w-full bg-surface-container-lowest mt-1 shadow-xl p-4 border border-outline-variant/15 z-50">
+<div class="text-[10px] font-medium tracking-[0.1rem] uppercase text-primary mb-3">AI SUGGESTIONS</div>
+<div class="space-y-3">
+<div class="flex items-center justify-between group cursor-pointer">
+<span class="text-sm font-light">Handcrafted <span class="font-semibold text-primary">ceramic vases</span></span>
+<span class="material-symbols-outlined text-xs opacity-0 group-hover:opacity-100 transition-opacity" data-icon="north_west">north_west</span>
+</div>
+<div class="flex items-center justify-between group cursor-pointer">
+<span class="text-sm font-light">Handcrafted <span class="font-semibold text-primary">centrifuge bowls</span></span>
+<span class="material-symbols-outlined text-xs opacity-0 group-hover:opacity-100 transition-opacity" data-icon="north_west">north_west</span>
+</div>
+</div>
+</div>
+</div>
+<div class="flex items-center space-x-8 font-light tracking-tight text-[#0D0D0D]">
+<a class="hover:text-[#9a4601] transition-colors duration-200" href="#">Shop</a>
+<a class="hover:text-[#9a4601] transition-colors duration-200" href="#">Collections</a>
+<a class="hover:text-[#9a4601] transition-colors duration-200" href="#">Journal</a>
+<div class="flex items-center space-x-4 ml-4">
+<span class="material-symbols-outlined cursor-pointer" data-icon="shopping_cart">shopping_cart</span>
+<span class="material-symbols-outlined cursor-pointer" data-icon="person">person</span>
+</div>
+</div>
+</nav>
+<main class="pt-24 pb-16 px-8 max-w-[1440px] mx-auto">
+<div class="bauhaus-grid">
+<!-- Left Column: Buyer Interface (Light) -->
+<section class="col-span-12 lg:col-span-6 space-y-8">
+<header class="mb-12">
+<span class="text-[11px] font-medium tracking-[0.1rem] uppercase text-primary block mb-2">Concierge</span>
+<h1 class="text-5xl font-light tracking-tighter leading-tight">Conversation with<br/>Studio Arhoj</h1>
+</header>
+<!-- Buyer Chat (Light Mode) -->
+<div class="bg-surface-container-low p-8 border border-outline-variant/10 h-[500px] flex flex-col relative">
+<div class="flex-1 overflow-y-auto space-y-6 pr-4">
+<!-- Message Received -->
+<div class="flex flex-col items-start max-w-[80%]">
+<span class="text-[9px] font-medium uppercase tracking-widest text-outline mb-1">Seller • 10:42 AM</span>
+<div class="bg-surface-container-highest p-4 text-sm font-light leading-relaxed">
+                                Hello! The 'Summer Ghost' ceramic is currently being glazed. Would you like a photo of the texture before we ship?
+                            </div>
+</div>
+<!-- Message Sent -->
+<div class="flex flex-col items-end max-w-[80%] ml-auto">
+<span class="text-[9px] font-medium uppercase tracking-widest text-primary mb-1">You • 10:45 AM</span>
+<div class="saffron-gradient text-white p-4 text-sm font-light leading-relaxed">
+                                Yes, please. I'm looking for a more matte finish rather than high gloss. Is that possible for this batch?
+                            </div>
+</div>
+<!-- Dynamic Pricing Alert Component -->
+<div class="py-6 border-y border-outline-variant/20 my-4">
+<div class="flex justify-between items-center mb-4">
+<span class="text-[10px] font-bold tracking-widest uppercase flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="trending_down">trending_down</span>
+                                    Dynamic Price Negotiation
+                                </span>
+<span class="text-xs font-medium text-primary">$185.00</span>
+</div>
+<div class="relative h-1 bg-surface-container-highest w-full mb-6">
+<div class="absolute top-1/2 left-1/4 -translate-y-1/2 w-4 h-4 saffron-gradient border-2 border-surface cursor-pointer"></div>
+<div class="absolute top-1/2 left-0 -translate-y-1/2 h-1 saffron-gradient w-1/4"></div>
+<div class="absolute -bottom-6 left-0 text-[9px] text-outline uppercase">Min: $160</div>
+<div class="absolute -bottom-6 right-0 text-[9px] text-outline uppercase">List: $210</div>
+</div>
+</div>
+</div>
+<!-- Chat Input -->
+<div class="mt-6 flex items-end gap-4">
+<div class="flex-1 border-b border-outline pb-2">
+<textarea class="w-full bg-transparent border-none focus:ring-0 text-sm font-light resize-none h-8" placeholder="Write a message..."></textarea>
+</div>
+<button class="saffron-gradient text-white p-3 flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="send">send</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Right Column: Seller Interface (Dark) -->
+<section class="col-span-12 lg:col-span-6 space-y-8">
+<header class="mb-12">
+<span class="text-[11px] font-medium tracking-[0.1rem] uppercase text-primary-container block mb-2">Seller Studio</span>
+<h1 class="text-5xl font-light tracking-tighter leading-tight">Order Insight &amp;<br/>Analytics</h1>
+</header>
+<div class="bg-[#0D0D0D] p-8 h-[500px] flex flex-col text-zinc-100">
+<div class="flex items-center justify-between mb-8 border-b border-zinc-800 pb-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-zinc-800 flex items-center justify-center">
+<span class="material-symbols-outlined text-zinc-400" data-icon="person">person</span>
+</div>
+<div>
+<div class="text-sm font-medium">Julian M.</div>
+<div class="text-[10px] text-zinc-500 uppercase tracking-widest">Verified Buyer • Berlin</div>
+</div>
+</div>
+<span class="text-[10px] font-bold text-secondary-container bg-secondary-container/10 px-2 py-1">HIGH INTENT</span>
+</div>
+<div class="flex-1 space-y-6">
+<!-- AI Seller Assistant -->
+<div class="bg-zinc-900/50 p-6 border-l-2 border-primary-container">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-primary-container text-sm" data-icon="auto_awesome">auto_awesome</span>
+<span class="text-[10px] font-bold tracking-widest uppercase text-zinc-400">AI Response Draft</span>
+</div>
+<p class="text-sm font-light text-zinc-300 leading-relaxed mb-4 italic">
+                                "The current batch has a soft satin finish. I can certainly pull one with the most matte characteristics for you. Should I finalize the offer at $185?"
+                            </p>
+<div class="flex gap-4">
+<button class="text-[11px] font-bold tracking-widest uppercase bg-primary-container text-white px-4 py-2 hover:opacity-90 transition-opacity">USE DRAFT</button>
+<button class="text-[11px] font-bold tracking-widest uppercase border border-zinc-700 px-4 py-2 hover:bg-zinc-800 transition-colors">EDIT</button>
+</div>
+</div>
+<!-- Seller Stats Bento -->
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-zinc-900 p-4">
+<div class="text-[9px] text-zinc-500 uppercase tracking-widest mb-1">Likelihood to Buy</div>
+<div class="text-2xl font-light text-primary-container">94%</div>
+</div>
+<div class="bg-zinc-900 p-4">
+<div class="text-[9px] text-zinc-500 uppercase tracking-widest mb-1">Average Response</div>
+<div class="text-2xl font-light">4.2m</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Recommended Section with Pull Quote Marker -->
+<section class="mt-32">
+<div class="relative mb-16">
+<div class="absolute -left-8 top-0 text-6xl text-primary/10 font-serif leading-none">"</div>
+<h2 class="text-4xl font-light tracking-tight max-w-2xl">Based on your recent inquiries, the AI curator suggests these archival pieces.</h2>
+</div>
+<div class="bauhaus-grid">
+<!-- Product Card 1 -->
+<div class="col-span-12 md:col-span-4 group cursor-pointer">
+<div class="aspect-[4/5] bg-surface-container-low mb-4 overflow-hidden relative">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="minimalist sculptural white ceramic vase with organic shape in soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBX6oK9RZ8Jlh0nnzTUxlMZq58-u3Gw7UgGU_Jihpt2sRK8QJr_FJdAXGuVImZE09Hv_rsdYBn3DzDWOYW5fXqi1lJYlSd3DjeWO3kSAyMm59CGbuIcxg3TkVX8XCFIES8Ya7Ocu8Wqk87DfkjQ9ZTiJGRuBReFunKRaLVXcsvIvKQKXhVjM68iD8oIaCKAYu0_p6FTSmasL4ZApaX8WPWv_LwBg87zh_q6tL_5NtFsWfHOMx1Gjj_kO3kWxMWW3KPIUu5-BHDIbdA"/>
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-2 py-1 text-[10px] font-bold tracking-widest uppercase">Rare</div>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-sm font-medium uppercase tracking-tight">Eroded Vessel 01</h3>
+<p class="text-xs text-outline font-light">Morten Løbner Espersen</p>
+</div>
+<span class="text-sm font-light">$420</span>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="col-span-12 md:col-span-4 group cursor-pointer">
+<div class="aspect-[4/5] bg-surface-container-low mb-4 overflow-hidden relative">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="set of three earth-toned handmade ceramic bowls stacked on a neutral stone surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJFVe-rJ5kwxZTxsg3x-0qecD7Pg5C8ul0j7pZ6LBRNwaU0ydhsbaJtz9BQ3lIEJk6nXJRhdMO1rvjwvbRtgRNcvkw9Pu9Y2lM9GQgtgwlgv9tqF0kAQcLqrvTIdlPts_1EDmDIa4ir-OAblrcuXGXKIfDs95mfVXQGV8Jf8FE5pTZtHUr4SX-DgNnj1zBeLOq2tyKkPu2m13UtkZU0ZXtUknIJcfNYmOD06eOZbvm7qOz51ixvR_E2M0ARQx7Y67GWQpChL75NOE"/>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-sm font-medium uppercase tracking-tight">Kuri Series Bowl</h3>
+<p class="text-xs text-outline font-light">Hasami Porcelain</p>
+</div>
+<span class="text-sm font-light">$85</span>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="col-span-12 md:col-span-4 group cursor-pointer">
+<div class="aspect-[4/5] bg-surface-container-low mb-4 overflow-hidden relative">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="high-end minimalist ceramic pitcher with a sharp geometric handle in a warm beige tone" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLHv9fUNkZDWzmn0Tg63FOJ07oNMDhmAdgJXpeNdcAGDNdPf8fDOmPfkh-zxcYz_A5aQD9F_T9DGp682LzqD3HrUUM4BxgIPCKJqFLGOb35AZIikrSEt-y4JSeIZNqzFbPblsWu-h7bjeyHX9_mpLkE88Gd2N_F17cwSXOH7uLKcr-PhXtnsncPmocAnv3ibdaKoSebpikIksJmVp5sAL2QXOfxbcoqSkgWO_tRv94_rc68LUdLNPp6VWQQl1vG9rd6mysqRTg6ac"/>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-sm font-medium uppercase tracking-tight">Architectural Pitcher</h3>
+<p class="text-xs text-outline font-light">Studio Arhoj</p>
+</div>
+<span class="text-sm font-light">$125</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- AI Chatbot Widget -->
+<div class="fixed bottom-8 right-8 z-50 flex flex-col items-end">
+<!-- AI Panel -->
+<div class="mb-4 w-80 bg-surface border border-outline shadow-2xl hidden" id="ai-panel">
+<div class="p-6 border-b border-outline-variant/15 flex justify-between items-center bg-[#0D0D0D] text-white">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container" data-icon="auto_awesome">auto_awesome</span>
+<span class="text-xs font-bold tracking-widest uppercase">MARKIT Intelligence</span>
+</div>
+<button class="material-symbols-outlined text-zinc-500 hover:text-white" data-icon="close">close</button>
+</div>
+<div class="p-6 space-y-4 max-h-96 overflow-y-auto">
+<div class="bg-surface-container-low p-3 text-xs font-light leading-relaxed">
+                    How can I assist your curation today? I can analyze market trends or help with negotiation strategies.
+                </div>
+<div class="flex flex-col gap-2">
+<button class="text-left p-3 border border-outline-variant/30 text-[10px] font-medium uppercase tracking-widest hover:bg-surface-container-high transition-colors">Analyze "Summer Ghost" Value</button>
+<button class="text-left p-3 border border-outline-variant/30 text-[10px] font-medium uppercase tracking-widest hover:bg-surface-container-high transition-colors">Suggest Counter-offer</button>
+</div>
+</div>
+</div>
+<!-- Square Saffron Button -->
+<button class="w-16 h-16 saffron-gradient text-white flex items-center justify-center shadow-lg hover:scale-105 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-3xl" data-icon="auto_awesome">auto_awesome</span>
+</button>
+</div>
+<!-- Footer -->
+<footer class="bg-[#0D0D0D] w-full py-16 px-12 grid grid-cols-1 md:grid-cols-4 gap-8 border-t border-zinc-800">
+<div class="col-span-1 md:col-span-1">
+<div class="text-4xl font-light tracking-tighter text-white mb-8">MARKIT</div>
+<p class="font-['Inter'] font-light text-zinc-400 text-sm leading-relaxed">
+                © 2024 MARKIT. Engineered for curation.
+            </p>
+</div>
+<div class="col-span-1">
+<h4 class="text-[10px] font-bold tracking-widest uppercase text-primary mb-6">Company</h4>
+<div class="flex flex-col space-y-3">
+<a class="font-['Inter'] font-light text-zinc-500 hover:text-[#e07b39] transition-colors text-sm" href="#">About</a>
+<a class="font-['Inter'] font-light text-zinc-500 hover:text-[#e07b39] transition-colors text-sm" href="#">Careers</a>
+<a class="font-['Inter'] font-light text-zinc-500 hover:text-[#e07b39] transition-colors text-sm" href="#">Sustainability</a>
+</div>
+</div>
+<div class="col-span-1">
+<h4 class="text-[10px] font-bold tracking-widest uppercase text-primary mb-6">Legal</h4>
+<div class="flex flex-col space-y-3">
+<a class="font-['Inter'] font-light text-zinc-500 hover:text-[#e07b39] transition-colors text-sm" href="#">Privacy</a>
+<a class="font-['Inter'] font-light text-zinc-500 hover:text-[#e07b39] transition-colors text-sm" href="#">Support</a>
+<a class="font-['Inter'] font-light text-zinc-500 hover:text-[#e07b39] transition-colors text-sm" href="#">Shipping</a>
+</div>
+</div>
+<div class="col-span-1">
+<h4 class="text-[10px] font-bold tracking-widest uppercase text-primary mb-6">Contact</h4>
+<div class="flex flex-col space-y-3">
+<a class="font-['Inter'] font-light text-zinc-500 hover:text-[#e07b39] transition-colors text-sm" href="#">Returns</a>
+<a class="font-['Inter'] font-light text-zinc-500 hover:text-[#e07b39] transition-colors text-sm" href="#">Contact</a>
+<div class="flex gap-4 pt-4">
+<span class="material-symbols-outlined text-zinc-600 hover:text-white cursor-pointer" data-icon="public">public</span>
+<span class="material-symbols-outlined text-zinc-600 hover:text-white cursor-pointer" data-icon="share">share</span>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

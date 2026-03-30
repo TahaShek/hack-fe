@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MARKIT | Product Discovery</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-background": "#1d1c17",
+              "on-surface-variant": "#554339",
+              "error": "#ba1a1a",
+              "on-error-container": "#93000a",
+              "tertiary-fixed": "#b5ebff",
+              "on-secondary-fixed-variant": "#003ea8",
+              "secondary-fixed": "#dbe1ff",
+              "on-primary": "#ffffff",
+              "primary-fixed-dim": "#ffb68c",
+              "background": "#fef9f1",
+              "inverse-primary": "#ffb68c",
+              "on-tertiary-fixed": "#001f28",
+              "surface-variant": "#e7e2da",
+              "surface-container": "#f2ede5",
+              "outline": "#897367",
+              "on-error": "#ffffff",
+              "on-surface": "#1d1c17",
+              "surface-container-lowest": "#ffffff",
+              "surface-dim": "#ded9d2",
+              "error-container": "#ffdad6",
+              "on-tertiary": "#ffffff",
+              "secondary": "#0051d5",
+              "surface-bright": "#fef9f1",
+              "inverse-surface": "#32302b",
+              "on-primary-fixed-variant": "#763400",
+              "primary": "#9a4601",
+              "surface-tint": "#9a4601",
+              "outline-variant": "#dcc1b4",
+              "surface-container-low": "#f8f3eb",
+              "on-tertiary-fixed-variant": "#004e60",
+              "on-primary-fixed": "#321200",
+              "surface-container-highest": "#e7e2da",
+              "on-secondary-fixed": "#00174b",
+              "tertiary": "#00677e",
+              "primary-fixed": "#ffdbc9",
+              "on-secondary": "#ffffff",
+              "surface-container-high": "#ece8e0",
+              "inverse-on-surface": "#f5f0e8",
+              "on-tertiary-container": "#003340",
+              "secondary-fixed-dim": "#b4c5ff",
+              "tertiary-container": "#00a3c6",
+              "tertiary-fixed-dim": "#5cd5fa",
+              "primary-container": "#e07b39",
+              "secondary-container": "#316bf3",
+              "on-primary-container": "#4f2100",
+              "surface": "#fef9f1",
+              "on-secondary-container": "#fefcff"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        vertical-align: middle;
+      }
+      body {
+        background-color: #F5F0E8; /* Exact user requested background */
+      }
+    </style>
+</head>
+<body class="font-body text-on-surface">
+<!-- TopNavBar from JSON -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-8 h-16 bg-[#fef9f1]/80 backdrop-blur-md border-b border-[#dcc1b4]/15">
+<div class="flex items-center gap-12">
+<span class="text-xl font-medium tracking-[0.1rem] uppercase text-[#0D0D0D]">MARKIT</span>
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-['Inter'] font-light tracking-tight text-[#9a4601] border-b border-[#9a4601] pb-1 hover:text-[#9a4601] transition-colors duration-200" href="#">Shop</a>
+<a class="font-['Inter'] font-light tracking-tight text-[#0D0D0D] hover:text-[#9a4601] transition-colors duration-200" href="#">Collections</a>
+<a class="font-['Inter'] font-light tracking-tight text-[#0D0D0D] hover:text-[#9a4601] transition-colors duration-200" href="#">Journal</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-sm">search</span>
+<input class="bg-surface-container-low border-none text-sm pl-10 pr-4 py-2 w-64 focus:ring-1 focus:ring-primary rounded-DEFAULT" placeholder="Search curated goods..." type="text"/>
+</div>
+<div class="flex gap-4">
+<button class="material-symbols-outlined text-[#0D0D0D] hover:text-[#9a4601] transition-all scale-98 active:opacity-80">shopping_cart</button>
+<button class="material-symbols-outlined text-[#0D0D0D] hover:text-[#9a4601] transition-all scale-98 active:opacity-80">person</button>
+</div>
+</div>
+</nav>
+<div class="flex pt-16 min-h-screen">
+<!-- Sidebar Filter - 280px wide with 1px right border -->
+<aside class="w-[280px] fixed h-[calc(100vh-64px)] overflow-y-auto border-r border-outline-variant/30 px-8 py-10 bg-[#F5F0E8]">
+<div class="space-y-10">
+<!-- Filter Label -->
+<section>
+<h2 class="text-[11px] font-medium tracking-[0.1rem] uppercase text-outline mb-6">FILTER BY</h2>
+<!-- Category Tree -->
+<div class="space-y-4">
+<h3 class="text-sm font-medium text-on-surface">Category</h3>
+<ul class="space-y-2 text-sm text-on-surface-variant font-light">
+<li class="flex justify-between items-center group cursor-pointer hover:text-primary">
+<span>Furniture</span>
+<span class="text-[10px] text-outline/50">24</span>
+</li>
+<li class="flex justify-between items-center text-primary font-normal">
+<span>Home Decor</span>
+<span class="text-[10px]">18</span>
+</li>
+<li class="flex justify-between items-center group cursor-pointer hover:text-primary">
+<span>Lighting</span>
+<span class="text-[10px] text-outline/50">12</span>
+</li>
+<li class="flex justify-between items-center group cursor-pointer hover:text-primary">
+<span>Textiles</span>
+<span class="text-[10px] text-outline/50">31</span>
+</li>
+</ul>
+</div>
+</section>
+<!-- Price Range -->
+<section class="space-y-4">
+<h3 class="text-sm font-medium text-on-surface">Price Range</h3>
+<div class="space-y-4">
+<div class="h-[2px] bg-outline-variant/30 relative">
+<div class="absolute h-full bg-primary left-0 w-2/3"></div>
+<div class="absolute -top-1.5 left-0 w-3 h-3 rounded-full bg-primary border-2 border-[#F5F0E8]"></div>
+<div class="absolute -top-1.5 left-2/3 w-3 h-3 rounded-full bg-primary border-2 border-[#F5F0E8]"></div>
+</div>
+<div class="flex justify-between text-[11px] text-outline font-medium tracking-wider">
+<span>$0</span>
+<span>$500</span>
+</div>
+</div>
+</section>
+<!-- Brands -->
+<section class="space-y-4">
+<h3 class="text-sm font-medium text-on-surface">Brands</h3>
+<div class="space-y-3">
+<label class="flex items-center gap-3 cursor-pointer group">
+<input checked="" class="w-4 h-4 rounded-DEFAULT border-outline-variant text-primary focus:ring-primary cursor-pointer" type="checkbox"/>
+<span class="text-sm font-light text-on-surface-variant group-hover:text-on-surface">Studio Minimal</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="w-4 h-4 rounded-DEFAULT border-outline-variant text-primary focus:ring-primary cursor-pointer" type="checkbox"/>
+<span class="text-sm font-light text-on-surface-variant group-hover:text-on-surface">Orizon Design</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="w-4 h-4 rounded-DEFAULT border-outline-variant text-primary focus:ring-primary cursor-pointer" type="checkbox"/>
+<span class="text-sm font-light text-on-surface-variant group-hover:text-on-surface">Bauhaus Co.</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="w-4 h-4 rounded-DEFAULT border-outline-variant text-primary focus:ring-primary cursor-pointer" type="checkbox"/>
+<span class="text-sm font-light text-on-surface-variant group-hover:text-on-surface">Rams Legacy</span>
+</label>
+</div>
+</section>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-[280px] flex-1 px-12 py-10">
+<!-- Header & Sorting -->
+<header class="flex justify-between items-end mb-8 border-b border-outline-variant/10 pb-6">
+<div>
+<h1 class="text-2xl font-light tracking-tight text-on-surface mb-2">Home Decor</h1>
+<div class="flex gap-2 items-center">
+<span class="text-xs text-outline font-light">Showing 18 results</span>
+<div class="flex gap-2 ml-4">
+<!-- Filter Chips -->
+<div class="flex items-center gap-1.5 px-2 py-0.5 bg-white border border-outline-variant/30 text-[10px] uppercase tracking-wider text-on-surface rounded-DEFAULT">
+                                Studio Minimal
+                                <span class="material-symbols-outlined text-[12px] cursor-pointer">close</span>
+</div>
+<div class="flex items-center gap-1.5 px-2 py-0.5 bg-white border border-outline-variant/30 text-[10px] uppercase tracking-wider text-on-surface rounded-DEFAULT">
+                                Under $500
+                                <span class="material-symbols-outlined text-[12px] cursor-pointer">close</span>
+</div>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<span class="text-xs text-outline uppercase tracking-widest font-medium">Sort By:</span>
+<button class="text-sm font-medium flex items-center gap-2 text-on-surface">
+                        New Arrivals
+                        <span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+</div>
+</header>
+<!-- Product Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-8">
+<!-- Product Card 1 -->
+<div class="group cursor-pointer">
+<div class="aspect-[4/5] bg-surface-container-low border border-outline-variant/20 overflow-hidden mb-4 p-4 flex items-center justify-center">
+<img alt="Ceramic Vase" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="Minimalist sculptural ceramic vase in warm off-white tones against a clean studio background with soft architectural shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEs1v5A6QTFzQghAxpU32XGUEptfhOpJ_S-xcWoZbwyKUiWIWSYT9QjF37K6S3xxPc1ZG6-Ka82PpFCXmt_wyp-o9AQLaw5iQXijaiNL8SG2NkIoQ46HexhOg1qD9VC-qDvvv-zLkSMKrS3xTgkuXOBbGNkKQEAHGNz35w0XKehYaVq2rgVmyvfn3eNNN9orlRH76Z6kXaGAGNQ6m5lkkGyPcOz5Kf3Xnd1es631dsA0JGgVlRYC5AzZvjxID6mVptubttpF9Z_Tg"/>
+</div>
+<div class="space-y-1">
+<p class="text-[10px] uppercase tracking-[0.15rem] text-outline font-medium">Studio Minimal</p>
+<h3 class="text-sm font-normal text-on-surface">Sculptural Earth Vase</h3>
+<p class="text-primary font-semibold text-sm">$125.00</p>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="group cursor-pointer">
+<div class="aspect-[4/5] bg-surface-container-low border border-outline-variant/20 overflow-hidden mb-4 p-4 flex items-center justify-center">
+<img alt="Woven Basket" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="Handwoven natural fiber basket with geometric pattern details, high-end organic lifestyle photography aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuADnQ5jNn3oV3FPMwLIzZ53M-f1NfinsiLpn9uP3MmJLNHkPfAcDe-lGzUEbVv2EhtgcPMdXWZQhdkHpWrpPunAQsiuf4IJWAmE5GRqiiwhDhUgBf354G7K48Ca8QYxDyZw1OvgGuTHGKvizkxGeGBn_f9_-bLlbd9OnMDBBc7SL8qGTehduPSnJHySKGq4DTAs_dPF5mYpdRODVvsRM0pxq-dJZTJaBvVlUUgG6o_kabt6e9t71WtCAP6PolnQrGsbqeL91yyb4ok"/>
+</div>
+<div class="space-y-1">
+<p class="text-[10px] uppercase tracking-[0.15rem] text-outline font-medium">Orizon Design</p>
+<h3 class="text-sm font-normal text-on-surface">Woven Willow Basket</h3>
+<p class="text-primary font-semibold text-sm">$88.00</p>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="group cursor-pointer">
+<div class="aspect-[4/5] bg-surface-container-low border border-outline-variant/20 overflow-hidden mb-4 p-4 flex items-center justify-center">
+<img alt="Wall Art" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="Abstract framed print with neutral beige and ink black shapes, hanging on a warm textured plaster wall" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhJqDj9mHSv8ItsQSI5cS8t9HKUpzIxGoZ14nq0JM-5xcv4Wj6MesRud6FeJS4crP75caNzAGnVvxLTCHabMozq3So_BQBx0xmN6RyZgViAPkhbGlGmBFme9Izm1E4KmziGnZksa278ebPWJamH8vF7yRU4DqQm7G5ghjKnnPoCayQPPbXWxebZ4ZdiTT5AeqTSrRcIYiN9UP2yGGPqbmH7dOyLw18vcNrmUXcKd1wPgt2GXUAKzkMowur5o_aHSLlFmo9Vm7oIYc"/>
+</div>
+<div class="space-y-1">
+<p class="text-[10px] uppercase tracking-[0.15rem] text-outline font-medium">Bauhaus Co.</p>
+<h3 class="text-sm font-normal text-on-surface">Geometry Study No. 4</h3>
+<p class="text-primary font-semibold text-sm">$240.00</p>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="group cursor-pointer">
+<div class="aspect-[4/5] bg-surface-container-low border border-outline-variant/20 overflow-hidden mb-4 p-4 flex items-center justify-center">
+<img alt="Linon Throw" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="Soft textured linen throw blanket draped over a minimalist wooden chair, warm tactile feel, muted earth tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2gMGyR7HVm3GYrURfowHqm9XUj4Kz6NpJEw_GYXrcSFnUuCqc8BVohQg0ymXTTupX6b2j59Nac4xc0xlnY26IWg2popTwfS5iaN8qFOofmBK-RjbyMrEMxHsiUggPXZy8PYoagOupzAROQrIirDewzNZ4U4uaRvgz2A88RHFYuF9s-EDWFLp4Y6QJgUlJDlMoVk4n-6qanNOxWoDy9DGmEpBt3JaO8VkovSdOcZAmZCZtEKcoHTYffrJEQYn9jiOAh-8MKERnu9c"/>
+</div>
+<div class="space-y-1">
+<p class="text-[10px] uppercase tracking-[0.15rem] text-outline font-medium">Rams Legacy</p>
+<h3 class="text-sm font-normal text-on-surface">Textured Linen Throw</h3>
+<p class="text-primary font-semibold text-sm">$110.00</p>
+</div>
+</div>
+</div>
+<!-- Product Detail View Section -->
+<section class="mt-24 pt-24 border-t border-outline-variant/20">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+<!-- Image Showcase -->
+<div class="space-y-4">
+<div class="aspect-square bg-white border border-outline-variant/30 p-8 flex items-center justify-center">
+<img alt="Sculptural Vase Detail" class="w-full h-full object-contain" data-alt="Macro detail of a handmade ceramic vase showing raw clay texture and subtle glaze variations in warm natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsaAmlw0-trIb5rcB3ZiVRJaei1Jpo1g09UXCSUt8UUA6FhLNdbrJhExS7tgULIzBcnYduiSuR8Rsk8OR9nXVft1eUimQLCLdpqK6Hh2yTYBJhN6WPVFKGJCBJp9VRaiuwM_8jAr4WFAe3R-GVPV2aTTu8vNhQrqyO6ZwACQBubsF7zHfXCt_rpFjjIXOOOwtelAojwNrpW0R6fy0TmdSlj470oHZhvtKMfXRe5XFQ9iQPq311K9ttK39U4kKxoQ1SCNf0mmVUpqo"/>
+</div>
+<div class="grid grid-cols-4 gap-4">
+<div class="aspect-square bg-white border border-primary p-2">
+<img class="w-full h-full object-cover" data-alt="Vase thumbnail view 1" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmIkAiu2HnUZdKwcyHaj10qVoflUcUeY--tm8TLv4MIZc23-mHsveFqXl26rfHR88dekNcdz3MQ_OBBHwbODYK3qmyDHa3HkqeLAOJLmEe0ZSWiKTVuYxiIm5Fbgi2hXm_KP51TEKWZMtVR-Zmy3aQr2Xv4YEhPzK1PwJtrMiuE1uv7d5iHeVWngpYjG-hs8kJxeYICbjQ-JJ42rZ7oidtz_De7jGyPHKeHz_CJa_TH2CTgatt_ElIDMHjfMUi0UPNMUXJfq2qTiQ"/>
+</div>
+<div class="aspect-square bg-white border border-outline-variant/20 p-2 opacity-60 hover:opacity-100 cursor-pointer">
+<img class="w-full h-full object-cover" data-alt="Vase thumbnail view 2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaAvchDFcYPI1OYVzXC7r0zK7aYBDeCvwJ420_7jmCe-PiMyZKmDFhDPR7_yol6ks5nvdeEduN37xMEE3Ch1BmiAedKy9gEXXfNHGqu3VchMs74yvX6bvU0B7MWFUNst15kJ8MCVdfuqBWTxafsx5e5EaKMiUlripjJod1rD9bpBtkQd8BAJ0_WHVAfvtSUn5z0B6cTq2aGSeZZiNYT-mwaKh8y3iLOmIrPzvxigmeA0Bb3YroHG2kvJ3nZwn7errk9NIpNJjcVeU"/>
+</div>
+<div class="aspect-square bg-white border border-outline-variant/20 p-2 opacity-60 hover:opacity-100 cursor-pointer">
+<img class="w-full h-full object-cover" data-alt="Vase thumbnail view 3" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeAOLg2zoODUX7uaI_zrHnClKtadFre2sRSGho7v6wowqlXF9flczzZnJ0rZ2d5fBP0NZb3HX6OaGk4O33v5_WS96KsfPrpOuEr64Cpa4MFu-56qapv9aI8DHv3O6rNRqIJ74uqkgkTB5sQXHfZfIJaC-TKeeQ5i_T7KpObXa1wWeR_MsagGSAaGZFdGZRYugTuLMwMhfJ9pUPzYgJUE7ttT34ggRw8dqOX0E2EVjgUAiNsybCg3wFpUEZm5_xShgd24h-BFdSIF8"/>
+</div>
+<div class="aspect-square bg-white border border-outline-variant/20 p-2 opacity-60 hover:opacity-100 cursor-pointer">
+<img class="w-full h-full object-cover" data-alt="Vase thumbnail view 4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuANnWHS5XiKmLxxOZD_Czq81tJrIGzQXJ78Xk1bFyg0_OU4x_Q4Japd41Pp_N7lLTje1cN0_ZQDoAZs9npPrhLGwFXuXtMD0vh88DlCRVwvgZsYYBzOlEG7GAIKRmN2vi0ujl87Jheyg2MZy6Z82p0QhMBAU-VFHsi1O_FC9D2NVdnY6cypZ6hFBVJ2ovPGTgAKg_W5zRozYbQHm-eqnI1ToTbQ4gcDUGPxiBDY7PmSiv7uS744X0iEtxni9WgxRN29d4WMHm8kjlY"/>
+</div>
+</div>
+</div>
+<!-- Details Content -->
+<div class="flex flex-col justify-center">
+<p class="text-[11px] uppercase tracking-[0.2rem] text-outline font-medium mb-4">Studio Minimal / Home Decor</p>
+<h2 class="text-4xl font-light tracking-tight text-on-surface mb-6">Sculptural Earth Vase</h2>
+<p class="text-2xl text-primary font-semibold mb-8">$125.00</p>
+<div class="mb-10">
+<p class="text-body-md text-on-surface-variant leading-relaxed font-light mb-8 max-w-lg">
+                                Hand-thrown in our Copenhagen studio, this sculptural vessel explores the intersection of raw material and intentional form. Each piece features a unique textural finish that captures the essence of coastal landscape.
+                            </p>
+<!-- Variant Selectors -->
+<div class="space-y-6">
+<div>
+<h4 class="text-xs uppercase tracking-widest font-medium text-outline mb-3">Color: Sandstone</h4>
+<div class="flex gap-3">
+<button class="w-10 h-10 bg-[#E8E2D9] border-2 border-primary ring-2 ring-offset-2 ring-transparent transition-all"></button>
+<button class="w-10 h-10 bg-[#8E8A83] border border-outline-variant hover:border-on-surface transition-all"></button>
+<button class="w-10 h-10 bg-[#3D3B38] border border-outline-variant hover:border-on-surface transition-all"></button>
+</div>
+</div>
+<div>
+<h4 class="text-xs uppercase tracking-widest font-medium text-outline mb-3">Size</h4>
+<div class="flex gap-3">
+<button class="px-6 py-2 border-2 border-primary text-sm font-medium">Small</button>
+<button class="px-6 py-2 border border-outline-variant text-sm font-light text-on-surface-variant hover:border-on-surface">Large</button>
+</div>
+</div>
+</div>
+</div>
+<div class="flex gap-4">
+<button class="flex-1 bg-gradient-to-br from-primary to-primary-container text-white py-4 font-medium tracking-wide hover:opacity-90 transition-all">
+                                ADD TO CART
+                            </button>
+<button class="w-14 h-14 border border-outline-variant flex items-center justify-center hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+<!-- Tab Bar -->
+<div class="mt-16 border-b border-outline-variant/30 flex gap-10">
+<button class="pb-4 text-xs font-medium uppercase tracking-[0.1rem] border-b-2 border-primary text-on-surface">Description</button>
+<button class="pb-4 text-xs font-medium uppercase tracking-[0.1rem] text-outline hover:text-on-surface transition-colors">Details</button>
+<button class="pb-4 text-xs font-medium uppercase tracking-[0.1rem] text-outline hover:text-on-surface transition-colors">Shipping</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+</div>
+<!-- Footer from JSON -->
+<footer class="w-full py-16 px-12 grid grid-cols-1 md:grid-cols-4 gap-8 bg-[#0D0D0D] border-t border-zinc-800 mt-20">
+<div class="col-span-1 md:col-span-1">
+<h2 class="text-4xl font-light tracking-tighter text-white mb-8">MARKIT</h2>
+<p class="font-['Inter'] font-light text-zinc-400 text-sm">© 2024 MARKIT. Engineered for curation.</p>
+</div>
+<div class="flex flex-col gap-3">
+<h4 class="text-[11px] font-medium tracking-[0.1rem] uppercase text-zinc-500 mb-2">Company</h4>
+<a class="font-['Inter'] font-light text-zinc-400 hover:text-[#e07b39] transition-colors text-sm" href="#">About</a>
+<a class="font-['Inter'] font-light text-zinc-400 hover:text-[#e07b39] transition-colors text-sm" href="#">Careers</a>
+<a class="font-['Inter'] font-light text-zinc-400 hover:text-[#e07b39] transition-colors text-sm" href="#">Sustainability</a>
+</div>
+<div class="flex flex-col gap-3">
+<h4 class="text-[11px] font-medium tracking-[0.1rem] uppercase text-zinc-500 mb-2">Support</h4>
+<a class="font-['Inter'] font-light text-zinc-400 hover:text-[#e07b39] transition-colors text-sm" href="#">Privacy</a>
+<a class="font-['Inter'] font-light text-zinc-400 hover:text-[#e07b39] transition-colors text-sm" href="#">Shipping</a>
+<a class="font-['Inter'] font-light text-zinc-400 hover:text-[#e07b39] transition-colors text-sm" href="#">Returns</a>
+</div>
+<div class="flex flex-col gap-3">
+<h4 class="text-[11px] font-medium tracking-[0.1rem] uppercase text-zinc-500 mb-2">Contact</h4>
+<a class="font-['Inter'] font-light text-zinc-400 hover:text-[#e07b39] transition-colors text-sm" href="#">Support</a>
+<a class="font-['Inter'] font-light text-zinc-400 hover:text-[#e07b39] transition-colors text-sm" href="#">Contact</a>
+<div class="flex gap-4 mt-4">
+<span class="material-symbols-outlined text-zinc-400 cursor-pointer hover:text-white">public</span>
+<span class="material-symbols-outlined text-zinc-400 cursor-pointer hover:text-white">rss_feed</span>
+</div>
+</div>
+</footer>
+</body></html>

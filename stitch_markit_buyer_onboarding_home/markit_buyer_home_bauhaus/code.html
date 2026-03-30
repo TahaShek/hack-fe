@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MARKIT | Every Thing You Need</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-background": "#1d1c17",
+              "on-surface-variant": "#554339",
+              "error": "#ba1a1a",
+              "on-error-container": "#93000a",
+              "tertiary-fixed": "#b5ebff",
+              "on-secondary-fixed-variant": "#003ea8",
+              "secondary-fixed": "#dbe1ff",
+              "on-primary": "#ffffff",
+              "primary-fixed-dim": "#ffb68c",
+              "background": "#fef9f1",
+              "inverse-primary": "#ffb68c",
+              "on-tertiary-fixed": "#001f28",
+              "surface-variant": "#e7e2da",
+              "surface-container": "#f2ede5",
+              "outline": "#897367",
+              "on-error": "#ffffff",
+              "on-surface": "#1d1c17",
+              "surface-container-lowest": "#ffffff",
+              "surface-dim": "#ded9d2",
+              "error-container": "#ffdad6",
+              "on-tertiary": "#ffffff",
+              "secondary": "#0051d5",
+              "surface-bright": "#fef9f1",
+              "inverse-surface": "#32302b",
+              "on-primary-fixed-variant": "#763400",
+              "primary": "#9a4601",
+              "surface-tint": "#9a4601",
+              "outline-variant": "#dcc1b4",
+              "surface-container-low": "#f8f3eb",
+              "on-tertiary-fixed-variant": "#004e60",
+              "on-primary-fixed": "#321200",
+              "surface-container-highest": "#e7e2da",
+              "on-secondary-fixed": "#00174b",
+              "tertiary": "#00677e",
+              "primary-fixed": "#ffdbc9",
+              "on-secondary": "#ffffff",
+              "surface-container-high": "#ece8e0",
+              "inverse-on-surface": "#f5f0e8",
+              "on-tertiary-container": "#003340",
+              "secondary-fixed-dim": "#b4c5ff",
+              "tertiary-container": "#00a3c6",
+              "tertiary-fixed-dim": "#5cd5fa",
+              "primary-container": "#e07b39",
+              "secondary-container": "#316bf3",
+              "on-primary-container": "#4f2100",
+              "surface": "#fef9f1",
+              "on-secondary-container": "#fefcff"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fef9f1;
+        }
+    </style>
+</head>
+<body class="text-on-background">
+<!-- Top Navigation -->
+<nav class="fixed top-0 w-full z-50 flex justify-between items-center px-8 h-16 bg-[#fef9f1]/80 backdrop-blur-md border-b border-[#dcc1b4]/15">
+<div class="flex items-center gap-12">
+<span class="text-xl font-medium tracking-[0.1rem] uppercase text-[#0D0D0D]">MARKIT</span>
+<div class="hidden md:flex gap-8 items-center h-full">
+<a class="font-light tracking-tight text-[#9a4601] border-b border-[#9a4601] pb-1 hover:text-[#9a4601] transition-colors duration-200" href="#">Shop</a>
+<a class="font-light tracking-tight text-[#0D0D0D] hover:text-[#9a4601] transition-colors duration-200" href="#">Collections</a>
+<a class="font-light tracking-tight text-[#0D0D0D] hover:text-[#9a4601] transition-colors duration-200" href="#">Journal</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<button class="material-symbols-outlined text-[#0D0D0D] scale-98 active:opacity-80 transition-all" data-icon="shopping_cart">shopping_cart</button>
+<button class="material-symbols-outlined text-[#0D0D0D] scale-98 active:opacity-80 transition-all" data-icon="person">person</button>
+</div>
+</nav>
+<main class="pt-16">
+<!-- Hero Section -->
+<section class="min-h-screen flex flex-col md:flex-row items-center px-8 md:px-16 py-12 gap-12 overflow-hidden bg-surface">
+<div class="w-full md:w-1/2 flex flex-col items-start gap-8 z-10">
+<h1 class="text-[5rem] md:text-[8rem] leading-[0.9] font-light tracking-tighter text-on-background">
+                    Every<br/>Thing<br/>You<br/>Need.
+                </h1>
+<p class="max-w-md text-lg font-light text-on-surface-variant leading-relaxed">
+                    A curated selection of industrial essentials, engineered for the modern workspace. Designed by intent, defined by function.
+                </p>
+<button class="px-10 py-4 bg-primary text-white text-sm font-medium uppercase tracking-[0.15rem] hover:opacity-90 transition-all rounded-DEFAULT">
+                    Explore Edition 01
+                </button>
+</div>
+<div class="w-full md:w-1/2 grid grid-cols-2 gap-4 h-[716px]">
+<div class="relative overflow-hidden rounded-DEFAULT">
+<img class="absolute inset-0 w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" data-alt="minimalist aesthetic ceramic vase on a light wood table with soft morning light from a side window" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOC5qQpCYAqBl9JNkiK7CeHB5GwK49qCW3tPpPq9e6FoMHyBa-y-_fyldP1_NUKaTIw__Av0dlXzDDsm_F0jL1bZvqZ2MLtP9WWXwrAhWo2ZqR8gO3IoXYaa_go74H72jNdSVZ4LlwHoe21xIhJFrKLKFoyZbu0tm9YI3XWubf0h8TArQBtKjq-3jFNkBvwcj2i5Lqv917HHrMgqwgR_vAGLXhMep8TZlXGpGbxvson2wWHbNbikk7rwz_1WvmYcfskBVbnN5_Pkg"/>
+</div>
+<div class="relative overflow-hidden rounded-DEFAULT mt-12">
+<img class="absolute inset-0 w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" data-alt="clean silver designer wristwatch on a white textured surface with high-contrast shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5o6rc16uuzZCTXDPUGk3nj570w-U1a0rQafOFCTSMYC4FxblSkwWPF8O-0V9uF4KELcRmUGWxmVn_Ga9AYbM2oGNxWnzJYWpcY_WR91XTzr77I5a0tnbMniLSAe4qWn9-xbffuEOPArzqs3_eNA1852y9oyQdrUJePUcurwPP8hyxQS-22F4KwRnfGXARy45BgjTj0Mvg4znzaw28Eow636t2VWbDj9GhldxBLhfIjnMdzaCDWtUbr2dOM8FmVYAKWTT4wK9sZ2w"/>
+</div>
+<div class="relative overflow-hidden rounded-DEFAULT -mt-12">
+<img class="absolute inset-0 w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" data-alt="matte black premium wireless headphones against a clean off-white studio background with soft diffuse lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIX2uWL3E46ZjxZf2OUa9aQx9ZxlnEB2qjJscVxXSR7At4xMJXkDyGxcr6a-0FOww3-NWfeq2iBDgfqra2xPGwkK6sSbRH8wO0PLX2exu4lrM6JeIbGGFbTQUjYNYkpRjs4jGBIcI-u3SxBBa2oKELn__kb8HMd-P9QtpWeeV4CbRhPgoxoGv4yNXKnN0sJCfKVtPLkIqgfdVeeFSsjXeH3NdBL-qb7tvPbRgx5BV0McpMBL8h-345J70v5LYZ4QmUlaMLRpvcQb4"/>
+</div>
+<div class="relative overflow-hidden rounded-DEFAULT">
+<img class="absolute inset-0 w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" data-alt="vibrant red designer sneaker shoe sitting isolated on a warm beige background with crisp studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDg1WNbNQMGa8_DJx8HPruFY-ZYaZX_fLiQRn3R2wR9NF9xaeT-iGsiJaMSVIdSjo7gdCdQfYFV7X2RD27h_x9_y9yeKQOjHHn2NdNNdz43-tMNi6Y0g0IfE2cbjsHueg_X60JOkfrgd14mxWsiA45SJ4xC7cbszyuAj5p7HWUlUPJPKQ3weF3vSvUYKAH9KEbvIo6ra9kUbeqG6zRhZZwgSzWsFTw6PlyogLbKGbkZ-iaHGo8kRaZmIZLNKtLJMsCkcxJXeb4ENos"/>
+</div>
+</div>
+</section>
+<!-- Ticker Bar -->
+<div class="w-full bg-[#0D0D0D] py-4 overflow-hidden border-y border-white/5">
+<div class="flex whitespace-nowrap gap-12 items-center justify-around animate-marquee">
+<span class="text-[11px] font-medium text-white uppercase tracking-[0.1rem]">New Arrivals Daily</span>
+<span class="text-[11px] font-medium text-white uppercase tracking-[0.1rem]">Complimentary Global Shipping</span>
+<span class="text-[11px] font-medium text-white uppercase tracking-[0.1rem]">Curated In Stockholm</span>
+<span class="text-[11px] font-medium text-white uppercase tracking-[0.1rem]">Limited Release Editions</span>
+<span class="text-[11px] font-medium text-white uppercase tracking-[0.1rem]">Sustainable Sourcing Only</span>
+<span class="text-[11px] font-medium text-white uppercase tracking-[0.1rem]">Quality Engineering First</span>
+</div>
+</div>
+<!-- Categories Section -->
+<section class="py-24 px-8 md:px-16 bg-surface-container-low">
+<div class="mb-16">
+<span class="text-[11px] font-medium uppercase tracking-[0.1rem] text-primary">Department Selection</span>
+<h2 class="text-5xl font-light tracking-tight text-on-background mt-4">Curated Verticals</h2>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-l border-t border-outline-variant/20">
+<div class="aspect-square border-r border-b border-outline-variant/20 bg-white p-12 flex flex-col justify-between group cursor-pointer hover:bg-surface-container-high transition-colors">
+<span class="text-[11px] font-medium text-outline">01</span>
+<div>
+<h3 class="text-2xl font-light text-on-background group-hover:text-primary transition-colors uppercase tracking-widest">Home</h3>
+<p class="text-sm font-light text-on-surface-variant mt-2">Essentials for the dwelling.</p>
+</div>
+</div>
+<div class="aspect-square border-r border-b border-outline-variant/20 bg-white p-12 flex flex-col justify-between group cursor-pointer hover:bg-surface-container-high transition-colors">
+<span class="text-[11px] font-medium text-outline">02</span>
+<div>
+<h3 class="text-2xl font-light text-on-background group-hover:text-primary transition-colors uppercase tracking-widest">Tech</h3>
+<p class="text-sm font-light text-on-surface-variant mt-2">Tools for the digital age.</p>
+</div>
+</div>
+<div class="aspect-square border-r border-b border-outline-variant/20 bg-white p-12 flex flex-col justify-between group cursor-pointer hover:bg-surface-container-high transition-colors">
+<span class="text-[11px] font-medium text-outline">03</span>
+<div>
+<h3 class="text-2xl font-light text-on-background group-hover:text-primary transition-colors uppercase tracking-widest">Wear</h3>
+<p class="text-sm font-light text-on-surface-variant mt-2">Armor for the everyday.</p>
+</div>
+</div>
+<div class="aspect-square border-r border-b border-outline-variant/20 bg-white p-12 flex flex-col justify-between group cursor-pointer hover:bg-surface-container-high transition-colors">
+<span class="text-[11px] font-medium text-outline">04</span>
+<div>
+<h3 class="text-2xl font-light text-on-background group-hover:text-primary transition-colors uppercase tracking-widest">Print</h3>
+<p class="text-sm font-light text-on-surface-variant mt-2">Knowledge and inspiration.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Featured Products -->
+<section class="py-24 px-8 md:px-16 bg-surface">
+<div class="flex justify-between items-end mb-16">
+<div>
+<span class="text-[11px] font-medium uppercase tracking-[0.1rem] text-primary">New Releases</span>
+<h2 class="text-5xl font-light tracking-tight text-on-background mt-4">Selected Goods</h2>
+</div>
+<a class="text-[11px] font-medium uppercase tracking-[0.1rem] border-b border-primary pb-1 text-on-surface" href="#">View All Products</a>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16">
+<!-- Product 1 -->
+<div class="group cursor-pointer">
+<div class="aspect-square bg-surface-container-low mb-6 border border-outline-variant/15 overflow-hidden p-8">
+<img class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500 grayscale group-hover:grayscale-0" data-alt="minimalist white desk lamp with a slim profile and matte finish on a neutral gray background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7TvcBQOGY9-huV16aYPgAeP1obRIx0qvfVcG4OVdLrJHiL6ItTmS2lGQ-nrqPz617PGqjK1PWmOhnL0MB98Av-rYveWjdTEmy14aphVHGsmZUFAkf1Szc2q_9vKUCgxwlFIBIH0bYGGwKnfla1l6Y1tk7IUsZl9Ps9ixTg-jE5clCSJ5rhXrHSEDts4U8upzpy1Ml4Od9WVo-tF64DKpH1qhkNG-l8WuFCrahHPT5VjWosDZI1mBjjv23MfzMqGMdW2oo_fLRF0E"/>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="text-sm font-light text-on-background uppercase tracking-wider">Vertical Task Lamp</h4>
+<p class="text-[11px] text-outline mt-1 uppercase">Lighting</p>
+</div>
+<span class="text-sm font-semibold text-primary">$220.00</span>
+</div>
+</div>
+<!-- Product 2 -->
+<div class="group cursor-pointer">
+<div class="aspect-square bg-surface-container-low mb-6 border border-outline-variant/15 overflow-hidden p-8">
+<img class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500 grayscale group-hover:grayscale-0" data-alt="architectural concrete desk organizer set with geometric shapes for pens and accessories" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGfowZtE0SfXanYA8iQ2Qb5KVUohZa_TeYJZb16lfKFD8t3tRVgtnqqQAZJhI3bQ9tU8njTPVoOtg1r-gbnsrK3eGnqts-WET-yUX2tzX8Iwj_Y7GOwJv8hHoNqCzR5uhmsxa1ukF6dXrAXSEfNS-yAmKtSea6RjsLhvty0g3MR4gI-1HGE-uQRc-4bvjYgXOQTWaADdScxG9Fgv7pX_1o9SBF4Z8_EM8hi_D4sLZwbxHtX7I8GVl8UnxNgL2frzqC4JdK5VtzKmQ"/>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="text-sm font-light text-on-background uppercase tracking-wider">Concrete Desk Set</h4>
+<p class="text-[11px] text-outline mt-1 uppercase">Workplace</p>
+</div>
+<span class="text-sm font-semibold text-primary">$85.00</span>
+</div>
+</div>
+<!-- Product 3 -->
+<div class="group cursor-pointer">
+<div class="aspect-square bg-surface-container-low mb-6 border border-outline-variant/15 overflow-hidden p-8">
+<img class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500 grayscale group-hover:grayscale-0" data-alt="neatly folded organic cotton t-shirt in oatmeal beige on a warm wood surface with direct lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlohFLRwAUrE20CIu1tPDsbedPPCUn6paVPPK8K0BBOSPNLt1C5RXmleZI_WeH5GWGvSPsDUPzQKPdQFg9v6WrIu5Hrkn5La_WhwTPsd6mWlPU2uqJfbGnq3N_yBg7m6cHTEdfIzT23SV_Pn-UXZVNpECCb5DBdqxD7N_EvEDFk54ULeePqIwI_FNXpZHBJmiZ-52RzxFShkL8wO0grZflUOHI8yzNNfQqXeOjBmF4P9cjIvnVWvc4zeZrQahXDHIQf2kHrQ42xyU"/>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="text-sm font-light text-on-background uppercase tracking-wider">Heavyweight Tee</h4>
+<p class="text-[11px] text-outline mt-1 uppercase">Apparel</p>
+</div>
+<span class="text-sm font-semibold text-primary">$45.00</span>
+</div>
+</div>
+<!-- Product 4 -->
+<div class="group cursor-pointer">
+<div class="aspect-square bg-surface-container-low mb-6 border border-outline-variant/15 overflow-hidden p-8">
+<img class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500 grayscale group-hover:grayscale-0" data-alt="sleek silver modern laptop computer closed on a clean white desk surface with hard shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDv2SoPKav15Mt65riCz8deSA5tSQX3Jr9tXDOGmkf92Cj-_9-8xwctcWWcVCQxJqGAENx47HQPdiE-P05-YHR9rZHOFB8k_H4K1OOQIlLyyVsaa7KbLecOapmw-l_SlPcnaukS5FQXnoJMgyijc8zUG9WkRublQiwq_SVdnsbMjSfRTrhhssP_WYQR1wmShTL3PYEB027JFuvSdVmhuBYgfgv-X4W708r5AnEycOisMgO4_HDbHwX_UBVVenTmJw-R7b0GimzccY"/>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="text-sm font-light text-on-background uppercase tracking-wider">Casing Shell Pro</h4>
+<p class="text-[11px] text-outline mt-1 uppercase">Tech</p>
+</div>
+<span class="text-sm font-semibold text-primary">$1,499.00</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Trending Section -->
+<section class="py-24 px-8 md:px-16 bg-surface-container-high/30">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-24">
+<div>
+<span class="text-[11px] font-medium uppercase tracking-[0.1rem] text-primary">In Demand</span>
+<h2 class="text-5xl font-light tracking-tight text-on-background mt-4 mb-12">Trending Now</h2>
+<div class="space-y-12">
+<div class="flex gap-8 group cursor-pointer">
+<span class="text-3xl font-light text-outline-variant/40 group-hover:text-primary transition-colors">#01</span>
+<div class="border-b border-outline-variant/20 pb-8 flex-1">
+<h3 class="text-xl font-light uppercase tracking-widest text-on-background">Aluminum Water Vessel</h3>
+<p class="text-sm text-on-surface-variant mt-2">Zero-plastic hydration engineering.</p>
+</div>
+</div>
+<div class="flex gap-8 group cursor-pointer">
+<span class="text-3xl font-light text-outline-variant/40 group-hover:text-primary transition-colors">#02</span>
+<div class="border-b border-outline-variant/20 pb-8 flex-1">
+<h3 class="text-xl font-light uppercase tracking-widest text-on-background">Grid Bound Journal</h3>
+<p class="text-sm text-on-surface-variant mt-2">Swiss-made acid-free archival paper.</p>
+</div>
+</div>
+<div class="flex gap-8 group cursor-pointer">
+<span class="text-3xl font-light text-outline-variant/40 group-hover:text-primary transition-colors">#03</span>
+<div class="pb-8 flex-1">
+<h3 class="text-xl font-light uppercase tracking-widest text-on-background">Mechanical Graphite Tool</h3>
+<p class="text-sm text-on-surface-variant mt-2">Precision weighted architectural drafting.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="relative h-[600px] overflow-hidden rounded-DEFAULT border border-outline-variant/20">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="professional modern camera and lens kit arranged on a dark grey felt surface with dramatic cinematic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJ-mdlwUE4rsgXSxB5fIYncd0Zgo122aapBGB2Ezhm1pHHRzmEuqqbJNsQCHSHYtc2JftNhNKB7LLsbcIo-Q8qrJMZpodgY9eDaJnIPaNR_reT-pUJQwoaMgyvH0GPEtEzZdr_Le1KD8mu92sU4BNnfWlzDpadKiCiQW2oJtPqWF98XLuEITQ_WWF8gdS9D9zufq56gMibwijNNokFXBPv0R_KAkp3xRyLWIGNIKRdtQqJpOHIXbWoqNfH06-hPIn8vZflqc-CI2w"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#0D0D0D]/40 to-transparent"></div>
+<div class="absolute bottom-12 left-12">
+<span class="text-[11px] font-medium text-white uppercase tracking-[0.2rem] block mb-4">New Spotlight</span>
+<h3 class="text-3xl font-light text-white uppercase tracking-widest leading-none">The Capture<br/>Series</h3>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#0D0D0D] text-zinc-400 font-['Inter'] font-light">
+<div class="w-full py-16 px-12 grid grid-cols-1 md:grid-cols-4 gap-12">
+<div class="col-span-1 md:col-span-1">
+<span class="text-4xl font-light tracking-tighter text-white mb-8 block">MARKIT</span>
+<p class="text-sm text-zinc-500 leading-relaxed max-w-xs">
+                    Engineered for curation. We bridge the gap between industrial design and everyday utility.
+                </p>
+</div>
+<div>
+<h4 class="text-white text-[11px] font-medium uppercase tracking-[0.1rem] mb-8">Brand</h4>
+<ul class="space-y-4">
+<li><a class="hover:text-[#e07b39] transition-colors" href="#">About</a></li>
+<li><a class="hover:text-[#e07b39] transition-colors" href="#">Careers</a></li>
+<li><a class="hover:text-[#e07b39] transition-colors" href="#">Sustainability</a></li>
+<li><a class="hover:text-[#e07b39] transition-colors" href="#">Privacy</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white text-[11px] font-medium uppercase tracking-[0.1rem] mb-8">Service</h4>
+<ul class="space-y-4">
+<li><a class="hover:text-[#e07b39] transition-colors" href="#">Support</a></li>
+<li><a class="hover:text-[#e07b39] transition-colors" href="#">Shipping</a></li>
+<li><a class="hover:text-[#e07b39] transition-colors" href="#">Returns</a></li>
+<li><a class="hover:text-[#e07b39] transition-colors" href="#">Contact</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white text-[11px] font-medium uppercase tracking-[0.1rem] mb-8">Newsletter</h4>
+<p class="text-sm text-zinc-500 mb-6">Join the registry for limited edition alerts.</p>
+<div class="flex border-b border-zinc-800 pb-2">
+<input class="bg-transparent border-none focus:ring-0 text-sm w-full p-0 text-white placeholder:text-zinc-700" placeholder="EMAIL ADDRESS" type="email"/>
+<button class="material-symbols-outlined text-white" data-icon="arrow_forward">arrow_forward</button>
+</div>
+</div>
+</div>
+<div class="px-12 py-8 border-t border-zinc-800 flex justify-between items-center text-[10px] uppercase tracking-widest text-zinc-600">
+<span>© 2024 MARKIT. Engineered for curation.</span>
+<div class="flex gap-8">
+<a class="hover:text-white transition-colors" href="#">Instagram</a>
+<a class="hover:text-white transition-colors" href="#">LinkedIn</a>
+<a class="hover:text-white transition-colors" href="#">Twitter</a>
+</div>
+</div>
+</footer>
+</body></html>

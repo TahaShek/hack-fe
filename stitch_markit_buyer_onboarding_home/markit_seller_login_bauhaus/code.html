@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary-fixed": "#00174b",
+              "on-primary-fixed": "#321200",
+              "outline": "#897367",
+              "outline-variant": "#dcc1b4",
+              "surface-container-high": "#ece8e0",
+              "on-tertiary-fixed": "#001f28",
+              "primary-container": "#e07b39",
+              "primary": "#9a4601",
+              "surface-bright": "#fef9f1",
+              "secondary-container": "#316bf3",
+              "inverse-surface": "#32302b",
+              "surface-container-highest": "#e7e2da",
+              "on-tertiary": "#ffffff",
+              "secondary-fixed-dim": "#b4c5ff",
+              "on-secondary-fixed-variant": "#003ea8",
+              "on-primary-fixed-variant": "#763400",
+              "on-surface-variant": "#554339",
+              "surface-container-lowest": "#ffffff",
+              "surface": "#fef9f1",
+              "surface-container": "#f2ede5",
+              "inverse-on-surface": "#f5f0e8",
+              "tertiary": "#00677e",
+              "on-error-container": "#93000a",
+              "on-surface": "#1d1c17",
+              "on-tertiary-container": "#003340",
+              "on-tertiary-fixed-variant": "#004e60",
+              "on-primary-container": "#4f2100",
+              "tertiary-container": "#00a3c6",
+              "on-secondary-container": "#fefcff",
+              "surface-tint": "#9a4601",
+              "inverse-primary": "#ffb68c",
+              "error": "#ba1a1a",
+              "surface-variant": "#e7e2da",
+              "background": "#fef9f1",
+              "on-secondary": "#ffffff",
+              "error-container": "#ffdad6",
+              "primary-fixed": "#ffdbc9",
+              "secondary": "#0051d5",
+              "on-primary": "#ffffff",
+              "tertiary-fixed": "#b5ebff",
+              "surface-dim": "#ded9d2",
+              "secondary-fixed": "#dbe1ff",
+              "tertiary-fixed-dim": "#5cd5fa",
+              "surface-container-low": "#f8f3eb",
+              "on-background": "#1d1c17",
+              "primary-fixed-dim": "#ffb68c",
+              "on-error": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+      }
+      body {
+        background-color: #0D0D0D;
+      }
+    </style>
+</head>
+<body class="font-body selection:bg-primary-container selection:text-white antialiased">
+<!-- Auth Layout Wrapper -->
+<main class="min-h-screen flex flex-col md:flex-row items-stretch overflow-hidden">
+<!-- Left Side: Editorial Branding Section -->
+<section class="hidden md:flex flex-col justify-between p-12 w-1/2 bg-[#0D0D0D] border-r border-zinc-800">
+<div class="flex flex-col gap-1">
+<span class="text-white text-lg font-medium tracking-widest uppercase font-label">MARKIT</span>
+<span class="text-zinc-500 text-xs tracking-[0.2rem] uppercase font-label">Seller Studio</span>
+</div>
+<div class="max-w-md">
+<h1 class="text-white text-5xl font-light tracking-tighter leading-none mb-6">
+                    Curate your <br/>
+<span class="text-primary-container italic font-normal">digital storefront.</span>
+</h1>
+<p class="text-zinc-400 text-sm leading-relaxed font-light">
+                    Access the merchant dashboard to manage inventory, analyze performance, and connect with a global community of curators.
+                </p>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-zinc-900 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary-container">verified</span>
+</div>
+<div class="flex flex-col">
+<span class="text-white text-xs font-medium uppercase tracking-wider">Verified Merchant</span>
+<span class="text-zinc-500 text-xs">Standard Tier Access</span>
+</div>
+</div>
+</section>
+<!-- Right Side: Login Form Canvas -->
+<section class="flex-1 flex flex-col items-center justify-center p-8 bg-[#0D0D0D]">
+<div class="w-full max-w-sm flex flex-col">
+<!-- Mobile Branding (Hidden on desktop) -->
+<div class="md:hidden mb-12 flex flex-col items-center text-center">
+<span class="text-white text-xl font-medium tracking-widest uppercase mb-2">MARKIT</span>
+<div class="h-[1px] w-8 bg-primary mb-2"></div>
+</div>
+<!-- Headline -->
+<div class="mb-12">
+<span class="text-[11px] font-medium uppercase tracking-[0.1rem] text-primary-container mb-2 block">Security Portal</span>
+<h2 class="text-white text-3xl font-light tracking-tight">Seller Login.</h2>
+</div>
+<!-- Form -->
+<form class="flex flex-col space-y-8" onsubmit="return false;">
+<!-- Email Field -->
+<div class="flex flex-col space-y-2">
+<label class="text-[11px] font-medium uppercase tracking-[0.1rem] text-zinc-500" for="email">Merchant Email</label>
+<input class="bg-[#F5F0E8] border-none text-on-surface h-12 px-4 focus:ring-1 focus:ring-primary-container transition-all outline-none rounded-sm placeholder:text-zinc-400" id="email" placeholder="curator@markit.com" type="email"/>
+</div>
+<!-- Password Field -->
+<div class="flex flex-col space-y-2">
+<div class="flex justify-between items-center">
+<label class="text-[11px] font-medium uppercase tracking-[0.1rem] text-zinc-500" for="password">Access Key</label>
+<a class="text-[10px] uppercase tracking-wider text-zinc-600 hover:text-zinc-400 transition-colors" href="#">Forgot?</a>
+</div>
+<input class="bg-[#F5F0E8] border-none text-on-surface h-12 px-4 focus:ring-1 focus:ring-primary-container transition-all outline-none rounded-sm placeholder:text-zinc-400" id="password" placeholder="••••••••" type="password"/>
+</div>
+<!-- CTA Section -->
+<div class="pt-4 flex flex-col space-y-6">
+<button class="h-14 bg-gradient-to-br from-primary to-primary-container text-white text-xs font-medium uppercase tracking-[0.15rem] transition-all hover:opacity-90 active:scale-[0.98] rounded-sm" type="submit">
+                            Enter Studio
+                        </button>
+<div class="flex items-center justify-center gap-4">
+<div class="h-[1px] flex-1 bg-zinc-800"></div>
+<span class="text-[10px] text-zinc-600 uppercase tracking-widest">New Merchant?</span>
+<div class="h-[1px] flex-1 bg-zinc-800"></div>
+</div>
+<!-- Ghost Link to Register -->
+<a class="group flex items-center justify-center gap-2 text-[11px] font-medium uppercase tracking-[0.1rem] text-zinc-400 hover:text-white transition-all py-2" href="#">
+                            Create Seller Account
+                            <span class="material-symbols-outlined text-[14px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+</form>
+<!-- Footer Accents -->
+<div class="mt-20 flex justify-between items-center border-t border-zinc-900 pt-6">
+<span class="text-[10px] text-zinc-700 font-light italic">Ref. 013-Login</span>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-zinc-800 text-sm">lock</span>
+<span class="material-symbols-outlined text-zinc-800 text-sm">shield</span>
+<span class="material-symbols-outlined text-zinc-800 text-sm">language</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Decorative Bauhaus Abstract (Desktop Only) -->
+<div class="fixed top-12 right-12 opacity-10 pointer-events-none hidden lg:block">
+<div class="relative w-64 h-64 border border-zinc-500 rotate-45">
+<div class="absolute inset-0 border border-zinc-500 -translate-x-4 -translate-y-4"></div>
+<div class="absolute inset-0 border border-primary-container -translate-x-8 -translate-y-8"></div>
+</div>
+</div>
+</main>
+<!-- Aesthetic Backdrops -->
+<div class="fixed bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-primary/5 to-transparent pointer-events-none"></div>
+</body></html>

@@ -1,23 +1,36 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-background: #080808;
-  --color-foreground: #F5F5F5;
-  --color-surface: #111111;
-  --color-surface-hover: #1a1a1a;
-  --color-border: rgba(255, 255, 255, 0.06);
-  --color-muted: #6B7280;
-  --color-accent: #E8784A;
-  --color-accent-light: #F09E72;
-  --color-accent-dark: #C55E2F;
-  --color-accent-glow: rgba(232, 120, 74, 0.3);
+  --color-background: #fef9f1;
+  --color-foreground: #1d1c17;
+  --color-surface: #fef9f1;
+  --color-surface-container-low: #f8f3eb;
+  --color-surface-container: #f2ede5;
+  --color-surface-container-high: #ece8e0;
+  --color-surface-container-highest: #e7e2da;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-dim: #ded9d2;
+  --color-surface-variant: #e7e2da;
+  --color-on-background: #1d1c17;
+  --color-on-surface: #1d1c17;
+  --color-on-surface-variant: #554339;
+  --color-primary: #9a4601;
+  --color-primary-container: #e07b39;
+  --color-on-primary: #ffffff;
+  --color-outline: #897367;
+  --color-outline-variant: #dcc1b4;
+  --color-error: #ba1a1a;
+  --color-border: rgba(220, 193, 180, 0.15);
+  --color-muted: #897367;
+  --color-accent: #9a4601;
+  --color-accent-light: #e07b39;
   --font-sans: var(--font-inter);
 }
 
 /* ======= SCROLLBAR ======= */
 * {
   scrollbar-width: thin;
-  scrollbar-color: #1a1a1a transparent;
+  scrollbar-color: #dcc1b4 transparent;
 }
 
 /* ======= BASE ======= */
@@ -28,8 +41,8 @@ body {
 }
 
 ::selection {
-  background: rgba(232, 120, 74, 0.3);
-  color: #F5F5F5;
+  background: rgba(154, 70, 1, 0.2);
+  color: #1d1c17;
 }
 
 /* ======= SCROLLBAR HIDE ======= */
@@ -48,7 +61,7 @@ body {
 }
 
 .skeleton {
-  background: linear-gradient(90deg, #111 25%, #1a1a1a 50%, #111 75%);
+  background: linear-gradient(90deg, #f8f3eb 25%, #ece8e0 50%, #f8f3eb 75%);
   background-size: 200% 100%;
   animation: shimmer 2s ease-in-out infinite;
 }
@@ -63,26 +76,8 @@ body {
   animation: marquee 30s linear infinite;
 }
 
-/* ======= AMBIENT ORB PULSE ======= */
-@keyframes orb-drift {
-  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.08; }
-  33% { transform: translate(30px, -40px) scale(1.1); opacity: 0.12; }
-  66% { transform: translate(-20px, 20px) scale(0.95); opacity: 0.08; }
-}
-
-.orb {
-  animation: orb-drift 8s ease-in-out infinite;
-}
-
-.orb-delay {
-  animation: orb-drift 10s ease-in-out infinite;
-  animation-delay: -3s;
-}
-
 /* ======= REDUCED MOTION ======= */
 @media (prefers-reduced-motion: reduce) {
-  .orb,
-  .orb-delay,
   .animate-marquee,
   .skeleton {
     animation: none;

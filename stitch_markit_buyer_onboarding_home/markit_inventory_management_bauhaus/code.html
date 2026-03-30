@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MARKIT Seller Studio | Inventory Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-secondary-fixed": "#00174b",
+                        "on-primary-fixed": "#321200",
+                        "outline": "#897367",
+                        "outline-variant": "#dcc1b4",
+                        "surface-container-high": "#ece8e0",
+                        "on-tertiary-fixed": "#001f28",
+                        "primary-container": "#e07b39",
+                        "primary": "#9a4601",
+                        "surface-bright": "#fef9f1",
+                        "secondary-container": "#316bf3",
+                        "inverse-surface": "#32302b",
+                        "surface-container-highest": "#e7e2da",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed-dim": "#b4c5ff",
+                        "on-secondary-fixed-variant": "#003ea8",
+                        "on-primary-fixed-variant": "#763400",
+                        "on-surface-variant": "#554339",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#fef9f1",
+                        "surface-container": "#f2ede5",
+                        "inverse-on-surface": "#f5f0e8",
+                        "tertiary": "#00677e",
+                        "on-error-container": "#93000a",
+                        "on-surface": "#1d1c17",
+                        "on-tertiary-container": "#003340",
+                        "on-tertiary-fixed-variant": "#004e60",
+                        "on-primary-container": "#4f2100",
+                        "tertiary-container": "#00a3c6",
+                        "on-secondary-container": "#fefcff",
+                        "surface-tint": "#9a4601",
+                        "inverse-primary": "#ffb68c",
+                        "error": "#ba1a1a",
+                        "surface-variant": "#e7e2da",
+                        "background": "#fef9f1",
+                        "on-secondary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "primary-fixed": "#ffdbc9",
+                        "secondary": "#0051d5",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed": "#b5ebff",
+                        "surface-dim": "#ded9d2",
+                        "secondary-fixed": "#dbe1ff",
+                        "tertiary-fixed-dim": "#5cd5fa",
+                        "surface-container-low": "#f8f3eb",
+                        "on-background": "#1d1c17",
+                        "primary-fixed-dim": "#ffb68c",
+                        "on-error": "#ffffff"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-nav-item {
+            color: #e07b39;
+            background-color: #18181b;
+            border-radius: 0.125rem;
+        }
+        body {
+            background-color: #0D0D0D;
+        }
+    </style>
+</head>
+<body class="font-body selection:bg-primary-container selection:text-white">
+<!-- SideNavBar Implementation -->
+<aside class="fixed left-0 top-0 h-full w-64 border-r border-zinc-800 bg-[#0D0D0D] flex flex-col p-6 z-40">
+<div class="mb-12">
+<h1 class="text-lg font-medium text-white tracking-widest uppercase mb-1">Seller Studio</h1>
+<p class="text-[10px] font-medium tracking-[0.1rem] uppercase text-zinc-500">Verified Merchant</p>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-400 hover:bg-zinc-900 hover:text-white transition-all text-sm tracking-wide" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#e07b39] bg-zinc-900 rounded-sm transition-all text-sm tracking-wide" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span>Inventory</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-400 hover:bg-zinc-900 hover:text-white transition-all text-sm tracking-wide" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_bag">shopping_bag</span>
+<span>Orders</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-400 hover:bg-zinc-900 hover:text-white transition-all text-sm tracking-wide" href="#">
+<span class="material-symbols-outlined" data-icon="leaderboard">leaderboard</span>
+<span>Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-400 hover:bg-zinc-900 hover:text-white transition-all text-sm tracking-wide" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-zinc-800 flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-zinc-800 overflow-hidden">
+<img alt="Seller Profile" data-alt="professional portrait of a creative director in a minimalist black studio setting, sharp lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4vNoeUFgrXtyiJ2RMZXaMo7THLjk-X_BXtkeyug5IoEPCJNCY24-7tx-ErBf4bNcyI3YAp6hYRfNKAstqdWH-7ueWJxo_xLFOvbJ6h0QYIwIx_U8WcItrRYoFOlfnnOyodKjhbjwKPDXgOq-g-zoAgKb6gTIC4a9e-LpbAHSz25MzYGV7S6wPvlHMWMhe2CV6phJbGJgkd4l26ENlY6UF07QFWpeljdBHluwLue9QwsFEblq7wHNcIrIpmmNppFGWMP2SaJ_vsLo"/>
+</div>
+<div>
+<p class="text-xs font-medium text-white">Alex Rivera</p>
+<p class="text-[10px] text-zinc-500">Curator Level 4</p>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 min-h-screen bg-[#0D0D0D] text-white">
+<!-- Header Section -->
+<header class="h-24 border-b border-zinc-800 flex items-center justify-between px-12">
+<div>
+<h2 class="text-2xl font-light tracking-tight">Inventory</h2>
+<p class="text-xs text-zinc-500 uppercase tracking-[0.1rem] mt-1">Manage your curated collection</p>
+</div>
+<div class="flex items-center gap-4">
+<button class="px-6 py-2 border border-zinc-700 text-zinc-300 text-[11px] font-medium uppercase tracking-[0.1rem] hover:bg-zinc-900 transition-colors">
+                    Bulk Update
+                </button>
+<button class="px-6 py-2 bg-gradient-to-br from-primary to-primary-container text-white text-[11px] font-medium uppercase tracking-[0.1rem] flex items-center gap-2 hover:opacity-90 transition-all shadow-lg shadow-primary/10">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                    Add Product
+                </button>
+</div>
+</header>
+<!-- Stats Bar -->
+<section class="grid grid-cols-4 gap-0 border-b border-zinc-800">
+<div class="p-8 border-r border-zinc-800">
+<p class="text-[10px] uppercase tracking-[0.15rem] text-zinc-500 mb-2">Total SKUs</p>
+<p class="text-3xl font-light">1,284</p>
+</div>
+<div class="p-8 border-r border-zinc-800">
+<p class="text-[10px] uppercase tracking-[0.15rem] text-zinc-500 mb-2">Low Stock</p>
+<p class="text-3xl font-light text-primary-container">12</p>
+</div>
+<div class="p-8 border-r border-zinc-800">
+<p class="text-[10px] uppercase tracking-[0.15rem] text-zinc-500 mb-2">Active Listings</p>
+<p class="text-3xl font-light text-secondary-container">1,240</p>
+</div>
+<div class="p-8">
+<p class="text-[10px] uppercase tracking-[0.15rem] text-zinc-500 mb-2">Monthly Growth</p>
+<p class="text-3xl font-light text-blue-500">+14%</p>
+</div>
+</section>
+<!-- Search & Filters -->
+<section class="px-12 py-8 flex items-center justify-between">
+<div class="relative w-96">
+<span class="material-symbols-outlined absolute left-0 top-1/2 -translate-y-1/2 text-zinc-500 text-lg" data-icon="search">search</span>
+<input class="w-full bg-transparent border-none focus:ring-0 text-sm text-zinc-300 placeholder:text-zinc-600 pl-8 pb-2 border-b border-zinc-800 focus:border-primary transition-colors" placeholder="Search by name, SKU or category..." type="text"/>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2 cursor-pointer group">
+<span class="text-[11px] font-medium uppercase tracking-[0.1rem] text-zinc-400 group-hover:text-white transition-colors">Filter by Status</span>
+<span class="material-symbols-outlined text-zinc-600 group-hover:text-white transition-colors" data-icon="expand_more">expand_more</span>
+</div>
+<div class="flex items-center gap-2 cursor-pointer group">
+<span class="text-[11px] font-medium uppercase tracking-[0.1rem] text-zinc-400 group-hover:text-white transition-colors">Sort: Newest</span>
+<span class="material-symbols-outlined text-zinc-600 group-hover:text-white transition-colors" data-icon="swap_vert">swap_vert</span>
+</div>
+</div>
+</section>
+<!-- Inventory Table -->
+<section class="px-12 pb-24">
+<div class="w-full overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-zinc-800">
+<th class="pb-4 text-[10px] font-medium uppercase tracking-[0.2rem] text-zinc-500 w-12">
+<input class="bg-transparent border-zinc-700 rounded-none focus:ring-0 checked:bg-primary" type="checkbox"/>
+</th>
+<th class="pb-4 text-[10px] font-medium uppercase tracking-[0.2rem] text-zinc-500">Product Details</th>
+<th class="pb-4 text-[10px] font-medium uppercase tracking-[0.2rem] text-zinc-500">Category</th>
+<th class="pb-4 text-[10px] font-medium uppercase tracking-[0.2rem] text-zinc-500">Stock Status</th>
+<th class="pb-4 text-[10px] font-medium uppercase tracking-[0.2rem] text-zinc-500">Price</th>
+<th class="pb-4 text-[10px] font-medium uppercase tracking-[0.2rem] text-zinc-500 text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-zinc-900">
+<!-- Product 1 -->
+<tr class="group hover:bg-zinc-900/50 transition-colors">
+<td class="py-6">
+<input class="bg-transparent border-zinc-700 rounded-none focus:ring-0 checked:bg-primary" type="checkbox"/>
+</td>
+<td class="py-6">
+<div class="flex items-center gap-4">
+<div class="w-[56px] h-[56px] bg-zinc-800 overflow-hidden flex-shrink-0">
+<img alt="Vase" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" data-alt="minimalist matte black ceramic vase on a brutalist concrete pedestal, soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAv9efhFoZ5OXhrd3jtSon610mMJdzhzLPfPS94hnH8JR3rAsUkD81vgQYpQb6xlZavjoNzqykfmUd_MN6b2ZbiTn2bWETodDMpg4IL_v-e9YCIJ0ljhcVtgK7bMQD20uoBHA5T0YUfNlWyBmXiGZGs5XB39nvfDWLOvEyIjMVkdWd4XUtj1Ju-YkrRKt_O-ip3u_G6LdR0oXjwcRazI70dHI7T5EqMfg2MU3eK_TGzLboqqkQFl2rwT3_WLqg5eTB7mxd2K4i1-co"/>
+</div>
+<div>
+<p class="text-sm font-medium text-white">Obsidian Ceramic Vase</p>
+<p class="text-[10px] text-zinc-500 tracking-wider">SKU: CR-OBS-001</p>
+</div>
+</div>
+</td>
+<td class="py-6 text-sm text-zinc-400">Home Decor</td>
+<td class="py-6">
+<span class="inline-flex items-center px-2 py-0.5 text-[9px] font-semibold uppercase tracking-widest bg-emerald-500/10 text-emerald-500">In Stock</span>
+</td>
+<td class="py-6">
+<p class="text-sm font-medium text-primary-container">$124.00</p>
+</td>
+<td class="py-6 text-right">
+<button class="p-2 text-zinc-600 hover:text-white transition-colors">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+</button>
+<button class="p-2 text-zinc-600 hover:text-white transition-colors">
+<span class="material-symbols-outlined" data-icon="more_horiz">more_horiz</span>
+</button>
+</td>
+</tr>
+<!-- Product 2 -->
+<tr class="group hover:bg-zinc-900/50 transition-colors">
+<td class="py-6">
+<input class="bg-transparent border-zinc-700 rounded-none focus:ring-0 checked:bg-primary" type="checkbox"/>
+</td>
+<td class="py-6">
+<div class="flex items-center gap-4">
+<div class="w-[56px] h-[56px] bg-zinc-800 overflow-hidden flex-shrink-0">
+<img alt="Watch" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" data-alt="modern luxury watch with titanium band on a dark textured background, sharp focus, industrial style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGODQ-KPWzLRpgolmTM8UGV6pYVHj0y52crfXHGS4wlxUG5XtCfnfvFnUD5LAhP2oD2V2UPnyqCXhOI-19isE55yyxetWe8uMnAUwz1OL8E0RDPgDFtD5T08MmxwhXz-_NeiHmgeEfb_o8PVAm8tgNysnuIXI9rkcH9mdAiI_zpEDpGhvtyiI-1OghseYGej5gB1W19dwRdHQ8s-Satf_wSm8OT3am6Yj2wleOInm3ap60nFEkVJuKJMTueeoC4mYKvykr8kfSzHE"/>
+</div>
+<div>
+<p class="text-sm font-medium text-white">Mono Chronograph v2</p>
+<p class="text-[10px] text-zinc-500 tracking-wider">SKU: WT-MONO-42</p>
+</div>
+</div>
+</td>
+<td class="py-6 text-sm text-zinc-400">Accessories</td>
+<td class="py-6">
+<span class="inline-flex items-center px-2 py-0.5 text-[9px] font-semibold uppercase tracking-widest bg-amber-500/10 text-amber-500">Low Stock</span>
+<p class="text-[9px] text-zinc-600 mt-1">2 units left</p>
+</td>
+<td class="py-6">
+<p class="text-sm font-medium text-primary-container">$385.00</p>
+</td>
+<td class="py-6 text-right">
+<button class="p-2 text-zinc-600 hover:text-white transition-colors">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+</button>
+<button class="p-2 text-zinc-600 hover:text-white transition-colors">
+<span class="material-symbols-outlined" data-icon="more_horiz">more_horiz</span>
+</button>
+</td>
+</tr>
+<!-- Product 3 -->
+<tr class="group hover:bg-zinc-900/50 transition-colors">
+<td class="py-6">
+<input class="bg-transparent border-zinc-700 rounded-none focus:ring-0 checked:bg-primary" type="checkbox"/>
+</td>
+<td class="py-6">
+<div class="flex items-center gap-4">
+<div class="w-[56px] h-[56px] bg-zinc-800 overflow-hidden flex-shrink-0">
+<img alt="Headphones" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" data-alt="high-end over-ear studio headphones, matte silver finish, Bauhaus architectural lines, neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsqFW4d-zIV4HIIzNVu_BI2FFfCvhBptJDRJe55tbKegJLY8Bx7ZAOtEVDnxkaqOXx9kJ6vxaWFFVPuC67Ih_ia20ThnrUBOPt7diBgSa6QAZQ4hMXZEuOzuhcmbQEIPvAKxXDDacPVDEH3K6RYKzYP0fpEces2UNmxuKcR1-mJGfDi1FGLPAz6G1LISbCKUvhzuFzpgyEduZGFUlEv-2GF8S34xaJTQseBVvqxORqdpxb45ko6WozU3ToCsALVxl9WDevRcQ163w"/>
+</div>
+<div>
+<p class="text-sm font-medium text-white">Studio Linear H1</p>
+<p class="text-[10px] text-zinc-500 tracking-wider">SKU: AU-H1-SIL</p>
+</div>
+</div>
+</td>
+<td class="py-6 text-sm text-zinc-400">Electronics</td>
+<td class="py-6">
+<span class="inline-flex items-center px-2 py-0.5 text-[9px] font-semibold uppercase tracking-widest bg-rose-500/10 text-rose-500">Out of Stock</span>
+</td>
+<td class="py-6">
+<p class="text-sm font-medium text-primary-container">$299.00</p>
+</td>
+<td class="py-6 text-right">
+<button class="p-2 text-zinc-600 hover:text-white transition-colors">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+</button>
+<button class="p-2 text-zinc-600 hover:text-white transition-colors">
+<span class="material-symbols-outlined" data-icon="more_horiz">more_horiz</span>
+</button>
+</td>
+</tr>
+<!-- Product 4 -->
+<tr class="group hover:bg-zinc-900/50 transition-colors">
+<td class="py-6">
+<input class="bg-transparent border-zinc-700 rounded-none focus:ring-0 checked:bg-primary" type="checkbox"/>
+</td>
+<td class="py-6">
+<div class="flex items-center gap-4">
+<div class="w-[56px] h-[56px] bg-zinc-800 overflow-hidden flex-shrink-0">
+<img alt="Chair" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" data-alt="classic mid-century modern lounge chair, black leather and walnut wood, sculptural silhouette, soft shadow" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBd7dn4KZorUbEcMHI2lBjP1v6I_ZmVVspZEZMnigAwn-UH6Id6UatOpKKXPOmcENCeBNeOCQzCaQtt9c5RFQvx6pxrerwQcxnLzYishBbB-yHe0yb-79q6PKTH7aSscDL3usRwzPOpz2zulWTg3PrRHkcy40FcWPOSjhF0vn6ezeD4IkICHVV-IklNBxXQPbVyCzK7BgtR2v7MtVFbcujl5hzP1plDY_nxvMXHqOAfZzaP8I7NypsAb1dGDFsGGirNLM_Y3DCirDA"/>
+</div>
+<div>
+<p class="text-sm font-medium text-white">Bauhaus Lounge Chair</p>
+<p class="text-[10px] text-zinc-500 tracking-wider">SKU: FU-BHC-01</p>
+</div>
+</div>
+</td>
+<td class="py-6 text-sm text-zinc-400">Furniture</td>
+<td class="py-6">
+<span class="inline-flex items-center px-2 py-0.5 text-[9px] font-semibold uppercase tracking-widest bg-emerald-500/10 text-emerald-500">In Stock</span>
+</td>
+<td class="py-6">
+<p class="text-sm font-medium text-primary-container">$1,250.00</p>
+</td>
+<td class="py-6 text-right">
+<button class="p-2 text-zinc-600 hover:text-white transition-colors">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+</button>
+<button class="p-2 text-zinc-600 hover:text-white transition-colors">
+<span class="material-symbols-outlined" data-icon="more_horiz">more_horiz</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</main>
+<!-- Slide-over Panel: Add Product -->
+<aside class="fixed inset-y-0 right-0 w-[480px] bg-[#0D0D0D] border-l border-zinc-800 z-50 transform translate-x-0 shadow-2xl transition-transform duration-300">
+<div class="h-full flex flex-col">
+<!-- Header -->
+<header class="h-24 border-b border-zinc-800 flex items-center justify-between px-8">
+<div>
+<h3 class="text-xl font-light tracking-tight text-white">Add New Product</h3>
+<p class="text-[10px] text-zinc-500 uppercase tracking-[0.1rem] mt-1">Product Details &amp; Inventory</p>
+</div>
+<button class="p-2 text-zinc-500 hover:text-white transition-colors">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+</header>
+<!-- Scrollable Content -->
+<div class="flex-1 overflow-y-auto p-8 space-y-10">
+<!-- Image Upload Area -->
+<section>
+<label class="text-[10px] font-medium uppercase tracking-[0.2rem] text-zinc-500 block mb-4">Product Imagery</label>
+<div class="border-2 border-dashed border-zinc-800 aspect-video flex flex-col items-center justify-center group cursor-pointer hover:border-primary-container transition-colors">
+<span class="material-symbols-outlined text-zinc-600 text-3xl mb-2 group-hover:text-primary-container" data-icon="cloud_upload">cloud_upload</span>
+<p class="text-xs text-zinc-500">Drag imagery here or <span class="text-primary-container">browse files</span></p>
+<p class="text-[9px] text-zinc-700 mt-2">Recommended: 2000 x 2000px, PNG or JPG</p>
+</div>
+</section>
+<!-- General Info -->
+<section class="space-y-6">
+<label class="text-[10px] font-medium uppercase tracking-[0.2rem] text-zinc-500 block">General Information</label>
+<div class="space-y-2">
+<p class="text-[11px] font-medium text-zinc-400">Product Title</p>
+<input class="w-full bg-transparent border-0 border-b border-zinc-800 focus:border-primary focus:ring-0 text-sm text-white px-0 py-2 transition-colors" placeholder="e.g. Minimalist Oak Stool" type="text"/>
+</div>
+<div class="grid grid-cols-2 gap-6">
+<div class="space-y-2">
+<p class="text-[11px] font-medium text-zinc-400">Category</p>
+<select class="w-full bg-transparent border-0 border-b border-zinc-800 focus:border-primary focus:ring-0 text-sm text-white px-0 py-2 appearance-none">
+<option class="bg-zinc-900">Furniture</option>
+<option class="bg-zinc-900">Lighting</option>
+<option class="bg-zinc-900">Art</option>
+<option class="bg-zinc-900">Textiles</option>
+</select>
+</div>
+<div class="space-y-2">
+<p class="text-[11px] font-medium text-zinc-400">SKU Code</p>
+<input class="w-full bg-transparent border-0 border-b border-zinc-800 focus:border-primary focus:ring-0 text-sm text-white px-0 py-2" placeholder="MN-ST-2024" type="text"/>
+</div>
+</div>
+</section>
+<!-- Pricing & Inventory -->
+<section class="space-y-6">
+<label class="text-[10px] font-medium uppercase tracking-[0.2rem] text-zinc-500 block">Pricing &amp; Inventory</label>
+<div class="grid grid-cols-2 gap-6">
+<div class="space-y-2">
+<p class="text-[11px] font-medium text-zinc-400">Retail Price (USD)</p>
+<div class="relative">
+<span class="absolute left-0 top-1/2 -translate-y-1/2 text-zinc-600 text-sm">$</span>
+<input class="w-full bg-transparent border-0 border-b border-zinc-800 focus:border-primary focus:ring-0 text-sm text-white pl-4 py-2" placeholder="0.00" type="number"/>
+</div>
+</div>
+<div class="space-y-2">
+<p class="text-[11px] font-medium text-zinc-400">Initial Stock</p>
+<input class="w-full bg-transparent border-0 border-b border-zinc-800 focus:border-primary focus:ring-0 text-sm text-white px-0 py-2" placeholder="0" type="number"/>
+</div>
+</div>
+</section>
+</div>
+<!-- Footer Actions -->
+<footer class="p-8 border-t border-zinc-800 flex items-center justify-end gap-4">
+<button class="px-6 py-2 text-zinc-400 text-[11px] font-medium uppercase tracking-[0.1rem] hover:text-white transition-colors">
+                    Discard
+                </button>
+<button class="px-8 py-3 bg-primary text-white text-[11px] font-medium uppercase tracking-[0.1rem] shadow-xl shadow-primary/20 hover:bg-primary-container transition-all">
+                    Create Product
+                </button>
+</footer>
+</div>
+</aside>
+</body></html>

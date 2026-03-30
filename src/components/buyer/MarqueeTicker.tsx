@@ -1,19 +1,25 @@
 "use client";
 
-const ITEMS = ["Free shipping above PKR 2000", "10,000+ happy buyers", "New arrivals weekly", "Trusted sellers", "AI-powered search"];
+const ITEMS = [
+  "New Arrivals Daily",
+  "Complimentary Global Shipping",
+  "Curated In Stockholm",
+  "Limited Release Editions",
+  "Sustainable Sourcing Only",
+  "Quality Engineering First",
+];
 
 export default function MarqueeTicker() {
   const renderItems = () =>
     ITEMS.map((text, i) => (
-      <span key={i} className="flex items-center gap-8 shrink-0 mx-8">
-        <span className="text-xs text-[#6B7280] tracking-[0.2em] uppercase font-medium whitespace-nowrap">{text}</span>
-        <span className="text-accent text-xs">&bull;</span>
+      <span key={i} className="flex items-center gap-12 shrink-0 mx-6">
+        <span className="text-[11px] font-medium text-white uppercase tracking-[0.1rem] whitespace-nowrap">{text}</span>
       </span>
     ));
 
   return (
-    <div className="relative bg-[#111111] border-y border-[rgba(255,255,255,0.06)] py-4 overflow-hidden">
-      <div className="animate-marquee flex">
+    <div className="w-full bg-[#0D0D0D] py-4 overflow-hidden border-y border-white/5">
+      <div className="animate-marquee flex whitespace-nowrap gap-12 items-center">
         {renderItems()}
         {renderItems()}
         {renderItems()}

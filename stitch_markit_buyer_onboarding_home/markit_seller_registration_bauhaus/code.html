@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary-fixed": "#00174b",
+              "on-primary-fixed": "#321200",
+              "outline": "#897367",
+              "outline-variant": "#dcc1b4",
+              "surface-container-high": "#ece8e0",
+              "on-tertiary-fixed": "#001f28",
+              "primary-container": "#e07b39",
+              "primary": "#9a4601",
+              "surface-bright": "#fef9f1",
+              "secondary-container": "#316bf3",
+              "inverse-surface": "#32302b",
+              "surface-container-highest": "#e7e2da",
+              "on-tertiary": "#ffffff",
+              "secondary-fixed-dim": "#b4c5ff",
+              "on-secondary-fixed-variant": "#003ea8",
+              "on-primary-fixed-variant": "#763400",
+              "on-surface-variant": "#554339",
+              "surface-container-lowest": "#ffffff",
+              "surface": "#fef9f1",
+              "surface-container": "#f2ede5",
+              "inverse-on-surface": "#f5f0e8",
+              "tertiary": "#00677e",
+              "on-error-container": "#93000a",
+              "on-surface": "#1d1c17",
+              "on-tertiary-container": "#003340",
+              "on-tertiary-fixed-variant": "#004e60",
+              "on-primary-container": "#4f2100",
+              "tertiary-container": "#00a3c6",
+              "on-secondary-container": "#fefcff",
+              "surface-tint": "#9a4601",
+              "inverse-primary": "#ffb68c",
+              "error": "#ba1a1a",
+              "surface-variant": "#e7e2da",
+              "background": "#fef9f1",
+              "on-secondary": "#ffffff",
+              "error-container": "#ffdad6",
+              "primary-fixed": "#ffdbc9",
+              "secondary": "#0051d5",
+              "on-primary": "#ffffff",
+              "tertiary-fixed": "#b5ebff",
+              "surface-dim": "#ded9d2",
+              "secondary-fixed": "#dbe1ff",
+              "tertiary-fixed-dim": "#5cd5fa",
+              "surface-container-low": "#f8f3eb",
+              "on-background": "#1d1c17",
+              "primary-fixed-dim": "#ffb68c",
+              "on-error": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      input:focus {
+        outline: none !important;
+        box-shadow: none !important;
+      }
+    </style>
+</head>
+<body class="bg-[#0D0D0D] font-body text-zinc-100 min-h-screen">
+<!-- Top Navigation suppressed for Transactional focus (Seller Registration) -->
+<main class="max-w-7xl mx-auto px-8 py-24 md:py-32 grid grid-cols-12 gap-8">
+<!-- Left Column: Editorial Header -->
+<div class="col-span-12 md:col-span-5 mb-16 md:mb-0">
+<div class="sticky top-24">
+<span class="block text-[11px] font-medium tracking-[0.1rem] text-primary-container mb-6 uppercase">Merchant Gateway</span>
+<h1 class="text-5xl md:text-7xl font-light tracking-tighter text-[#f5f0e8] leading-tight mb-8">
+                    Start <br/>Selling.
+                </h1>
+<div class="w-24 h-[1px] bg-primary-container mb-8"></div>
+<p class="text-zinc-400 font-light leading-relaxed max-w-sm">
+                    Join a curated ecosystem of independent creators. Our Bauhaus-inspired interface ensures your craftsmanship takes center stage without the noise of traditional marketplaces.
+                </p>
+<div class="mt-16 hidden md:block">
+<div class="flex items-center gap-4 group cursor-pointer">
+<span class="text-[11px] font-medium tracking-[0.1rem] uppercase text-zinc-500 group-hover:text-primary-container transition-colors">Documentation</span>
+<span class="material-symbols-outlined text-sm text-zinc-600 group-hover:text-primary-container transition-colors" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Pure Typographic Form -->
+<div class="col-span-12 md:col-span-6 md:col-start-7">
+<form class="space-y-12">
+<!-- Section 1: Identity -->
+<section>
+<label class="block text-[11px] font-medium tracking-[0.1rem] text-zinc-500 mb-2 uppercase">Brand Identity</label>
+<div class="grid grid-cols-1 gap-10">
+<div class="relative group">
+<label class="absolute -top-6 left-0 text-[10px] font-medium tracking-[0.05rem] text-zinc-600 uppercase">Legal Entity Name</label>
+<input class="w-full bg-transparent border-t-0 border-x-0 border-b border-zinc-700 py-4 px-0 text-white placeholder:text-zinc-800 focus:border-primary-container transition-colors duration-300" placeholder="THE CURATOR STUDIO" type="text"/>
+</div>
+<div class="relative group">
+<label class="absolute -top-6 left-0 text-[10px] font-medium tracking-[0.05rem] text-zinc-600 uppercase">Commercial Display Name</label>
+<input class="w-full bg-transparent border-t-0 border-x-0 border-b border-zinc-700 py-4 px-0 text-white placeholder:text-zinc-800 focus:border-primary-container transition-colors duration-300" placeholder="MARKIT_STUDIO_01" type="text"/>
+</div>
+</div>
+</section>
+<!-- Section 2: Contact -->
+<section>
+<label class="block text-[11px] font-medium tracking-[0.1rem] text-zinc-500 mb-2 uppercase">Contact Protocol</label>
+<div class="grid grid-cols-1 gap-10">
+<div class="relative group">
+<label class="absolute -top-6 left-0 text-[10px] font-medium tracking-[0.05rem] text-zinc-600 uppercase">Primary Email Address</label>
+<input class="w-full bg-transparent border-t-0 border-x-0 border-b border-zinc-700 py-4 px-0 text-white placeholder:text-zinc-800 focus:border-primary-container transition-colors duration-300" placeholder="CONTACT@MARKIT.CO" type="email"/>
+</div>
+<div class="relative group">
+<label class="absolute -top-6 left-0 text-[10px] font-medium tracking-[0.05rem] text-zinc-600 uppercase">Access Password</label>
+<input class="w-full bg-transparent border-t-0 border-x-0 border-b border-zinc-700 py-4 px-0 text-white placeholder:text-zinc-800 focus:border-primary-container transition-colors duration-300" placeholder="••••••••••••" type="password"/>
+</div>
+</div>
+</section>
+<!-- Section 3: Category Selection (The Gallery Choice) -->
+<section>
+<label class="block text-[11px] font-medium tracking-[0.1rem] text-zinc-500 mb-6 uppercase">Primary Curation Category</label>
+<div class="grid grid-cols-2 gap-4">
+<button class="border border-zinc-800 py-4 px-6 text-left hover:border-primary-container hover:bg-zinc-900/50 transition-all flex justify-between items-center group" type="button">
+<span class="text-xs tracking-widest uppercase text-zinc-400 group-hover:text-white">Objects</span>
+<span class="material-symbols-outlined text-sm text-zinc-700 group-hover:text-primary-container" data-icon="category">category</span>
+</button>
+<button class="border border-zinc-800 py-4 px-6 text-left hover:border-primary-container hover:bg-zinc-900/50 transition-all flex justify-between items-center group" type="button">
+<span class="text-xs tracking-widest uppercase text-zinc-400 group-hover:text-white">Textiles</span>
+<span class="material-symbols-outlined text-sm text-zinc-700 group-hover:text-primary-container" data-icon="texture">texture</span>
+</button>
+<button class="border border-zinc-800 py-4 px-6 text-left hover:border-primary-container hover:bg-zinc-900/50 transition-all flex justify-between items-center group" type="button">
+<span class="text-xs tracking-widest uppercase text-zinc-400 group-hover:text-white">Editorial</span>
+<span class="material-symbols-outlined text-sm text-zinc-700 group-hover:text-primary-container" data-icon="menu_book">menu_book</span>
+</button>
+<button class="border border-zinc-800 py-4 px-6 text-left hover:border-primary-container hover:bg-zinc-900/50 transition-all flex justify-between items-center group" type="button">
+<span class="text-xs tracking-widest uppercase text-zinc-400 group-hover:text-white">Digital</span>
+<span class="material-symbols-outlined text-sm text-zinc-700 group-hover:text-primary-container" data-icon="filter_vintage">filter_vintage</span>
+</button>
+</div>
+</section>
+<!-- Action Section -->
+<div class="pt-12 flex flex-col items-start gap-6">
+<button class="w-full md:w-auto px-12 py-5 bg-gradient-to-br from-primary to-primary-container text-white font-medium tracking-[0.1rem] uppercase text-xs rounded-sm hover:opacity-90 active:scale-95 transition-all shadow-xl shadow-primary/10" type="submit">
+                        Register Account
+                    </button>
+<p class="text-[10px] text-zinc-600 tracking-wide leading-relaxed">
+                        By registering, you agree to our <a class="text-zinc-400 underline underline-offset-4 hover:text-primary-container" href="#">Merchant Terms of Service</a> and <a class="text-zinc-400 underline underline-offset-4 hover:text-primary-container" href="#">Privacy Protocol</a>.
+                    </p>
+</div>
+</form>
+<!-- Status Indicator (Data Viz Accent) -->
+<div class="mt-24 pt-12 border-t border-zinc-900 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="h-1 w-12 bg-[#2563EB]"></div>
+<span class="text-[10px] text-zinc-500 uppercase tracking-widest">Network Secure</span>
+</div>
+<span class="text-[10px] text-zinc-700 uppercase tracking-widest">v.04.24 / ALPHA</span>
+</div>
+</div>
+</main>
+<!-- Aesthetic Decorative Element: Bauhaus Overlay -->
+<div class="fixed bottom-0 right-0 p-12 opacity-5 pointer-events-none">
+<div class="w-64 h-64 border border-zinc-100 rotate-45 flex items-center justify-center">
+<div class="w-32 h-32 bg-primary"></div>
+</div>
+</div>
+<!-- Minimalist Footer -->
+<footer class="bg-[#0D0D0D] border-t border-zinc-900 py-16 px-8 mt-24">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-end gap-12">
+<div>
+<h2 class="text-4xl font-light tracking-tighter text-white mb-4">MARKIT.</h2>
+<p class="text-[11px] font-light text-zinc-600 tracking-widest uppercase">Engineered for curation.</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-x-12 gap-y-4">
+<a class="text-[11px] text-zinc-500 uppercase tracking-widest hover:text-primary-container transition-colors" href="#">Manifesto</a>
+<a class="text-[11px] text-zinc-500 uppercase tracking-widest hover:text-primary-container transition-colors" href="#">Support</a>
+<a class="text-[11px] text-zinc-500 uppercase tracking-widest hover:text-primary-container transition-colors" href="#">Legal</a>
+<a class="text-[11px] text-zinc-500 uppercase tracking-widest hover:text-primary-container transition-colors" href="#">Archive</a>
+</div>
+</div>
+<div class="max-w-7xl mx-auto mt-16 pt-8 border-t border-zinc-900/50">
+<p class="text-[10px] text-zinc-700 uppercase tracking-[0.2rem]">© 2024 MARKIT. ALL RIGHTS RESERVED.</p>
+</div>
+</footer>
+</body></html>

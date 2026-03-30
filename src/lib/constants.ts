@@ -1,4 +1,4 @@
-export const APP_NAME = "Markit";
+export const APP_NAME = "MARKIT";
 
 export const NAV_LINKS = [
   { label: "Shop", href: "/products" },

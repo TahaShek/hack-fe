@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Seller Studio | Product Moderation &amp; Order Logs</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-secondary-fixed": "#00174b",
+                        "on-primary-fixed": "#321200",
+                        "outline": "#897367",
+                        "outline-variant": "#dcc1b4",
+                        "surface-container-high": "#ece8e0",
+                        "on-tertiary-fixed": "#001f28",
+                        "primary-container": "#e07b39",
+                        "primary": "#9a4601",
+                        "surface-bright": "#fef9f1",
+                        "secondary-container": "#316bf3",
+                        "inverse-surface": "#32302b",
+                        "surface-container-highest": "#e7e2da",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed-dim": "#b4c5ff",
+                        "on-secondary-fixed-variant": "#003ea8",
+                        "on-primary-fixed-variant": "#763400",
+                        "on-surface-variant": "#554339",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#fef9f1",
+                        "surface-container": "#f2ede5",
+                        "inverse-on-surface": "#f5f0e8",
+                        "tertiary": "#00677e",
+                        "on-error-container": "#93000a",
+                        "on-surface": "#1d1c17",
+                        "on-tertiary-container": "#003340",
+                        "on-tertiary-fixed-variant": "#004e60",
+                        "on-primary-container": "#4f2100",
+                        "tertiary-container": "#00a3c6",
+                        "on-secondary-container": "#fefcff",
+                        "surface-tint": "#9a4601",
+                        "inverse-primary": "#ffb68c",
+                        "error": "#ba1a1a",
+                        "surface-variant": "#e7e2da",
+                        "background": "#fef9f1",
+                        "on-secondary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "primary-fixed": "#ffdbc9",
+                        "secondary": "#0051d5",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed": "#b5ebff",
+                        "surface-dim": "#ded9d2",
+                        "secondary-fixed": "#dbe1ff",
+                        "tertiary-fixed-dim": "#5cd5fa",
+                        "surface-container-low": "#f8f3eb",
+                        "on-background": "#1d1c17",
+                        "primary-fixed-dim": "#ffb68c",
+                        "on-error": "#ffffff"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body {
+            background-color: #0D0D0D;
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 1.5rem;
+        }
+    </style>
+</head>
+<body class="antialiased">
+<!-- Sidebar Navigation -->
+<aside class="fixed left-0 top-0 h-full w-64 border-r border-zinc-800 bg-[#0D0D0D] flex flex-col p-6 z-40 font-['Inter'] text-sm tracking-wide">
+<div class="mb-12">
+<h1 class="text-lg font-medium text-white tracking-widest uppercase">Seller Studio</h1>
+<p class="text-xs text-zinc-500 mt-1 uppercase tracking-widest">Verified Merchant</p>
+</div>
+<nav class="flex-grow space-y-2">
+<a class="flex items-center gap-4 px-4 py-3 text-zinc-400 hover:bg-zinc-900 hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-[#e07b39] bg-zinc-900 rounded-sm transition-all" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span>Inventory</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-zinc-400 hover:bg-zinc-900 hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span>Orders</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-zinc-400 hover:bg-zinc-900 hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined">leaderboard</span>
+<span>Analytics</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-zinc-400 hover:bg-zinc-900 hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-zinc-800">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-10 h-10 rounded-full bg-zinc-800 flex items-center justify-center overflow-hidden">
+<img alt="Seller Profile" class="w-full h-full object-cover" data-alt="professional portrait of a male store manager in a clean studio setting with soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAy5fFdHgI-ctb0AoReldx9jI_Y8csD7mZkEbMSlXOZA87jpfYdk99D0AuOTFIdAp1H_dt4dE6lv4oaDumLRZslneBTVfG1OWkHk9dv9mtsuB4raF-ufPIqLe7jArwltddhOPkQg6CnqHDXiarnii1OjlWGFkHsxR-8Ke07D_yOFaa7LVEe7z-fVfUjefsmVc_6Jur0yUmpfPfn48-bBhhNStlcRzhZF_znblKO-CGSxq_yY3AVEnKtuG4hbi7jFUerW2F1tQ-nuG4"/>
+</div>
+<div>
+<p class="text-white font-medium">Alex Rivera</p>
+<p class="text-[10px] text-zinc-500 uppercase tracking-widest">Admin Access</p>
+</div>
+</div>
+<button class="w-full py-3 bg-gradient-to-br from-[#9a4601] to-[#e07b39] text-white text-xs font-medium uppercase tracking-widest rounded-sm">
+                Add Product
+            </button>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 p-12 min-h-screen">
+<!-- Header Section -->
+<header class="mb-12 flex justify-between items-end">
+<div>
+<span class="text-[11px] font-medium uppercase tracking-[0.2rem] text-[#e07b39] mb-2 block">Moderation Hub</span>
+<h2 class="text-4xl font-light tracking-tighter text-white">Product &amp; Order Integrity</h2>
+</div>
+<div class="flex gap-4">
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 material-symbols-outlined text-zinc-500">search</span>
+<input class="bg-zinc-900 border-none text-sm pl-12 pr-6 py-3 w-64 focus:ring-1 focus:ring-[#e07b39] rounded-sm placeholder:text-zinc-600" placeholder="Search logs..." type="text"/>
+</div>
+<button class="px-6 py-3 bg-zinc-900 text-white text-xs font-medium uppercase tracking-widest hover:bg-zinc-800 transition-colors">
+                    Export CSV
+                </button>
+</div>
+</header>
+<!-- Stats Overview (Asymmetric Layout) -->
+<section class="bento-grid mb-12">
+<div class="col-span-3 bg-zinc-900 p-8 border-l-2 border-[#316bf3]">
+<p class="text-[10px] uppercase tracking-widest text-zinc-500 mb-4">Pending Review</p>
+<p class="text-4xl font-light text-white">124</p>
+<div class="mt-4 flex items-center text-[#316bf3] text-xs">
+<span class="material-symbols-outlined text-sm mr-1">trending_up</span>
+<span>12% increase vs last week</span>
+</div>
+</div>
+<div class="col-span-3 bg-zinc-900 p-8 border-l-2 border-zinc-700">
+<p class="text-[10px] uppercase tracking-widest text-zinc-500 mb-4">Active Orders</p>
+<p class="text-4xl font-light text-white">2,841</p>
+<p class="mt-4 text-zinc-500 text-xs tracking-wide">98.2% fulfillment rate</p>
+</div>
+<div class="col-span-6 bg-zinc-900 p-8 flex justify-between items-center overflow-hidden relative">
+<div>
+<p class="text-[10px] uppercase tracking-widest text-zinc-500 mb-4">Refund Requests</p>
+<p class="text-4xl font-light text-white">0.4%</p>
+<p class="mt-4 text-[#316bf3] text-xs font-medium uppercase tracking-widest">Global standard met</p>
+</div>
+<div class="w-48 h-24 opacity-40">
+<div class="flex items-end gap-1 h-full">
+<div class="w-full bg-zinc-800 h-[40%]"></div>
+<div class="w-full bg-zinc-800 h-[60%]"></div>
+<div class="w-full bg-zinc-800 h-[45%]"></div>
+<div class="w-full bg-[#316bf3] h-[75%]"></div>
+<div class="w-full bg-zinc-800 h-[55%]"></div>
+<div class="w-full bg-zinc-800 h-[90%]"></div>
+<div class="w-full bg-zinc-800 h-[40%]"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Moderation Section -->
+<section class="mb-16">
+<div class="flex items-center gap-12 mb-8 border-b border-zinc-800">
+<button class="pb-4 text-sm font-medium uppercase tracking-widest text-[#316bf3] border-b-2 border-[#316bf3]">Pending</button>
+<button class="pb-4 text-sm font-medium uppercase tracking-widest text-zinc-500 hover:text-white transition-colors">Approved</button>
+<button class="pb-4 text-sm font-medium uppercase tracking-widest text-zinc-500 hover:text-white transition-colors">Rejected</button>
+</div>
+<div class="bg-zinc-900 overflow-hidden">
+<table class="w-full text-left">
+<thead>
+<tr class="border-b border-zinc-800 bg-zinc-950/50">
+<th class="px-8 py-5 text-[10px] uppercase tracking-[0.15rem] text-zinc-500 font-medium">Product Details</th>
+<th class="px-8 py-5 text-[10px] uppercase tracking-[0.15rem] text-zinc-500 font-medium">Category</th>
+<th class="px-8 py-5 text-[10px] uppercase tracking-[0.15rem] text-zinc-500 font-medium">Submitted</th>
+<th class="px-8 py-5 text-[10px] uppercase tracking-[0.15rem] text-zinc-500 font-medium">Risk Score</th>
+<th class="px-8 py-5 text-[10px] uppercase tracking-[0.15rem] text-zinc-500 font-medium text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-zinc-800">
+<tr class="hover:bg-zinc-950/30 transition-colors">
+<td class="px-8 py-6">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-zinc-800 rounded-sm overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="minimalist studio product shot of a high-end white watch on a neutral background with soft shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5vPvWvP1slZ7Et6EkkcqnHuUrzrrm_ZfL0JobTQR4qfgjodQ4IxYsb7K5KKPPfIJsEXumSztm5ifg3ec-bufSPgfJsU0ODUfigvYVzE6alig62YbHl4Taly42CN50RpL6u410iawNdgpZ6D5Ri5MtuGOtQD5tdfwtQv4Tn9NfaoOJM-irJSngcqvf8BLbHZN6LEIxcJp8qCrLFO7U45wEUFvvQU-LuNe6p9UW8YF8fcav18EB-im2fxbqfaYO_mu7jSFs1p2z-tU"/>
+</div>
+<div>
+<p class="text-white text-sm font-medium">Monochrome Vessel v.02</p>
+<p class="text-xs text-zinc-500">$185.00</p>
+</div>
+</div>
+</td>
+<td class="px-8 py-6 text-sm text-zinc-400">Object / Decor</td>
+<td class="px-8 py-6 text-sm text-zinc-400">Oct 12, 14:22</td>
+<td class="px-8 py-6">
+<span class="inline-block w-2 h-2 rounded-full bg-emerald-500 mr-2"></span>
+<span class="text-xs text-zinc-400 uppercase tracking-widest">Low</span>
+</td>
+<td class="px-8 py-6 text-right space-x-3">
+<button class="p-2 text-[#316bf3] hover:bg-[#316bf3]/10 transition-colors rounded-sm">
+<span class="material-symbols-outlined">check_circle</span>
+</button>
+<button class="p-2 text-red-500 hover:bg-red-500/10 transition-colors rounded-sm">
+<span class="material-symbols-outlined">cancel</span>
+</button>
+<button class="p-2 text-zinc-500 hover:text-white transition-colors">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-zinc-950/30 transition-colors">
+<td class="px-8 py-6">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-zinc-800 rounded-sm overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="close-up of professional matte black headphones on a textured dark surface with dramatic contrast" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwZBuuX-3A-q0gAuzowqkeEFDI6nxyUtCIHo_6-BTjIQfjk4AaZySCfs9cuDLQcASvP_NY5Omp_uEOCS0tkHPL46IQhK9jktUBwM511f_lf6V2iC3eNhjb1p7k4NTXm8j0h8hihvDYXwIkRWRICssML6fFmbAolYdNYjxlyYVXAEPZBIbib4bxqF_5PxPTKuTO1-S8aKYENyI35pPLrpE80yvAmLvlwZzyduGsy0f0XnS0HaWhItOO3tG-OrTDNWMd011tCwpeR58"/>
+</div>
+<div>
+<p class="text-white text-sm font-medium">Acoustic Studio-1</p>
+<p class="text-xs text-zinc-500">$340.00</p>
+</div>
+</div>
+</td>
+<td class="px-8 py-6 text-sm text-zinc-400">Audio / Tech</td>
+<td class="px-8 py-6 text-sm text-zinc-400">Oct 12, 11:05</td>
+<td class="px-8 py-6">
+<span class="inline-block w-2 h-2 rounded-full bg-amber-500 mr-2"></span>
+<span class="text-xs text-zinc-400 uppercase tracking-widest">Medium</span>
+</td>
+<td class="px-8 py-6 text-right space-x-3">
+<button class="p-2 text-[#316bf3] hover:bg-[#316bf3]/10 transition-colors rounded-sm">
+<span class="material-symbols-outlined">check_circle</span>
+</button>
+<button class="p-2 text-red-500 hover:bg-red-500/10 transition-colors rounded-sm">
+<span class="material-symbols-outlined">cancel</span>
+</button>
+<button class="p-2 text-zinc-500 hover:text-white transition-colors">
+<span class="material-symbols-outlined">visibility</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Order Logs Section -->
+<section>
+<div class="flex justify-between items-center mb-8">
+<h3 class="text-xl font-light tracking-tight text-white uppercase tracking-[0.1rem]">System-Wide Order Logs</h3>
+<div class="flex gap-4">
+<select class="bg-zinc-900 border-none text-xs text-zinc-400 uppercase tracking-widest px-4 py-2 focus:ring-1 focus:ring-[#316bf3]">
+<option>Last 24 Hours</option>
+<option>Last 7 Days</option>
+<option>Last 30 Days</option>
+</select>
+</div>
+</div>
+<div class="bg-zinc-900 overflow-hidden">
+<table class="w-full text-left">
+<thead>
+<tr class="border-b border-zinc-800 bg-zinc-950/50">
+<th class="px-8 py-5 text-[10px] uppercase tracking-[0.15rem] text-zinc-500 font-medium">Order ID</th>
+<th class="px-8 py-5 text-[10px] uppercase tracking-[0.15rem] text-zinc-500 font-medium">Customer</th>
+<th class="px-8 py-5 text-[10px] uppercase tracking-[0.15rem] text-zinc-500 font-medium">Total</th>
+<th class="px-8 py-5 text-[10px] uppercase tracking-[0.15rem] text-zinc-500 font-medium">Status</th>
+<th class="px-8 py-5 text-[10px] uppercase tracking-[0.15rem] text-zinc-500 font-medium text-right">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-zinc-800">
+<tr class="hover:bg-zinc-950/30 transition-colors">
+<td class="px-8 py-6 font-mono text-xs text-zinc-400">#ORD-99420-BAU</td>
+<td class="px-8 py-6">
+<p class="text-white text-sm">Julianne Moore</p>
+<p class="text-[10px] text-zinc-600 uppercase">j.moore@studio.io</p>
+</td>
+<td class="px-8 py-6 text-sm text-white">$1,240.00</td>
+<td class="px-8 py-6">
+<span class="px-3 py-1 bg-zinc-800 text-zinc-400 text-[10px] uppercase tracking-widest rounded-full">Processing</span>
+</td>
+<td class="px-8 py-6 text-right">
+<button class="text-xs font-medium uppercase tracking-[0.1rem] text-[#316bf3] hover:underline underline-offset-4">Manage</button>
+</td>
+</tr>
+<tr class="hover:bg-zinc-950/30 transition-colors">
+<td class="px-8 py-6 font-mono text-xs text-zinc-400">#ORD-99418-BAU</td>
+<td class="px-8 py-6">
+<p class="text-white text-sm">Kaito Nakamura</p>
+<p class="text-[10px] text-zinc-600 uppercase">k.naka@design.jp</p>
+</td>
+<td class="px-8 py-6 text-sm text-white">$215.50</td>
+<td class="px-8 py-6">
+<span class="px-3 py-1 bg-red-500/10 text-red-500 text-[10px] uppercase tracking-widest rounded-full">Dispute</span>
+</td>
+<td class="px-8 py-6 text-right">
+<button class="text-xs font-medium uppercase tracking-[0.1rem] text-[#316bf3] hover:underline underline-offset-4">Resolve</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</main>
+<!-- Modal Overlay: Order Preview (Detailed) -->
+<div class="fixed inset-0 bg-[#0D0D0D]/90 backdrop-blur-md z-50 flex items-center justify-center p-6">
+<div class="bg-zinc-900 w-full max-w-4xl border border-zinc-800 shadow-2xl relative overflow-hidden">
+<!-- Modal Close -->
+<button class="absolute right-6 top-6 text-zinc-500 hover:text-white transition-colors">
+<span class="material-symbols-outlined text-3xl">close</span>
+</button>
+<div class="grid grid-cols-12">
+<!-- Left: Order Details -->
+<div class="col-span-8 p-12">
+<div class="mb-10">
+<span class="text-[10px] font-medium uppercase tracking-[0.2rem] text-[#316bf3] mb-2 block">Order Resolution</span>
+<h3 class="text-3xl font-light tracking-tight text-white mb-2">#ORD-99418-BAU</h3>
+<p class="text-zinc-500 text-sm">Received on October 11, 2023 at 09:14 AM</p>
+</div>
+<div class="space-y-8">
+<div class="flex gap-6 items-start">
+<div class="w-20 h-20 bg-zinc-800 rounded-sm flex-shrink-0 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="dynamic close-up of a bright red athletic sneaker against a dark background with sharp lighting highlights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeWtVQZNRmAxFR52iisv9_8HhKcInYQZmLudY33mGVm8qYSz0x4acn-JG1mVNholYKQCvhj1iWf5XqoSftRBg7ACB8qyJMvma0bnsbePA_59FSf5Wu3yvaXgdbv7PoiWyV_-eqSa2llmh0xMWuACY7nD0AqXkciMsB0ow8w8V5yLwCS-QMxQOhwEKRBVAIkxFMpBwmQvHyKCxYpWcTUokw1IEXe8QJm5FsVOt0LCGUicGGBWgLH2O9Qugs_Lmi01kBuZWvDMqr7uA"/>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-white font-medium">Hyper-Shift Trainer</p>
+<p class="text-xs text-zinc-500 mt-1">Size: 42 | Color: Crimson</p>
+</div>
+<p class="text-white font-medium">$215.50</p>
+</div>
+<div class="mt-4 p-4 bg-red-500/5 border border-red-500/20 rounded-sm">
+<p class="text-[10px] uppercase tracking-widest text-red-500 font-bold mb-1">Customer Dispute</p>
+<p class="text-xs text-zinc-400 leading-relaxed italic">"The product arrived with a small scuff on the heel. I expected a pristine finish for this price point."</p>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-12 pt-8 border-t border-zinc-800">
+<div>
+<h4 class="text-[10px] uppercase tracking-widest text-zinc-500 mb-4">Shipping Address</h4>
+<p class="text-sm text-zinc-300 leading-relaxed">
+                                    Kaito Nakamura<br/>
+                                    2-11-3 Shibuya, Shibuya-ku<br/>
+                                    Tokyo 150-0002<br/>
+                                    Japan
+                                </p>
+</div>
+<div>
+<h4 class="text-[10px] uppercase tracking-widest text-zinc-500 mb-4">Payment Info</h4>
+<p class="text-sm text-zinc-300 leading-relaxed">
+                                    Mastercard ending in 4421<br/>
+                                    Auth ID: 9022-X9-LL<br/>
+                                    Status: <span class="text-emerald-500">Captured</span>
+</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right: Action Panel -->
+<div class="col-span-4 bg-zinc-950/50 p-12 border-l border-zinc-800">
+<h4 class="text-[10px] uppercase tracking-widest text-zinc-500 mb-8">Moderator Toolbox</h4>
+<div class="space-y-4">
+<button class="w-full py-4 border border-zinc-700 text-white text-xs font-medium uppercase tracking-[0.2rem] hover:bg-zinc-800 transition-colors">
+                            Message Customer
+                        </button>
+<button class="w-full py-4 border border-red-500/50 text-red-500 text-xs font-medium uppercase tracking-[0.2rem] hover:bg-red-500/10 transition-colors">
+                            Issue Full Refund
+                        </button>
+<button class="w-full py-4 bg-[#316bf3] text-white text-xs font-medium uppercase tracking-[0.2rem] hover:bg-[#2563EB] transition-colors">
+                            Resolve &amp; Close
+                        </button>
+</div>
+<div class="mt-12">
+<h4 class="text-[10px] uppercase tracking-widest text-zinc-500 mb-4">Audit Trail</h4>
+<div class="space-y-6">
+<div class="relative pl-6 before:content-[''] before:absolute before:left-0 before:top-1 before:w-1.5 before:h-1.5 before:bg-zinc-700 before:rounded-full">
+<p class="text-[10px] text-zinc-500">Oct 11, 10:45</p>
+<p class="text-xs text-zinc-400">Dispute opened by customer</p>
+</div>
+<div class="relative pl-6 before:content-[''] before:absolute before:left-0 before:top-1 before:w-1.5 before:h-1.5 before:bg-[#316bf3] before:rounded-full">
+<p class="text-[10px] text-[#316bf3]">Oct 11, 11:20</p>
+<p class="text-xs text-white">System: Fraud check passed</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body></html>

@@ -14,15 +14,15 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 
 const variantStyles: Record<ButtonVariant, string> = {
   primary:
-    "bg-accent text-white font-medium hover:shadow-[0_0_30px_rgba(232,120,74,0.3)] active:scale-[0.97]",
+    "bg-gradient-to-br from-[#9a4601] to-[#e07b39] text-white font-medium hover:opacity-90 active:scale-[0.97]",
   secondary:
-    "bg-surface text-[#F5F5F5] hover:bg-surface-hover",
+    "bg-[#e7e2da] text-[#1d1c17] hover:bg-[#ece8e0]",
   outline:
-    "border border-[rgba(255,255,255,0.12)] text-[#9CA3AF] hover:border-accent/40 hover:text-accent",
+    "border border-[#dcc1b4]/30 text-[#1d1c17] hover:border-[#9a4601]/40 hover:text-[#9a4601]",
   ghost:
-    "text-[#6B7280] hover:text-[#F5F5F5] hover:bg-[rgba(255,255,255,0.03)]",
+    "text-[#9a4601] underline underline-offset-4 hover:text-[#e07b39]",
   danger:
-    "bg-red-600 text-white hover:bg-red-700 active:bg-red-800",
+    "bg-[#ba1a1a] text-white hover:bg-[#93000a] active:bg-[#93000a]",
 };
 
 const sizeStyles: Record<ButtonSize, string> = {
@@ -36,7 +36,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     <button
       ref={ref}
       className={cn(
-        "rounded-full font-medium transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[#080808] disabled:opacity-50 disabled:pointer-events-none cursor-pointer",
+        "rounded-sm font-medium uppercase tracking-wide transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#9a4601]/50 focus-visible:ring-offset-2 focus-visible:ring-offset-[#fef9f1] disabled:opacity-50 disabled:pointer-events-none cursor-pointer",
         variantStyles[variant],
         sizeStyles[size],
         className

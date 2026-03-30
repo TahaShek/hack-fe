@@ -46,3 +46,8 @@ next-env.d.ts
 .kiro/
 design-system/
 skills-lock.json
+CLAUDE.md
+
+# playwright / test artifacts
+playwright-report/
+test-results/

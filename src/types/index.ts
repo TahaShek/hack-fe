@@ -1,5 +1,6 @@
 export interface User {
   id: string;
+  _id?: string;
   name: string;
   email: string;
   avatar?: string;
@@ -10,6 +11,7 @@ export interface User {
 
 export interface Product {
   id: string;
+  _id?: string;
   name: string;
   slug: string;
   description: string;
@@ -45,6 +47,7 @@ export interface VariantOption {
 
 export interface CartItem {
   id: string;
+  _id?: string;
   product: Product;
   quantity: number;
   selectedVariants: Record<string, string>;
@@ -52,6 +55,7 @@ export interface CartItem {
 
 export interface Order {
   id: string;
+  _id?: string;
   orderNumber: string;
   buyerId: string;
   buyerName: string;
@@ -60,6 +64,8 @@ export interface Order {
   items: OrderItem[];
   status: OrderStatus;
   trackingId?: string;
+  estimatedDeliveryDate?: string;
+  deliveryMethod?: string;
   subtotal: number;
   discount: number;
   shipping: number;
@@ -81,6 +87,7 @@ export type OrderStatus =
 
 export interface OrderItem {
   id: string;
+  _id?: string;
   productId: string;
   productName: string;
   productImage: string;
@@ -134,6 +141,7 @@ export interface Coupon {
 
 export interface ChatMessage {
   id: string;
+  _id?: string;
   conversationId: string;
   senderId: string;
   senderName: string;
@@ -147,6 +155,7 @@ export interface ChatMessage {
 
 export interface Conversation {
   id: string;
+  _id?: string;
   participants: { id: string; name: string; avatar?: string }[];
   lastMessage?: ChatMessage;
   unreadCount: number;
@@ -155,6 +164,7 @@ export interface Conversation {
 
 export interface Notification {
   id: string;
+  _id?: string;
   type: "order" | "promo" | "system" | "chat";
   title: string;
   message: string;

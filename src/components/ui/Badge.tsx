@@ -7,19 +7,19 @@ interface BadgeProps {
 }
 
 const variantStyles = {
-  default: "bg-[rgba(255,255,255,0.05)] text-[#6B7280]",
-  success: "bg-emerald-500/10 text-emerald-400",
-  warning: "bg-amber-500/10 text-amber-400",
-  danger: "bg-red-500/10 text-red-400",
-  info: "bg-blue-500/10 text-blue-400",
-  accent: "bg-accent/10 text-accent",
+  default: "bg-[#e7e2da] text-[#897367]",
+  success: "bg-emerald-500/10 text-emerald-700",
+  warning: "bg-amber-500/10 text-amber-700",
+  danger: "bg-[#ba1a1a]/10 text-[#ba1a1a]",
+  info: "bg-blue-500/10 text-blue-700",
+  accent: "bg-[#9a4601]/10 text-[#9a4601]",
 };
 
 export default function Badge({ children, className, variant = "default" }: BadgeProps) {
   return (
     <span
       className={cn(
-        "inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium",
+        "inline-flex items-center rounded-sm px-2.5 py-0.5 text-[11px] font-medium uppercase tracking-[0.1rem]",
         variantStyles[variant],
         className
       )}

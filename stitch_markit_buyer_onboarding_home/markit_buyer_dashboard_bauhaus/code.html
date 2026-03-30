@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MARKIT | Buyer Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..700&amp;family=JetBrains+Mono&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-secondary-fixed": "#00174b",
+                        "on-primary-fixed": "#321200",
+                        "outline": "#897367",
+                        "outline-variant": "#dcc1b4",
+                        "surface-container-high": "#ece8e0",
+                        "on-tertiary-fixed": "#001f28",
+                        "primary-container": "#e07b39",
+                        "primary": "#9a4601",
+                        "surface-bright": "#fef9f1",
+                        "secondary-container": "#316bf3",
+                        "inverse-surface": "#32302b",
+                        "surface-container-highest": "#e7e2da",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed-dim": "#b4c5ff",
+                        "on-secondary-fixed-variant": "#003ea8",
+                        "on-primary-fixed-variant": "#763400",
+                        "on-surface-variant": "#554339",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#fef9f1",
+                        "surface-container": "#f2ede5",
+                        "inverse-on-surface": "#f5f0e8",
+                        "tertiary": "#00677e",
+                        "on-error-container": "#93000a",
+                        "on-surface": "#1d1c17",
+                        "on-tertiary-container": "#003340",
+                        "on-tertiary-fixed-variant": "#004e60",
+                        "on-primary-container": "#4f2100",
+                        "tertiary-container": "#00a3c6",
+                        "on-secondary-container": "#fefcff",
+                        "surface-tint": "#9a4601",
+                        "inverse-primary": "#ffb68c",
+                        "error": "#ba1a1a",
+                        "surface-variant": "#e7e2da",
+                        "background": "#fef9f1",
+                        "on-secondary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "primary-fixed": "#ffdbc9",
+                        "secondary": "#0051d5",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed": "#b5ebff",
+                        "surface-dim": "#ded9d2",
+                        "secondary-fixed": "#dbe1ff",
+                        "tertiary-fixed-dim": "#5cd5fa",
+                        "surface-container-low": "#f8f3eb",
+                        "on-background": "#1d1c17",
+                        "primary-fixed-dim": "#ffb68c",
+                        "on-error": "#ffffff"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"],
+                        "mono": ["JetBrains Mono"]
+                    },
+                    borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body {
+            background-color: #fef9f1;
+            color: #1d1c17;
+            font-family: 'Inter', sans-serif;
+        }
+        /* Muji-style smooth scroll */
+        html { scroll-behavior: smooth; }
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #fef9f1; }
+        ::-webkit-scrollbar-thumb { background: #dcc1b4; border-radius: 2px; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- Top Navigation Anchor -->
+<nav class="fixed top-0 w-full z-50 h-16 border-b border-[#dcc1b4]/15 bg-[#fef9f1]/80 backdrop-blur-md flex justify-between items-center px-8">
+<div class="text-xl font-medium tracking-[0.1rem] uppercase text-[#0D0D0D]">MARKIT</div>
+<div class="hidden md:flex items-center gap-8 font-light tracking-tight text-zinc-900">
+<a class="hover:text-[#9a4601] transition-colors duration-200" href="#">Shop</a>
+<a class="hover:text-[#9a4601] transition-colors duration-200" href="#">Collections</a>
+<a class="hover:text-[#9a4601] transition-colors duration-200" href="#">Journal</a>
+</div>
+<div class="flex items-center gap-6">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-all">shopping_cart</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-all">person</button>
+</div>
+</nav>
+<div class="flex pt-16 min-h-screen">
+<!-- Sidebar Navigation -->
+<aside class="fixed left-0 top-16 h-[calc(100vh-64px)] w-64 border-r border-zinc-800 bg-[#0D0D0D] flex flex-col p-6 z-40">
+<div class="mb-10">
+<div class="text-lg font-medium text-white tracking-widest uppercase mb-1">Seller Studio</div>
+<div class="text-[11px] font-medium uppercase tracking-[0.1rem] text-zinc-500">Verified Merchant</div>
+</div>
+<div class="space-y-2 flex-grow">
+<a class="flex items-center gap-4 px-4 py-3 text-[#e07b39] bg-zinc-900 rounded-sm font-['Inter'] text-sm tracking-wide" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-zinc-400 hover:bg-zinc-900 hover:text-white transition-all font-['Inter'] text-sm tracking-wide" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span>Inventory</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-zinc-400 hover:bg-zinc-900 hover:text-white transition-all font-['Inter'] text-sm tracking-wide" href="#">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span>Orders</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-zinc-400 hover:bg-zinc-900 hover:text-white transition-all font-['Inter'] text-sm tracking-wide" href="#">
+<span class="material-symbols-outlined">leaderboard</span>
+<span>Analytics</span>
+</a>
+<a class="flex items-center gap-4 px-4 py-3 text-zinc-400 hover:bg-zinc-900 hover:text-white transition-all font-['Inter'] text-sm tracking-wide" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Settings</span>
+</a>
+</div>
+<button class="mt-auto w-full py-3 bg-gradient-to-br from-primary to-primary-container text-white text-[11px] font-medium uppercase tracking-[0.1rem] rounded-sm scale-95 active:opacity-80 transition-all">
+                Add Product
+            </button>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 flex-grow p-12 bg-surface">
+<!-- Header Section -->
+<header class="mb-12 flex justify-between items-end">
+<div>
+<h1 class="text-4xl font-light tracking-tighter text-on-surface mb-2">Welcome back, Arthur.</h1>
+<p class="body-md text-on-surface-variant font-light max-w-md">Your curated collection and recent acquisitions, presented with Bauhaus precision.</p>
+</div>
+<div class="flex gap-4">
+<div class="text-right">
+<div class="text-[11px] font-medium uppercase tracking-[0.1rem] text-primary">Member Status</div>
+<div class="text-lg font-light">Diamond Tier</div>
+</div>
+</div>
+</header>
+<!-- Grid Layout -->
+<div class="grid grid-cols-12 gap-8">
+<!-- My Orders Section (Bento Block) -->
+<section class="col-span-8 space-y-8">
+<div class="bg-surface-container-low p-8 rounded-lg">
+<div class="flex justify-between items-center mb-6">
+<h2 class="text-[11px] font-medium uppercase tracking-[0.1rem] text-on-surface-variant">Recent Orders</h2>
+<button class="text-[11px] font-medium uppercase tracking-[0.1rem] text-primary border-b border-primary/20 pb-0.5 hover:border-primary transition-all">View All History</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="text-[11px] font-medium uppercase tracking-[0.1rem] text-outline pb-4 border-b border-outline-variant/15">
+<th class="py-4 font-medium">Order ID</th>
+<th class="py-4 font-medium">Placement</th>
+<th class="py-4 font-medium">Total</th>
+<th class="py-4 font-medium text-right">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<tr class="group hover:bg-surface-container-high/50 transition-colors">
+<td class="py-4 font-mono text-sm text-on-surface">#MK-882190</td>
+<td class="py-4 text-sm font-light">Oct 12, 2023</td>
+<td class="py-4 text-sm font-medium">$1,240.00</td>
+<td class="py-4 text-right">
+<span class="inline-flex items-center px-2 py-1 rounded-full text-[10px] font-medium uppercase tracking-wider bg-secondary-container/10 text-secondary-container">In Transit</span>
+</td>
+</tr>
+<tr class="group hover:bg-surface-container-high/50 transition-colors">
+<td class="py-4 font-mono text-sm text-on-surface">#MK-881244</td>
+<td class="py-4 text-sm font-light">Sep 28, 2023</td>
+<td class="py-4 text-sm font-medium">$450.00</td>
+<td class="py-4 text-right">
+<span class="inline-flex items-center px-2 py-1 rounded-full text-[10px] font-medium uppercase tracking-wider bg-tertiary/10 text-tertiary">Delivered</span>
+</td>
+</tr>
+<tr class="group hover:bg-surface-container-high/50 transition-colors">
+<td class="py-4 font-mono text-sm text-on-surface">#MK-880911</td>
+<td class="py-4 text-sm font-light">Sep 24, 2023</td>
+<td class="py-4 text-sm font-medium">$3,100.00</td>
+<td class="py-4 text-right">
+<span class="inline-flex items-center px-2 py-1 rounded-full text-[10px] font-medium uppercase tracking-wider bg-primary/10 text-primary">Pending</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Order Detail / Timeline Section -->
+<div class="bg-surface-container-low p-8 rounded-lg">
+<div class="flex justify-between items-start mb-10">
+<div>
+<h2 class="text-[11px] font-medium uppercase tracking-[0.1rem] text-on-surface-variant mb-1">Active Tracking</h2>
+<p class="text-xl font-light">Modular Shelving System v.2</p>
+</div>
+<button class="px-6 py-2 bg-surface-container-highest text-on-surface text-[11px] font-medium uppercase tracking-[0.1rem] hover:bg-surface-container-high transition-all">
+                                Request Return
+                            </button>
+</div>
+<!-- Horizontal Timeline -->
+<div class="relative pt-8 pb-4">
+<div class="absolute top-[41px] left-0 w-full h-px bg-outline-variant/30"></div>
+<div class="flex justify-between items-center relative z-10">
+<div class="flex flex-col items-center">
+<div class="w-3 h-3 rounded-full bg-primary mb-4 ring-8 ring-surface-container-low"></div>
+<span class="text-[10px] font-medium uppercase tracking-wider text-on-surface">Ordered</span>
+<span class="text-[10px] text-on-surface-variant font-light mt-1">Oct 12</span>
+</div>
+<div class="flex flex-col items-center">
+<div class="w-3 h-3 rounded-full bg-primary mb-4 ring-8 ring-surface-container-low"></div>
+<span class="text-[10px] font-medium uppercase tracking-wider text-on-surface">Processing</span>
+<span class="text-[10px] text-on-surface-variant font-light mt-1">Oct 13</span>
+</div>
+<div class="flex flex-col items-center">
+<div class="w-3 h-3 rounded-full bg-primary mb-4 ring-8 ring-surface-container-low animate-pulse"></div>
+<span class="text-[10px] font-medium uppercase tracking-wider text-primary">In Transit</span>
+<span class="text-[10px] text-on-surface-variant font-light mt-1">Expected Oct 18</span>
+</div>
+<div class="flex flex-col items-center opacity-30">
+<div class="w-3 h-3 rounded-full bg-outline-variant mb-4 ring-8 ring-surface-container-low"></div>
+<span class="text-[10px] font-medium uppercase tracking-wider text-on-surface">Delivered</span>
+<span class="text-[10px] text-on-surface-variant font-light mt-1">—</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Sidebar Content Section (Notifications & Stats) -->
+<section class="col-span-4 space-y-8">
+<!-- Notifications List -->
+<div class="bg-surface-container-low p-8 rounded-lg">
+<h2 class="text-[11px] font-medium uppercase tracking-[0.1rem] text-on-surface-variant mb-6">Notifications</h2>
+<div class="space-y-6">
+<div class="pb-6 border-b border-outline-variant/15 flex gap-4">
+<span class="material-symbols-outlined text-primary mt-0.5">local_shipping</span>
+<div>
+<p class="text-sm font-light leading-tight">Your shipment #MK-882190 has left the warehouse in Hamburg.</p>
+<span class="text-[10px] text-on-surface-variant font-light mt-1 block">2 hours ago</span>
+</div>
+</div>
+<div class="pb-6 border-b border-outline-variant/15 flex gap-4">
+<span class="material-symbols-outlined text-secondary mt-0.5">verified</span>
+<div>
+<p class="text-sm font-light leading-tight">New Curator Collection: "Bauhaus Revival" is now live.</p>
+<span class="text-[10px] text-on-surface-variant font-light mt-1 block">5 hours ago</span>
+</div>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-outline mt-0.5">mail</span>
+<div>
+<p class="text-sm font-light leading-tight">Seller "Studio Minimal" replied to your inquiry.</p>
+<span class="text-[10px] text-on-surface-variant font-light mt-1 block">Yesterday</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Recommended Visual -->
+<div class="relative aspect-[4/5] rounded-lg overflow-hidden group">
+<img alt="Bauhaus Architecture" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Minimalist Bauhaus style architectural detail with clean lines and geometric shadows in warm cream tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVUIkBsvh9bYVEKZDdj6181WgmAXXeZaj_UeNy02UsKZ19_GR_rbHEiJRMOJNIraq3lyscsBa1r4qgRQ-tkonOPjEo_zH4XyIkJC6pdxKhmakAwY9yEZWmDWC-79l2R4-KGz8-zIy_nc6fyjlQpxZxoDb4PI_6MPKLMy56F553doKnsCzfkU5AJaZ87sbUC9cYBgoVYyYPAyWs0cZW_5ySQ4BSVjrBSKUU_5i9ICfpCQYtH7OsRm4Vn4z9Eo2luuiXaIiXK7eARMs"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-6">
+<span class="text-[10px] font-medium uppercase tracking-[0.2rem] text-white/70 mb-2">Curated Piece</span>
+<h3 class="text-white text-xl font-light mb-4">Limited Edition Aluminum Chair No.4</h3>
+<button class="w-full py-3 bg-white text-black text-[11px] font-medium uppercase tracking-[0.1rem] rounded-sm hover:bg-primary hover:text-white transition-all">Explore Item</button>
+</div>
+</div>
+</section>
+</div>
+</main>
+</div>
+<!-- Footer Utility -->
+<footer class="bg-[#0D0D0D] w-full py-16 px-12 grid grid-cols-4 gap-8">
+<div class="col-span-1">
+<div class="text-4xl font-light tracking-tighter text-white mb-8 uppercase">MARKIT</div>
+<p class="font-['Inter'] font-light text-zinc-400 text-sm leading-relaxed">
+                © 2024 MARKIT. Engineered for curation. A dialogue between the organic and the industrial.
+            </p>
+</div>
+<div class="col-span-3 grid grid-cols-3 gap-8">
+<div class="flex flex-col gap-3">
+<h4 class="text-[11px] font-medium uppercase tracking-[0.1rem] text-[#e07b39] mb-4">Foundation</h4>
+<a class="text-zinc-500 hover:text-white transition-colors text-sm font-light" href="#">About</a>
+<a class="text-zinc-500 hover:text-white transition-colors text-sm font-light" href="#">Careers</a>
+<a class="text-zinc-500 hover:text-white transition-colors text-sm font-light" href="#">Sustainability</a>
+</div>
+<div class="flex flex-col gap-3">
+<h4 class="text-[11px] font-medium uppercase tracking-[0.1rem] text-[#e07b39] mb-4">Service</h4>
+<a class="text-zinc-500 hover:text-white transition-colors text-sm font-light" href="#">Support</a>
+<a class="text-zinc-500 hover:text-white transition-colors text-sm font-light" href="#">Shipping</a>
+<a class="text-zinc-500 hover:text-white transition-colors text-sm font-light" href="#">Returns</a>
+</div>
+<div class="flex flex-col gap-3">
+<h4 class="text-[11px] font-medium uppercase tracking-[0.1rem] text-[#e07b39] mb-4">Legal</h4>
+<a class="text-zinc-500 hover:text-white transition-colors text-sm font-light" href="#">Privacy</a>
+<a class="text-zinc-500 hover:text-white transition-colors text-sm font-light" href="#">Contact</a>
+</div>
+</div>
+</footer>
+</body></html>

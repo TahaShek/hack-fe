@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MARKIT Seller Studio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-background": "#f5f0e8",
+              "on-surface-variant": "#dcc1b4",
+              "error": "#ba1a1a",
+              "on-error-container": "#93000a",
+              "background": "#0D0D0D",
+              "on-primary": "#ffffff",
+              "surface-variant": "#2A2A2A",
+              "surface-container": "#1A1A1A",
+              "outline": "#897367",
+              "on-surface": "#f5f0e8",
+              "primary": "#9a4601",
+              "outline-variant": "#dcc1b4",
+              "surface-container-low": "#141414",
+              "primary-container": "#e07b39",
+              "on-primary-container": "#4f2100",
+              "surface": "#0D0D0D",
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0D0D0D;
+            color: #f5f0e8;
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .sidebar-border { border-right: 1px solid #2A2A2A; }
+        .card-border { border: 1px solid #2A2A2A; }
+        .divider-border { border-bottom: 1px solid #2A2A2A; }
+        .saffron-text { color: #e07b39; }
+        .saffron-bg { background-color: #e07b39; }
+    </style>
+</head>
+<body class="bg-[#0D0D0D] text-[#f5f0e8] antialiased">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full flex flex-col p-6 z-40 w-64 bg-[#0D0D0D] border-r border-zinc-800 font-['Inter'] text-sm tracking-wide">
+<div class="mb-12">
+<h1 class="text-lg font-medium text-white tracking-widest uppercase">MARKIT</h1>
+<div class="mt-8 flex items-center gap-3">
+<div class="w-10 h-10 bg-zinc-800 rounded-sm overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close up portrait of a professional male merchant in a clean minimalist studio setting with soft directional lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuFlbZl9FmIZ2bRLfyO5dQBQ77sNVoDHrUJPdGxbnsByZxvRkKbzYaRSZ4P8NG21uAe8i0JzJ3Cax-F3CfE_grDQS0vyna9HzCrlC9gBahgyR1JDPvJLKsvSeRir3gPbN8AhvgXDAjys3neSsy0o55bhyCIVovQ8ssHZ0CqorD13u7Wos1SAcCWQVTq9sN6KVrpPNFzE5WcbwbHZy12IkwFtG6YyJSjERcg1xzqymXJWBykw8NVeCl5KA34-ElUsX2wOts3kclOs4"/>
+</div>
+<div>
+<p class="text-white font-medium">Seller Studio</p>
+<p class="text-zinc-500 text-xs uppercase tracking-tighter">Verified Merchant</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 text-[#e07b39] bg-zinc-900 rounded-sm transition-all" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-400 hover:bg-zinc-900 hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span>Inventory</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-400 hover:bg-zinc-900 hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span>Orders</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-400 hover:bg-zinc-900 hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined">leaderboard</span>
+<span>Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-400 hover:bg-zinc-900 hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+<button class="mt-auto saffron-bg text-white py-3 px-4 font-medium tracking-wide flex items-center justify-center gap-2 rounded-sm active:opacity-80 transition-all">
+<span class="material-symbols-outlined">add</span>
+            Add Product
+        </button>
+</aside>
+<!-- Main Content -->
+<main class="ml-64 p-12 min-h-screen">
+<!-- Header -->
+<header class="flex justify-between items-end mb-12">
+<div>
+<span class="text-[11px] font-medium tracking-[0.1rem] uppercase text-zinc-500">Overview</span>
+<h2 class="text-4xl font-light tracking-tighter text-white mt-2">Performance Hub</h2>
+</div>
+<div class="flex gap-4">
+<button class="px-6 py-2 bg-zinc-900 text-white text-sm font-medium border border-zinc-800 rounded-sm">Export Data</button>
+</div>
+</header>
+<!-- Metric Cards -->
+<section class="grid grid-cols-4 gap-6 mb-12">
+<div class="bg-[#1A1A1A] border border-[#2A2A2A] p-6 rounded-sm">
+<span class="text-[10px] font-medium tracking-[0.1rem] uppercase text-zinc-500">Total Revenue</span>
+<p class="text-4xl font-semibold text-[#e07b39] mt-4">$128,430</p>
+<div class="mt-4 flex items-center gap-1 text-[11px] text-emerald-500">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+<span>+12.5% vs last month</span>
+</div>
+</div>
+<div class="bg-[#1A1A1A] border border-[#2A2A2A] p-6 rounded-sm">
+<span class="text-[10px] font-medium tracking-[0.1rem] uppercase text-zinc-500">Active Orders</span>
+<p class="text-4xl font-semibold text-[#e07b39] mt-4">842</p>
+<div class="mt-4 flex items-center gap-1 text-[11px] text-zinc-500">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span>14 pending fulfillment</span>
+</div>
+</div>
+<div class="bg-[#1A1A1A] border border-[#2A2A2A] p-6 rounded-sm">
+<span class="text-[10px] font-medium tracking-[0.1rem] uppercase text-zinc-500">Customer LTV</span>
+<p class="text-4xl font-semibold text-[#e07b39] mt-4">$412</p>
+<div class="mt-4 flex items-center gap-1 text-[11px] text-emerald-500">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+<span>+3.2% growth</span>
+</div>
+</div>
+<div class="bg-[#1A1A1A] border border-[#2A2A2A] p-6 rounded-sm">
+<span class="text-[10px] font-medium tracking-[0.1rem] uppercase text-zinc-500">Conversion Rate</span>
+<p class="text-4xl font-semibold text-[#e07b39] mt-4">4.8%</p>
+<div class="mt-4 flex items-center gap-1 text-[11px] text-zinc-500">
+<span class="material-symbols-outlined text-sm">bolt</span>
+<span>Benchmark: 3.5%</span>
+</div>
+</div>
+</section>
+<!-- Revenue Overview Chart Area -->
+<section class="mb-12 bg-[#1A1A1A] border border-[#2A2A2A] p-8 rounded-sm">
+<div class="flex justify-between items-center mb-8">
+<span class="text-[11px] font-medium tracking-[0.1rem] uppercase text-zinc-400">REVENUE OVERVIEW</span>
+<div class="flex gap-4 text-xs font-medium text-zinc-500">
+<span class="text-[#e07b39]">Weekly</span>
+<span class="hover:text-white cursor-pointer">Monthly</span>
+<span class="hover:text-white cursor-pointer">Yearly</span>
+</div>
+</div>
+<div class="h-64 flex items-end gap-1 overflow-hidden">
+<!-- Saffron Area Chart Representation -->
+<div class="flex-1 saffron-bg opacity-20 h-[40%]" style="clip-path: polygon(0% 100%, 0% 40%, 10% 20%, 20% 50%, 30% 10%, 40% 60%, 50% 30%, 60% 70%, 70% 20%, 80% 40%, 90% 10%, 100% 50%, 100% 100%);"></div>
+<div class="absolute w-[calc(100%-11rem)] h-64 pointer-events-none">
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 1000 100">
+<path d="M0,60 L100,40 L200,70 L300,30 L400,80 L500,50 L600,90 L700,40 L800,60 L900,30 L1000,70" fill="none" stroke="#e07b39" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+<div class="flex justify-between mt-4 text-[10px] uppercase tracking-widest text-zinc-600">
+<span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+</div>
+</section>
+<div class="grid grid-cols-12 gap-8 mb-12">
+<!-- Recent Orders Table -->
+<section class="col-span-8 bg-[#1A1A1A] border border-[#2A2A2A] p-8 rounded-sm">
+<span class="text-[11px] font-medium tracking-[0.1rem] uppercase text-zinc-400 block mb-6">RECENT ORDERS</span>
+<table class="w-full text-left">
+<thead>
+<tr class="text-[10px] text-zinc-500 uppercase tracking-widest divider-border">
+<th class="pb-4 font-medium">Order ID</th>
+<th class="pb-4 font-medium">Customer</th>
+<th class="pb-4 font-medium">Status</th>
+<th class="pb-4 font-medium text-right">Amount</th>
+</tr>
+</thead>
+<tbody class="text-sm">
+<tr class="divider-border border-[#2A2A2A]/50">
+<td class="py-4 font-mono text-zinc-400">#MK-9021</td>
+<td class="py-4 text-zinc-100">Alexander Thorne</td>
+<td class="py-4"><span class="text-[10px] px-2 py-0.5 bg-zinc-800 text-zinc-300 rounded-sm">PROCESSING</span></td>
+<td class="py-4 text-right font-medium text-white">$452.00</td>
+</tr>
+<tr class="divider-border border-[#2A2A2A]/50">
+<td class="py-4 font-mono text-zinc-400">#MK-9018</td>
+<td class="py-4 text-zinc-100">Elena Rousseau</td>
+<td class="py-4"><span class="text-[10px] px-2 py-0.5 bg-emerald-900/30 text-emerald-500 rounded-sm">SHIPPED</span></td>
+<td class="py-4 text-right font-medium text-white">$1,120.00</td>
+</tr>
+<tr>
+<td class="py-4 font-mono text-zinc-400">#MK-8994</td>
+<td class="py-4 text-zinc-100">Marcus Wright</td>
+<td class="py-4"><span class="text-[10px] px-2 py-0.5 bg-zinc-800 text-zinc-300 rounded-sm">DELIVERED</span></td>
+<td class="py-4 text-right font-medium text-white">$89.00</td>
+</tr>
+</tbody>
+</table>
+</section>
+<!-- Low Stock Alerts -->
+<section class="col-span-4 bg-[#1A1A1A] border border-[#2A2A2A] p-8 rounded-sm">
+<span class="text-[11px] font-medium tracking-[0.1rem] uppercase text-zinc-400 block mb-6">LOW STOCK ALERTS</span>
+<div class="space-y-6">
+<div class="flex gap-4 items-center">
+<div class="w-12 h-12 bg-zinc-900 border border-zinc-800 shrink-0">
+<img class="w-full h-full object-cover grayscale opacity-80" data-alt="Minimalist wrist watch with white face and tan leather strap on dark grey background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUfZwbNYEOQy5uI-We6Ca2xyUEdAak08_M2Rw6JwgonML4ijoXVyf2F0tLNvhBe3aTLSH1Yy0a_FhJ4L3FFX5m-5J_vlsE-Jev1aRQcUXZ3JfppfxoXnMlmjlte0jm4IwG18POu2bUeZh688AaXdiYfLwxF7_6ySJ8r6f_EmgYI7XOc7nUiaixZ91xcz__yqdGYz7-ZzNPHBb_K48-CSfbsk2r-McIdsWStlI3xrCAZ0CiEsEDMQEa7sJYX_LVIymHDYDAI0Tdrns"/>
+</div>
+<div class="flex-1">
+<p class="text-xs font-medium text-zinc-100">Bauhaus Watch Edition 01</p>
+<p class="text-[10px] text-error font-medium">Only 2 left</p>
+</div>
+<button class="text-[#e07b39] text-xs font-medium">Restock</button>
+</div>
+<div class="flex gap-4 items-center">
+<div class="w-12 h-12 bg-zinc-900 border border-zinc-800 shrink-0">
+<img class="w-full h-full object-cover grayscale opacity-80" data-alt="Raw tan leather backpack on a concrete surface with soft dramatic shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfSF8ykXo0LRb4IRoreyddtFsyHgO1yFJpfXeWKwwgWf2ZSMLIvOps7NJzXyZECvJkwAf_aN85hziJ7qDDncchnd89rGg2XDCKDUz2OQFz1v2VD0usow99m7W2vl0oPXO-GNCU4GSM8-Fk_z8afy_9bCHF9WzwSvwiOdG74tTRUPEEfIhPHFEghDMcD04DuYcujM5ii3K4r39q_0Rs2r86R0nCE-vMYaQQ4TYZKII05RF3LwV2mjUMUW2Ozwk0187DdNEIAV2moTs"/>
+</div>
+<div class="flex-1">
+<p class="text-xs font-medium text-zinc-100">Artisan Leather Carryall</p>
+<p class="text-[10px] text-error font-medium">Only 5 left</p>
+</div>
+<button class="text-[#e07b39] text-xs font-medium">Restock</button>
+</div>
+<div class="flex gap-4 items-center">
+<div class="w-12 h-12 bg-zinc-900 border border-zinc-800 shrink-0">
+<img class="w-full h-full object-cover grayscale opacity-80" data-alt="Vintage style analog camera on a dark minimalist wood table" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9l2voG0HuVcPoMCHfU4WdWnlTcJGyJj_IEz_cuxe77-Y2v6XZUTVVmRv_HWRh4Z2vcshwCoFN69lo4sIS22zX7s1iw8FaD_jRbPAtebgLbpsqqGtGW-eojmFyOTXgnLH2m4IpKr9IXj2yjMdH6Dm_1rmFRYJ2a4pf9WDdY_XBENK6n_3zlQ0lK1t9tR-SGDeifdU9d5jcwP3I0KkBBhWC7PYXGl78X1BcokzBWRgQWEfiWhDvIcNUD8T4DtIMQIaYcdcVEy8NU70"/>
+</div>
+<div class="flex-1">
+<p class="text-xs font-medium text-zinc-100">M-35 Rangefinder Silver</p>
+<p class="text-[10px] text-error font-medium">Out of stock</p>
+</div>
+<button class="text-[#e07b39] text-xs font-medium">Restock</button>
+</div>
+</div>
+</section>
+</div>
+<!-- Product Management Table -->
+<section class="bg-[#1A1A1A] border border-[#2A2A2A] p-8 rounded-sm">
+<div class="flex justify-between items-center mb-8">
+<span class="text-[11px] font-medium tracking-[0.1rem] uppercase text-zinc-400">INVENTORY MANAGEMENT</span>
+<div class="flex items-center gap-2 bg-zinc-900 px-3 py-1.5 border border-zinc-800">
+<span class="material-symbols-outlined text-zinc-500 text-sm">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-xs text-zinc-300 w-48 p-0" placeholder="Search products..." type="text"/>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="text-[10px] text-zinc-500 uppercase tracking-widest border-b border-[#2A2A2A]">
+<th class="pb-4 font-medium w-16">Item</th>
+<th class="pb-4 font-medium pl-4">Product Name</th>
+<th class="pb-4 font-medium">SKU</th>
+<th class="pb-4 font-medium">Stock</th>
+<th class="pb-4 font-medium">Price</th>
+<th class="pb-4 font-medium text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="text-sm">
+<!-- Product Row 1 -->
+<tr class="border-b border-[#2A2A2A]">
+<td class="py-6">
+<div class="w-14 h-14 bg-zinc-900 border border-[#2A2A2A] overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Minimalist wooden sculpture of a horse on a soft beige background with clean lines" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtK0GLTjaNDXIQXAgwLLfhjoWsKo-ICe5uz1f_ygWWAIClxMkR7NdkxhxlY5FPRsEkc0Q2xdr-_swH4l590AiAVgF80kmGjDkscqt8XjnNLtLLZgTkPyh59cvNuj8na0UkowEtt2qrbhkkU7ybI502c1k5_a83VF6qXcq2Fl6sNqVWZStbqSFJNL6DOhm3qow2NjzTK-f6C8kKuqYYzeXBXr6o-D90k8sGm0s8cV8MbX_KwKba5-uMElXwn-_XUQv3uYtrOta3tcw"/>
+</div>
+</td>
+<td class="py-6 pl-4">
+<p class="text-zinc-100 font-medium">Sculptural Oak Figurine</p>
+<p class="text-[10px] text-zinc-500 uppercase">Home &amp; Objects</p>
+</td>
+<td class="py-6 font-mono text-zinc-400">MK-OBJ-012</td>
+<td class="py-6">
+<span class="text-zinc-300">42</span>
+</td>
+<td class="py-6 text-zinc-100">$245.00</td>
+<td class="py-6 text-right">
+<button class="material-symbols-outlined text-zinc-500 hover:text-[#e07b39] transition-colors">edit</button>
+<button class="material-symbols-outlined text-zinc-500 hover:text-error transition-colors ml-3">delete</button>
+</td>
+</tr>
+<!-- Product Row 2 -->
+<tr class="border-b border-[#2A2A2A]">
+<td class="py-6">
+<div class="w-14 h-14 bg-zinc-900 border border-[#2A2A2A] overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Modern geometric floor lamp with matte black finish in a brightly lit gallery space" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfgrW_f9XaZkQuHnUzqkQjPLZ4lb_4nYg9hze2ZkGIqpkDKAIRJst3za0OaqxUmt8g_2OSB_UPMIXFyvouLb3WEONssUWLMDMoDFbZngRTmUntucAvFC4V-H8jJL-gimR6WzNnJzvrIwhMu6cYG3KOuqzqz0_Oj7y8-uFxlR2o_x4wHKp6r0-D1PMlZx69KE8f_ukRR_Hzt3dN7q5uauvrZop7be0VfPlyEcGuYxwtZ_9y7xjf3iC7UiP1U1IkfxCa9u-Dn1iyXMU"/>
+</div>
+</td>
+<td class="py-6 pl-4">
+<p class="text-zinc-100 font-medium">Linear Floor Lamp Black</p>
+<p class="text-[10px] text-zinc-500 uppercase">Lighting</p>
+</td>
+<td class="py-6 font-mono text-zinc-400">MK-LIT-088</td>
+<td class="py-6">
+<span class="text-zinc-300">18</span>
+</td>
+<td class="py-6 text-zinc-100">$890.00</td>
+<td class="py-6 text-right">
+<button class="material-symbols-outlined text-zinc-500 hover:text-[#e07b39] transition-colors">edit</button>
+<button class="material-symbols-outlined text-zinc-500 hover:text-error transition-colors ml-3">delete</button>
+</td>
+</tr>
+<!-- Product Row 3 -->
+<tr>
+<td class="py-6">
+<div class="w-14 h-14 bg-zinc-900 border border-[#2A2A2A] overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Folded high quality charcoal wool blanket showing rich texture and fine stitching" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqBAlIGQdgGhCAQXN64koVzTNqyOHiHu7-a1A0xNG0szzlWfnj34NqgLRNm1LT9qMDAhxOZ5CQPklW2KL77aDBMYqyZFfRGeIAbXYRiNgr8K_NvdKuSCM0zjC8Ffdpa9B8c6Br4bp2xhlrzdmBudGOi38QaAerLq3e-kU4c8ejZKm9XZrj15TNTckXzfW0AyBJHbpuXtCZySdYGyMUyalxHMjJoiDFaVGAhf-1yTc7QCaSQFeWDxzo4PbsA0SEw-Vozq4qWd23qcY"/>
+</div>
+</td>
+<td class="py-6 pl-4">
+<p class="text-zinc-100 font-medium">Merino Wool Throw</p>
+<p class="text-[10px] text-zinc-500 uppercase">Textiles</p>
+</td>
+<td class="py-6 font-mono text-zinc-400">MK-TEX-045</td>
+<td class="py-6">
+<span class="text-zinc-300">124</span>
+</td>
+<td class="py-6 text-zinc-100">$185.00</td>
+<td class="py-6 text-right">
+<button class="material-symbols-outlined text-zinc-500 hover:text-[#e07b39] transition-colors">edit</button>
+<button class="material-symbols-outlined text-zinc-500 hover:text-error transition-colors ml-3">delete</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</main>
+<!-- Footer Simulation (Hidden or Minimal) -->
+<footer class="ml-64 w-[calc(100%-16rem)] py-12 px-12 border-t border-zinc-800 bg-[#0D0D0D] flex justify-between items-center text-zinc-600 text-xs">
+<div>
+<p class="tracking-widest uppercase">© 2024 MARKIT. Engineered for curation.</p>
+</div>
+<div class="flex gap-8">
+<a class="hover:text-white transition-colors" href="#">Terms</a>
+<a class="hover:text-white transition-colors" href="#">Support</a>
+<a class="hover:text-white transition-colors" href="#">Privacy</a>
+</div>
+</footer>
+</body></html>

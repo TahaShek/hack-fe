@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Wishlist | MARKIT</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary-fixed": "#00174b",
+              "on-primary-fixed": "#321200",
+              "outline": "#897367",
+              "outline-variant": "#dcc1b4",
+              "surface-container-high": "#ece8e0",
+              "on-tertiary-fixed": "#001f28",
+              "primary-container": "#e07b39",
+              "primary": "#9a4601",
+              "surface-bright": "#fef9f1",
+              "secondary-container": "#316bf3",
+              "inverse-surface": "#32302b",
+              "surface-container-highest": "#e7e2da",
+              "on-tertiary": "#ffffff",
+              "secondary-fixed-dim": "#b4c5ff",
+              "on-secondary-fixed-variant": "#003ea8",
+              "on-primary-fixed-variant": "#763400",
+              "on-surface-variant": "#554339",
+              "surface-container-lowest": "#ffffff",
+              "surface": "#fef9f1",
+              "surface-container": "#f2ede5",
+              "inverse-on-surface": "#f5f0e8",
+              "tertiary": "#00677e",
+              "on-error-container": "#93000a",
+              "on-surface": "#1d1c17",
+              "on-tertiary-container": "#003340",
+              "on-tertiary-fixed-variant": "#004e60",
+              "on-primary-container": "#4f2100",
+              "tertiary-container": "#00a3c6",
+              "on-secondary-container": "#fefcff",
+              "surface-tint": "#9a4601",
+              "inverse-primary": "#ffb68c",
+              "error": "#ba1a1a",
+              "surface-variant": "#e7e2da",
+              "background": "#fef9f1",
+              "on-secondary": "#ffffff",
+              "error-container": "#ffdad6",
+              "primary-fixed": "#ffdbc9",
+              "secondary": "#0051d5",
+              "on-primary": "#ffffff",
+              "tertiary-fixed": "#b5ebff",
+              "surface-dim": "#ded9d2",
+              "secondary-fixed": "#dbe1ff",
+              "tertiary-fixed-dim": "#5cd5fa",
+              "surface-container-low": "#f8f3eb",
+              "on-background": "#1d1c17",
+              "primary-fixed-dim": "#ffb68c",
+              "on-error": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #fef9f1;
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .editorial-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 1.75rem;
+        }
+    </style>
+</head>
+<body class="text-on-surface">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 h-16 border-b border-[#dcc1b4]/15 bg-[#fef9f1]/80 backdrop-blur-md flex justify-between items-center px-8 w-full">
+<div class="flex items-center gap-12">
+<span class="text-xl font-medium tracking-[0.1rem] uppercase text-[#0D0D0D]">MARKIT</span>
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-['Inter'] font-light tracking-tight text-[#0D0D0D] hover:text-[#9a4601] transition-colors duration-200" href="#">Shop</a>
+<a class="font-['Inter'] font-light tracking-tight text-[#0D0D0D] hover:text-[#9a4601] transition-colors duration-200" href="#">Collections</a>
+<a class="font-['Inter'] font-light tracking-tight text-[#0D0D0D] hover:text-[#9a4601] transition-colors duration-200" href="#">Journal</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<button class="scale-95 active:opacity-80 transition-all text-[#0D0D0D] hover:text-[#9a4601]">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+</button>
+<button class="scale-95 active:opacity-80 transition-all text-[#0D0D0D] hover:text-[#9a4601]">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+</button>
+</div>
+</nav>
+<main class="pt-32 pb-24 px-8 max-w-7xl mx-auto">
+<!-- Header Section -->
+<header class="editorial-grid mb-16">
+<div class="col-span-12 md:col-start-2 md:col-span-10">
+<span class="text-[11px] font-medium tracking-[0.1rem] uppercase text-primary mb-4 block">Personal Curation</span>
+<h1 class="text-[3.5rem] font-light tracking-tighter leading-none text-on-surface">
+                    Saved Items<span class="text-primary">.</span> <span class="text-primary-container text-2xl align-top ml-2">(4)</span>
+</h1>
+</div>
+</header>
+<!-- Product Grid -->
+<section class="editorial-grid">
+<div class="col-span-12 md:col-start-2 md:col-span-10">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">
+<!-- Item 1 -->
+<div class="group relative">
+<div class="aspect-[3/4] overflow-hidden bg-surface-container-low border border-outline-variant/15 p-4 mb-6">
+<img class="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-500" data-alt="minimalist ceramic vase with organic texture against a warm neutral background with soft shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYLwJ1WyPuJ5DQJdJtAIT98R71SJ7eQ6ZTLuHhHXAZpYajf2w8rpYjF2dZaWEqP9hgkbV2Ngv_wWKLgzj4qM1dpkcelH2nsJoy5b_96xz6qAWFM8iQIY7dfhtzjYYAcj6vgt9d6PJ-QtcHdlFcqZ-u6vkbiJ90mKvnwXNjNRwspSVO3s67d6r0Ji2Q1jxvqxfTuaZsp6EWBtsvx_WgppaE0dqLuvfKgUcb4ZjGFmd98LIiqSjdYEZRhxHdR-K-wSQsKXelrwLRqr8"/>
+</div>
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-sm font-light text-on-surface tracking-tight">Hand-Thrown Ceramic Carafe</h3>
+<button class="text-on-surface-variant/40 hover:text-error transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="close">close</span>
+</button>
+</div>
+<p class="text-xs text-on-surface-variant font-medium mb-4 uppercase tracking-widest">Saffron Edition</p>
+<a class="text-[11px] font-medium uppercase tracking-[0.1rem] text-primary hover:text-primary-container flex items-center gap-2 group-hover:translate-x-1 transition-transform" href="#">
+                            Move to Cart <span class="material-symbols-outlined text-xs" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+<!-- Item 2 -->
+<div class="group relative">
+<div class="aspect-[3/4] overflow-hidden bg-surface-container-low border border-outline-variant/15 p-4 mb-6">
+<img class="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-500" data-alt="geometric wooden chair design with clean lines and oak finish in a minimalist architectural space" src="https://lh3.googleusercontent.com/aida-public/AB6AXuACTTnSsrPcTNP6HKq5-WNiFTJ8uv-RfTaluPVyLN6s1h28wtJ-K8QEw1Lm8mBr1rB-ons3erf12YF8TIcKTb3NDsU_U1Z6132bVZvKL0NV2E3ZZtky3BifKmfCY2WTSGt0eZs3Y2eUlPgebm0MOc9NDReTjcK9FF4-h02QXo7r45HI3CIgBLksj1niaj4mGxZqsRgtY40nOfgLltL84U2TOjS6gLTHxqGlQ2g71g_o3McGtN_7m8drTOK8vCGhlBdAeJb0KdSiQY0"/>
+</div>
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-sm font-light text-on-surface tracking-tight">Bauhaus Sculptural Chair</h3>
+<button class="text-on-surface-variant/40 hover:text-error transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="close">close</span>
+</button>
+</div>
+<p class="text-xs text-on-surface-variant font-medium mb-4 uppercase tracking-widest">Natural Oak</p>
+<a class="text-[11px] font-medium uppercase tracking-[0.1rem] text-primary hover:text-primary-container flex items-center gap-2 group-hover:translate-x-1 transition-transform" href="#">
+                            Move to Cart <span class="material-symbols-outlined text-xs" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+<!-- Item 3 -->
+<div class="group relative">
+<div class="aspect-[3/4] overflow-hidden bg-surface-container-low border border-outline-variant/15 p-4 mb-6">
+<img class="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-500" data-alt="brutalist concrete desk lamp with warm circular glow in a dimly lit modern study" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJWN4ixWVylLETjqw2qzYsXja-ZPAEcsbK3KJ0uDMDR9N56rxJMazN_lln_mqrJns-9j8fFhjepF2OBx8f45XZp4fG5I1H-A0m_X7nAkQRUF2rRjaI5kHBtIJsQe1F-ujwLhYpyovf5jjp5b70B0wftpP1K96UheyId01wN7eRXHnSr0NnYIwX_m_AMTJ_FBaXu7WGkh1UYgXcauDgi0rjzaPrcbMYedmsjZ4fOz_5p6kKB0rR9CAmhjuMldAnOknjrtWihOKaCrc"/>
+</div>
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-sm font-light text-on-surface tracking-tight">Concrete Study Lamp</h3>
+<button class="text-on-surface-variant/40 hover:text-error transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="close">close</span>
+</button>
+</div>
+<p class="text-xs text-on-surface-variant font-medium mb-4 uppercase tracking-widest">Slate Grey</p>
+<a class="text-[11px] font-medium uppercase tracking-[0.1rem] text-primary hover:text-primary-container flex items-center gap-2 group-hover:translate-x-1 transition-transform" href="#">
+                            Move to Cart <span class="material-symbols-outlined text-xs" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+<!-- Item 4 -->
+<div class="group relative">
+<div class="aspect-[3/4] overflow-hidden bg-surface-container-low border border-outline-variant/15 p-4 mb-6">
+<img class="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-500" data-alt="linen draped lounge sofa in a soft sunlit living room with architectural arch details" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoQMkkHKTlkrqMRXD23kUHGuKRA2Liij_twH5KtnZDHwop9v2P9yMLp7Yo991xqiZxg3WwxGybKf33PxLY7Nkz3McqSJy2S4zaljjGSPdgfNuVUlB8283ZV-R15rM3qhi_K4BRmA8decyVkjkXYWoZPnw0FzNww-dYNP52a7LXLk0ivrNoyveLg9qGfM1GRFtZimR6ZGCZVxrQxJ03c_jlItE0rZ39rS3ctfl33bxwBZgbMgSkaLEF44B7nTsfBFXHKVk9cIzXcP4"/>
+</div>
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-sm font-light text-on-surface tracking-tight">Linen Daybed</h3>
+<button class="text-on-surface-variant/40 hover:text-error transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="close">close</span>
+</button>
+</div>
+<p class="text-xs text-on-surface-variant font-medium mb-4 uppercase tracking-widest">Bone White</p>
+<a class="text-[11px] font-medium uppercase tracking-[0.1rem] text-primary hover:text-primary-container flex items-center gap-2 group-hover:translate-x-1 transition-transform" href="#">
+                            Move to Cart <span class="material-symbols-outlined text-xs" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Empty State (Conditional View) - Hidden by default but structured for requirements -->
+<section class="hidden py-32 text-center editorial-grid">
+<div class="col-span-12 flex flex-col items-center">
+<span class="material-symbols-outlined text-6xl text-on-surface-variant/20 mb-8" data-icon="bookmark_border">bookmark_border</span>
+<p class="text-3xl font-light text-on-surface-variant/30 tracking-tight max-w-md">Your curation is currently silent. Discover items to fill the void.</p>
+<a class="mt-12 text-[11px] font-medium uppercase tracking-[0.2rem] border-b border-primary pb-2 text-primary" href="#">Start Curating</a>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-16 px-12 grid grid-cols-4 gap-8 bg-[#0D0D0D] border-t border-zinc-800">
+<div class="col-span-4 md:col-span-1">
+<div class="text-4xl font-light tracking-tighter text-white mb-8">MARKIT</div>
+<p class="font-['Inter'] font-light text-zinc-400 text-sm">© 2024 MARKIT. Engineered for curation.</p>
+</div>
+<div class="col-span-2 md:col-span-1 flex flex-col gap-3">
+<span class="text-[11px] font-medium tracking-[0.1rem] uppercase text-[#e07b39] mb-4">Company</span>
+<a class="font-['Inter'] font-light text-zinc-500 hover:text-[#e07b39] transition-colors text-sm" href="#">About</a>
+<a class="font-['Inter'] font-light text-zinc-500 hover:text-[#e07b39] transition-colors text-sm" href="#">Careers</a>
+<a class="font-['Inter'] font-light text-zinc-500 hover:text-[#e07b39] transition-colors text-sm" href="#">Sustainability</a>
+<a class="font-['Inter'] font-light text-zinc-500 hover:text-[#e07b39] transition-colors text-sm" href="#">Privacy</a>
+</div>
+<div class="col-span-2 md:col-span-1 flex flex-col gap-3">
+<span class="text-[11px] font-medium tracking-[0.1rem] uppercase text-[#e07b39] mb-4">Support</span>
+<a class="font-['Inter'] font-light text-zinc-500 hover:text-[#e07b39] transition-colors text-sm" href="#">Support</a>
+<a class="font-['Inter'] font-light text-zinc-500 hover:text-[#e07b39] transition-colors text-sm" href="#">Shipping</a>
+<a class="font-['Inter'] font-light text-zinc-500 hover:text-[#e07b39] transition-colors text-sm" href="#">Returns</a>
+<a class="font-['Inter'] font-light text-zinc-500 hover:text-[#e07b39] transition-colors text-sm" href="#">Contact</a>
+</div>
+<div class="col-span-4 md:col-span-1">
+<span class="text-[11px] font-medium tracking-[0.1rem] uppercase text-[#e07b39] mb-4">Journal</span>
+<p class="font-['Inter'] font-light text-zinc-500 text-sm mb-6">Sign up for our weekly editorial on design culture.</p>
+<div class="border-b border-zinc-700 py-2 flex justify-between items-center">
+<input class="bg-transparent border-none text-zinc-100 text-sm focus:ring-0 p-0 w-full placeholder:text-zinc-600" placeholder="Email address" type="email"/>
+<button class="text-white hover:text-[#e07b39] transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</footer>
+</body></html>

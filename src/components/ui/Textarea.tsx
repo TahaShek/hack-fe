@@ -10,9 +10,9 @@ interface TextareaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement
 
 const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
   ({ className, label, error, id, ...props }, ref) => (
-    <div className="space-y-1.5">
+    <div className="space-y-2">
       {label && (
-        <label htmlFor={id} className="block text-sm font-medium text-zinc-300">
+        <label htmlFor={id} className="block text-[11px] tracking-[0.1rem] uppercase text-[#897367] font-medium">
           {label}
         </label>
       )}
@@ -20,13 +20,13 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
         ref={ref}
         id={id}
         className={cn(
-          "w-full rounded-lg border border-zinc-700 bg-zinc-900 px-4 py-2.5 text-sm text-zinc-100 placeholder-zinc-500 transition-colors focus:border-violet-500 focus:outline-none focus:ring-1 focus:ring-violet-500/50 resize-none",
-          error && "border-red-500",
+          "w-full border-b border-[#897367] bg-transparent px-0 py-3 text-sm text-[#1d1c17] placeholder-[#897367] transition-colors focus:border-[#9a4601] focus:outline-none resize-none",
+          error && "border-[#ba1a1a]",
           className
         )}
         {...props}
       />
-      {error && <p className="text-xs text-red-500">{error}</p>}
+      {error && <p className="text-[10px] text-[#ba1a1a]">{error}</p>}
     </div>
   )
 );
