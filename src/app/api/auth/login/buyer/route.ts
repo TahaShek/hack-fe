@@ -38,10 +38,12 @@ export async function POST(req: NextRequest) {
 
     return response;
   } catch (error: unknown) {
+    console.error("[POST /api/auth/login/buyer] Error:", error);
     const err = error as { status?: number; message?: string };
     if (err.status) {
       return errorResponse(err.message || "Error", err.status);
     }
-    return errorResponse("Internal server error", 500);
+    const msg = error instanceof Error ? error.message : "Internal server error";
+    return errorResponse(msg, 500);
   }
 }

@@ -36,6 +36,7 @@ export async function connectDB(): Promise<typeof mongoose> {
       maxPoolSize: 5,
     };
 
+    console.log("[MongoDB] Connecting to:", (MONGODB_URI as string).replace(/\/\/[^:]+:[^@]+@/, "//***:***@"));
     cached.promise = mongoose
       .connect(MONGODB_URI as string, opts)
       .then((m) => {
@@ -44,7 +45,7 @@ export async function connectDB(): Promise<typeof mongoose> {
       })
       .catch((err) => {
         cached.promise = null;
-        console.error("[MongoDB] Connection error:", err);
+        console.error("[MongoDB] Connection error:", err.message || err);
         throw err;
       });
   }

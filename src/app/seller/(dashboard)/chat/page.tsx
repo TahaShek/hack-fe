@@ -36,7 +36,7 @@ export default function SellerChatPage() {
     loadConversations();
   }, [setConversations]);
 
-  // Load messages when conversation changes
+  // Load messages when conversation changes + poll every 3s
   useEffect(() => {
     if (!activeConversationId) return;
     const loadMessages = async () => {
@@ -50,7 +50,23 @@ export default function SellerChatPage() {
       }
     };
     loadMessages();
+    const interval = setInterval(loadMessages, 3000);
+    return () => clearInterval(interval);
   }, [activeConversationId, setMessages]);
+
+  // Poll conversations list every 5s
+  useEffect(() => {
+    const pollConversations = async () => {
+      try {
+        const res = await api.get("/chat/conversations");
+        if (res.data.success && Array.isArray(res.data.data)) {
+          setConversations(res.data.data);
+        }
+      } catch { /* ignore */ }
+    };
+    const interval = setInterval(pollConversations, 5000);
+    return () => clearInterval(interval);
+  }, [setConversations]);
 
   const activeConversation = conversations.find((c) => c.id === activeConversationId);
   const conversationMessages = messages.filter((m) => m.conversationId === activeConversationId);

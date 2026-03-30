@@ -104,7 +104,7 @@ function ChatContent() {
     }
   }, [sellerIdParam, sellerNameParam, loadingConversations, conversations, currentUserName, setActiveConversation, setConversations]);
 
-  // Load messages when conversation changes
+  // Load messages when conversation changes + poll every 3s for new messages
   useEffect(() => {
     if (!activeConversationId) return;
     const loadMessages = async () => {
@@ -118,7 +118,23 @@ function ChatContent() {
       }
     };
     loadMessages();
+    const interval = setInterval(loadMessages, 3000);
+    return () => clearInterval(interval);
   }, [activeConversationId, setMessages]);
+
+  // Poll conversations list every 5s for new messages / unread counts
+  useEffect(() => {
+    const pollConversations = async () => {
+      try {
+        const res = await api.get("/chat/conversations");
+        if (res.data.success && Array.isArray(res.data.data)) {
+          setConversations(res.data.data);
+        }
+      } catch { /* ignore */ }
+    };
+    const interval = setInterval(pollConversations, 5000);
+    return () => clearInterval(interval);
+  }, [setConversations]);
 
   const activeConversation = conversations.find((c) => c.id === activeConversationId);
   const conversationMessages = messages.filter(
