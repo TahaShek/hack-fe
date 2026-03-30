@@ -28,6 +28,7 @@ export const POST = withAuth(async (req: AuthenticatedRequest) => {
     const result = await initiatePayment(req.user.id, parsed.data);
     return successResponse(result, "Payment initiated", 201);
   } catch (error: unknown) {
+    console.error("[API /payment/initiate] Error:", error instanceof Error ? error.stack : error);
     const err = error as { status?: number; message?: string };
     if (err.status) return errorResponse(err.message || "Error", err.status);
     return errorResponse("Internal server error", 500);

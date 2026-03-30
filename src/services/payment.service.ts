@@ -1,31 +1,11 @@
+import Stripe from "stripe";
 import Order from "@/models/Order";
 import Transaction from "@/models/Transaction";
 import mongoose from "mongoose";
-import crypto from "crypto";
 
-// Stripe is optional — when STRIPE_SECRET_KEY is missing, use sandbox/mock mode
-let stripe: import("stripe").default | null = null;
-
-if (process.env.STRIPE_SECRET_KEY) {
-  // Dynamic import at module level isn't possible, so we lazy-init
-  const Stripe = require("stripe").default as typeof import("stripe").default;
-  stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
-    apiVersion: "2026-03-25.dahlia",
-  });
-}
-
-/** Generate a mock payment intent for sandbox mode */
-function mockPaymentIntent(amountInCents: number, metadata: Record<string, string>) {
-  const id = `pi_mock_${crypto.randomBytes(12).toString("hex")}`;
-  return {
-    id,
-    client_secret: `${id}_secret_${crypto.randomBytes(8).toString("hex")}`,
-    amount: amountInCents,
-    currency: "usd",
-    status: "requires_payment_method" as const,
-    metadata,
-  };
-}
+const stripe = process.env.STRIPE_SECRET_KEY
+  ? new Stripe(process.env.STRIPE_SECRET_KEY, { apiVersion: "2026-03-25.dahlia" })
+  : null;
 
 interface InitiatePaymentInput {
   orderId: string;
@@ -92,14 +72,18 @@ export async function initiatePayment(userId: string, input: InitiatePaymentInpu
   }
 
   // Create PaymentIntent — real Stripe or sandbox mock
-  const paymentIntent = stripe
-    ? await stripe.paymentIntents.create({
-        amount: amountInCents,
-        currency: "usd",
-        payment_method_types: ["card"],
-        metadata,
-      })
-    : mockPaymentIntent(amountInCents, metadata);
+  let paymentIntent: { id: string; client_secret: string | null };
+  if (stripe) {
+    paymentIntent = await stripe.paymentIntents.create({
+      amount: amountInCents,
+      currency: "usd",
+      payment_method_types: ["card"],
+      metadata,
+    });
+  } else {
+    const mockId = `pi_mock_${Date.now()}`;
+    paymentIntent = { id: mockId, client_secret: `${mockId}_secret` };
+  }
 
   const platformFee = Math.round(order.totalAmount * 0.05 * 100) / 100;
 
