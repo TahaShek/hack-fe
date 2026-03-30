@@ -8,16 +8,16 @@ export function getSocket(): Socket | null {
   return socket;
 }
 
-export function connectSocket(token: string): Socket {
+export function connectSocket(token: string): Socket | null {
   // Don't connect with invalid tokens
   if (!token || token === "undefined" || token === "null" || token.length < 10) {
     if (socket) { socket.disconnect(); socket = null; }
-    return null as unknown as Socket;
+    return null;
   }
 
   // Skip Socket.IO on Vercel/serverless — WebSockets aren't supported
   if (typeof window !== "undefined" && window.location.hostname.includes("vercel.app")) {
-    return null as unknown as Socket;
+    return null;
   }
 
   if (socket?.connected) return socket;

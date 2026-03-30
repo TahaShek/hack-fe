@@ -128,9 +128,9 @@ export interface Category {
 export interface Coupon {
   id: string;
   code: string;
-  type: "percentage" | "fixed";
-  value: number;
-  minOrder: number;
+  discountType: "percentage" | "fixed";
+  discountValue: number;
+  minOrderAmount: number;
   maxDiscount?: number;
   usageLimit: number;
   usedCount: number;

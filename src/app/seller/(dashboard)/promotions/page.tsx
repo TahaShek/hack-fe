@@ -86,9 +86,9 @@ export default function PromotionsPage() {
 
   const buildPayload = (data: CouponFormData) => ({
     code: data.code,
-    type: data.discountType === "flat" ? "fixed" as const : "percentage" as const,
-    value: parseFloat(data.discountValue),
-    minOrder: data.minOrderAmount ? parseFloat(data.minOrderAmount) : 0,
+    discountType: data.discountType === "flat" ? "fixed" as const : "percentage" as const,
+    discountValue: parseFloat(data.discountValue),
+    minOrderAmount: data.minOrderAmount ? parseFloat(data.minOrderAmount) : 0,
     maxDiscount: data.maxDiscount ? parseFloat(data.maxDiscount) : undefined,
     usageLimit: data.usageLimit ? parseInt(data.usageLimit) : 100,
     startDate: data.startDate,
@@ -113,7 +113,7 @@ export default function PromotionsPage() {
         setCoupons((prev) =>
           prev.map((c) =>
             c.id === editingCoupon.id
-              ? { ...c, code: payload.code, type: payload.type, value: payload.value, minOrder: payload.minOrder, maxDiscount: payload.maxDiscount, usageLimit: payload.usageLimit, startDate: payload.startDate, endDate: payload.endDate }
+              ? { ...c, code: payload.code, discountType: payload.discountType, discountValue: payload.discountValue, minOrderAmount: payload.minOrderAmount, maxDiscount: payload.maxDiscount, usageLimit: payload.usageLimit, startDate: payload.startDate, endDate: payload.endDate }
               : c
           )
         );
@@ -148,9 +148,9 @@ export default function PromotionsPage() {
     setEditingCoupon(coupon);
     modalForm.reset({
       code: coupon.code,
-      discountType: coupon.type === "fixed" ? "flat" : "percentage",
-      discountValue: String(coupon.value),
-      minOrderAmount: String(coupon.minOrder),
+      discountType: coupon.discountType === "fixed" ? "flat" : "percentage",
+      discountValue: String(coupon.discountValue),
+      minOrderAmount: String(coupon.minOrderAmount),
       maxDiscount: coupon.maxDiscount ? String(coupon.maxDiscount) : "",
       usageLimit: String(coupon.usageLimit),
       startDate: coupon.startDate?.split("T")[0] || "",
@@ -181,7 +181,7 @@ export default function PromotionsPage() {
   };
 
   const inlineInputClass = (hasError: boolean) =>
-    `w-full bg-transparent border-b ${hasError ? "border-red-500" : "border-zinc-800"} py-3 focus:border-[#e07b39] focus:ring-0 text-sm transition-colors outline-none placeholder:text-zinc-700`;
+    `w-full bg-transparent border-b ${hasError ? "border-red-500" : "border-zinc-800"} py-3 focus:border-[#e07b39] focus:ring-0 text-sm transition-colors outline-none text-white placeholder:text-zinc-600`;
 
   return (
     <div className="space-y-8">
@@ -232,8 +232,8 @@ export default function PromotionsPage() {
                       {coupon.code}
                     </p>
                     <p className="text-xs text-zinc-400 mt-1">
-                      {coupon.type === "percentage" ? `${coupon.value}% Off` : `$${coupon.value} Off`}
-                      {" "}&middot; Min ${coupon.minOrder}
+                      {coupon.discountType === "percentage" ? `${coupon.discountValue}% Off` : `$${coupon.discountValue} Off`}
+                      {" "}&middot; Min ${coupon.minOrderAmount}
                       {" "}&middot; Ends {formatDate(coupon.endDate)}
                     </p>
                   </div>
@@ -272,7 +272,7 @@ export default function PromotionsPage() {
               <div>
                 <label className="block text-[10px] uppercase tracking-widest text-zinc-500 mb-2">Campaign Name</label>
                 <input
-                  className="w-full bg-transparent border-b border-zinc-800 py-3 focus:border-[#e07b39] focus:ring-0 text-sm transition-colors outline-none placeholder:text-zinc-700"
+                  className="w-full bg-transparent border-b border-zinc-800 py-3 focus:border-[#e07b39] focus:ring-0 text-sm transition-colors outline-none text-white placeholder:text-zinc-600"
                   placeholder="e.g. Summer Solstice"
                   type="text"
                 />

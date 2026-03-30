@@ -127,6 +127,9 @@ export default function SocketProvider({ children }: { children: ReactNode }) {
     console.log("[SocketProvider] connectSocket returned:", s ? "socket instance" : "null");
     setSocketInstance(s);
 
+    // Socket not available (e.g. Vercel/serverless) — skip event binding
+    if (!s) return;
+
     s.on("connect", handleConnect);
     s.on("disconnect", handleDisconnect);
     s.on("notification:new", handleNotification);

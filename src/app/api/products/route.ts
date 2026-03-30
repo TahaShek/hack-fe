@@ -21,6 +21,7 @@ export async function GET(req: NextRequest) {
 
     return successResponse(data);
   } catch (error: unknown) {
+    console.error("[API /products] Error:", error instanceof Error ? error.message : error);
     const err = error as { status?: number; message?: string };
     if (err.status) return errorResponse(err.message || "Error", err.status);
     return errorResponse("Internal server error", 500);

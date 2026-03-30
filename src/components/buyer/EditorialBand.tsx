@@ -1,8 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { mockProducts } from "@/lib/mock-data";
-import Link from "next/link";
 
 const trendingItems = [
   { name: "Aluminum Water Vessel", description: "Zero-plastic hydration engineering." },
