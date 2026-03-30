@@ -181,35 +181,51 @@ export async function applyCoupon(userId: string, couponCode: string) {
 
   const cart = await Cart.findOne({ userId }).populate({
     path: "items.productId",
-    select: "price",
+    select: "price sellerId",
   });
   if (!cart || cart.items.length === 0) {
     throw { status: 400, message: "Cart is empty" };
   }
 
-  // Calculate cart total
+  // Calculate totals — coupon only applies to its seller's products
+  const couponSellerId = coupon.sellerId.toString();
   let cartTotal = 0;
+  let eligibleTotal = 0;
+
   for (const item of cart.items) {
-    const product = item.productId as unknown as { price: number };
-    cartTotal += product.price * item.quantity;
+    const product = item.productId as unknown as { price: number; sellerId: { toString(): string } };
+    const itemTotal = product.price * item.quantity;
+    cartTotal += itemTotal;
+    if (product.sellerId.toString() === couponSellerId) {
+      eligibleTotal += itemTotal;
+    }
   }
 
-  if (cartTotal < coupon.minOrderAmount) {
+  if (eligibleTotal === 0) {
     throw {
       status: 400,
-      message: `Minimum order amount of ${coupon.minOrderAmount} required`,
+      message: "This coupon doesn't apply to any products in your cart",
+    };
+  }
+
+  if (eligibleTotal < coupon.minOrderAmount) {
+    throw {
+      status: 400,
+      message: `Minimum order amount of $${coupon.minOrderAmount} required for eligible products`,
     };
   }
 
   let discount: number;
   if (coupon.discountType === "percentage") {
-    discount = (cartTotal * coupon.discountValue) / 100;
+    discount = (eligibleTotal * coupon.discountValue) / 100;
     if (coupon.maxDiscount && discount > coupon.maxDiscount) {
       discount = coupon.maxDiscount;
     }
   } else {
-    discount = coupon.discountValue;
+    discount = Math.min(coupon.discountValue, eligibleTotal);
   }
+
+  discount = Math.round(discount * 100) / 100;
 
   cart.couponCode = coupon.code;
   cart.couponDiscount = Math.min(discount, cartTotal);
