@@ -1,6 +1,6 @@
 import { connectDB } from "@/lib/db";
 import { withAuth, type AuthenticatedRequest } from "@/lib/withAuth";
-import { successResponse, errorResponse } from "@/lib/apiResponse";
+import { successResponse, errorResponse, handleApiError } from "@/lib/apiResponse";
 import { applyCoupon, removeCoupon } from "@/services/cart.service";
 import { z } from "zod/v4";
 
@@ -21,9 +21,7 @@ export const POST = withAuth(async (req: AuthenticatedRequest) => {
     const result = await applyCoupon(req.user.id, parsed.data.couponCode);
     return successResponse(result, "Coupon applied");
   } catch (error: unknown) {
-    const err = error as { status?: number; message?: string };
-    if (err.status) return errorResponse(err.message || "Error", err.status);
-    return errorResponse("Internal server error", 500);
+    return handleApiError(error, "POST /cart/apply-coupon");
   }
 });
 
@@ -33,8 +31,6 @@ export const DELETE = withAuth(async (req: AuthenticatedRequest) => {
     const cart = await removeCoupon(req.user.id);
     return successResponse(cart, "Coupon removed");
   } catch (error: unknown) {
-    const err = error as { status?: number; message?: string };
-    if (err.status) return errorResponse(err.message || "Error", err.status);
-    return errorResponse("Internal server error", 500);
+    return handleApiError(error, "DELETE /cart/apply-coupon");
   }
 });

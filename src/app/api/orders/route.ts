@@ -1,6 +1,6 @@
 import { connectDB } from "@/lib/db";
 import { withAuth, type AuthenticatedRequest } from "@/lib/withAuth";
-import { successResponse, errorResponse } from "@/lib/apiResponse";
+import { successResponse, errorResponse, handleApiError } from "@/lib/apiResponse";
 import { createOrder } from "@/services/order.service";
 import { emitNotification } from "@/lib/socket-emitter";
 import { z } from "zod/v4";
@@ -54,9 +54,6 @@ export const POST = withAuth(async (req: AuthenticatedRequest) => {
 
     return successResponse(orders, "Order(s) created successfully", 201);
   } catch (error: unknown) {
-    console.error("[POST /api/orders] Error:", error);
-    const err = error as { status?: number; message?: string };
-    if (err.status) return errorResponse(err.message || "Error", err.status);
-    return errorResponse("Internal server error", 500);
+    return handleApiError(error, "POST /orders");
   }
 });

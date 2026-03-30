@@ -1,6 +1,6 @@
 import { connectDB } from "@/lib/db";
 import { withAuth, type AuthenticatedRequest } from "@/lib/withAuth";
-import { successResponse, errorResponse } from "@/lib/apiResponse";
+import { successResponse, errorResponse, handleApiError } from "@/lib/apiResponse";
 import { initiatePayment } from "@/services/payment.service";
 import { z } from "zod/v4";
 
@@ -28,9 +28,6 @@ export const POST = withAuth(async (req: AuthenticatedRequest) => {
     const result = await initiatePayment(req.user.id, parsed.data);
     return successResponse(result, "Payment initiated", 201);
   } catch (error: unknown) {
-    console.error("[API /payment/initiate] Error:", error instanceof Error ? error.stack : error);
-    const err = error as { status?: number; message?: string };
-    if (err.status) return errorResponse(err.message || "Error", err.status);
-    return errorResponse("Internal server error", 500);
+    return handleApiError(error, "POST /payment/initiate");
   }
 });

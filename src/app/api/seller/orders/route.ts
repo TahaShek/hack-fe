@@ -1,6 +1,6 @@
 import { connectDB } from "@/lib/db";
 import { withRole, type AuthenticatedRequest } from "@/lib/withAuth";
-import { successResponse, errorResponse } from "@/lib/apiResponse";
+import { successResponse, errorResponse, handleApiError } from "@/lib/apiResponse";
 import { getOrders } from "@/services/seller.service";
 
 export const GET = withRole(["seller"], async (req: AuthenticatedRequest) => {
@@ -15,8 +15,6 @@ export const GET = withRole(["seller"], async (req: AuthenticatedRequest) => {
     const data = await getOrders(req.user.id, page, limit, status, search);
     return successResponse(data);
   } catch (error: unknown) {
-    const err = error as { status?: number; message?: string };
-    if (err.status) return errorResponse(err.message || "Error", err.status);
-    return errorResponse("Internal server error", 500);
+    return handleApiError(error, "GET /seller/orders");
   }
 });

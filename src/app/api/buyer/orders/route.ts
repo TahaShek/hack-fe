@@ -1,6 +1,6 @@
 import { connectDB } from "@/lib/db";
 import { withAuth, type AuthenticatedRequest } from "@/lib/withAuth";
-import { successResponse, errorResponse } from "@/lib/apiResponse";
+import { successResponse, errorResponse, handleApiError } from "@/lib/apiResponse";
 import { getOrders } from "@/services/buyer.service";
 
 export const GET = withAuth(async (req: AuthenticatedRequest) => {
@@ -18,8 +18,6 @@ export const GET = withAuth(async (req: AuthenticatedRequest) => {
     const result = await getOrders(req.user.id, page, limit, status);
     return successResponse(result);
   } catch (error: unknown) {
-    const err = error as { status?: number; message?: string };
-    if (err.status) return errorResponse(err.message || "Error", err.status);
-    return errorResponse("Internal server error", 500);
+    return handleApiError(error, "GET /buyer/orders");
   }
 });

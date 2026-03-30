@@ -1,6 +1,6 @@
 import { connectDB } from "@/lib/db";
 import { withRole, type AuthenticatedRequest } from "@/lib/withAuth";
-import { successResponse, errorResponse } from "@/lib/apiResponse";
+import { successResponse, errorResponse, handleApiError } from "@/lib/apiResponse";
 import { getProducts, createProduct } from "@/services/seller.service";
 import { z } from "zod/v4";
 
@@ -49,9 +49,7 @@ export const GET = withRole(["seller"], async (req: AuthenticatedRequest) => {
     const data = await getProducts(req.user.id, page, limit, search, status, category, sort);
     return successResponse(data);
   } catch (error: unknown) {
-    const err = error as { status?: number; message?: string };
-    if (err.status) return errorResponse(err.message || "Error", err.status);
-    return errorResponse("Internal server error", 500);
+    return handleApiError(error, "GET /seller/products");
   }
 });
 
@@ -74,8 +72,6 @@ export const POST = withRole(["seller"], async (req: AuthenticatedRequest) => {
     const product = await createProduct(req.user.id, parsed.data);
     return successResponse(product, "Product created", 201);
   } catch (error: unknown) {
-    const err = error as { status?: number; message?: string };
-    if (err.status) return errorResponse(err.message || "Error", err.status);
-    return errorResponse("Internal server error", 500);
+    return handleApiError(error, "POST /seller/products");
   }
 });

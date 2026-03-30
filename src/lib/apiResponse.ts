@@ -129,5 +129,30 @@ export function errorResponse(
   status = 400,
   errors?: Record<string, string[]>,
 ): NextResponse<ErrorBody> {
+  if (status >= 500) {
+    console.error(`[API Error ${status}]`, message, errors || "");
+  }
   return NextResponse.json({ success: false, message, errors }, { status });
+}
+
+/**
+ * Standard catch handler for API routes.
+ * Logs the real error and returns a proper response.
+ */
+export function handleApiError(error: unknown, routeName?: string): NextResponse<ErrorBody> {
+  const label = routeName ? `[API ${routeName}]` : "[API]";
+
+  if (error instanceof Error) {
+    console.error(label, error.message, error.stack?.split("\n").slice(0, 3).join("\n"));
+  } else {
+    const err = error as { status?: number; message?: string };
+    if (err?.status && err.status < 500) {
+      return errorResponse(err.message || "Error", err.status);
+    }
+    console.error(label, error);
+  }
+
+  const err = error as { status?: number; message?: string };
+  if (err?.status) return errorResponse(err.message || "Error", err.status);
+  return errorResponse("Internal server error", 500);
 }

@@ -1,6 +1,6 @@
 import { type NextRequest } from "next/server";
 import { connectDB } from "@/lib/db";
-import { successResponse, errorResponse } from "@/lib/apiResponse";
+import { successResponse, errorResponse, handleApiError } from "@/lib/apiResponse";
 import { loginSeller } from "@/services/auth.service";
 import { z } from "zod/v4";
 
@@ -38,10 +38,6 @@ export async function POST(req: NextRequest) {
 
     return response;
   } catch (error: unknown) {
-    const err = error as { status?: number; message?: string };
-    if (err.status) {
-      return errorResponse(err.message || "Error", err.status);
-    }
-    return errorResponse("Internal server error", 500);
+    return handleApiError(error, "POST /auth/login/seller");
   }
 }
