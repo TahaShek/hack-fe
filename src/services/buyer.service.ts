@@ -135,7 +135,19 @@ export async function getOrders(
   limit = 10,
   status?: string
 ) {
-  const query: Record<string, unknown> = { buyerId: userId };
+  const query: Record<string, unknown> = {
+    buyerId: userId,
+    // Only show orders where payment completed (exclude failed card initiations)
+    paymentStatus: { $ne: "failed" },
+    // Exclude orders stuck in pending payment with no confirmation
+    $or: [
+      { paymentStatus: "completed" },
+      { paymentMethod: "cod" },
+      { orderStatus: { $ne: "pending" } },
+      // Show pending orders only if created in the last 30 minutes (active checkout)
+      { paymentStatus: "pending", createdAt: { $gte: new Date(Date.now() - 30 * 60 * 1000) } },
+    ],
+  };
   if (status) {
     query.orderStatus = status;
   }

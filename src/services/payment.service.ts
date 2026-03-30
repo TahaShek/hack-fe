@@ -1,11 +1,7 @@
-import Stripe from "stripe";
 import Order from "@/models/Order";
 import Transaction from "@/models/Transaction";
 import mongoose from "mongoose";
-
-const stripe = process.env.STRIPE_SECRET_KEY
-  ? new Stripe(process.env.STRIPE_SECRET_KEY, { apiVersion: "2026-03-25.dahlia" })
-  : null;
+import crypto from "crypto";
 
 interface InitiatePaymentInput {
   orderId: string;
@@ -26,65 +22,25 @@ export async function initiatePayment(userId: string, input: InitiatePaymentInpu
     throw { status: 400, message: "Order already paid" };
   }
 
-  // Check if a pending transaction already exists for this order (prevents double-init)
+  // Reuse existing pending transaction if one exists
   const existingTransaction = await Transaction.findOne({
     orderId: order._id,
     buyerId: userId,
     status: "pending",
   });
 
-  const amountInCents = Math.round(order.totalAmount * 100);
-  const metadata = {
-    orderId: String(order._id),
-    buyerId: userId,
-    orderNumber: order.orderNumber || "",
-  };
-
-  if (existingTransaction?.paymentGatewayId) {
-    // Retrieve existing PaymentIntent
-    try {
-      if (stripe) {
-        const existingPI = await stripe.paymentIntents.retrieve(existingTransaction.paymentGatewayId);
-        if (existingPI.status !== "canceled" && existingPI.status !== "succeeded") {
-          return {
-            transactionId: existingTransaction._id,
-            clientSecret: existingPI.client_secret,
-            paymentIntentId: existingPI.id,
-            amount: order.totalAmount,
-            currency: "usd",
-            status: "pending",
-          };
-        }
-      } else {
-        // Sandbox mode — reuse existing mock transaction
-        return {
-          transactionId: existingTransaction._id,
-          clientSecret: `${existingTransaction.paymentGatewayId}_secret_mock`,
-          paymentIntentId: existingTransaction.paymentGatewayId,
-          amount: order.totalAmount,
-          currency: "usd",
-          status: "pending",
-        };
-      }
-    } catch {
-      // Existing PI invalid, create a new one below
-    }
-  }
-
-  // Create PaymentIntent — real Stripe or sandbox mock
-  let paymentIntent: { id: string; client_secret: string | null };
-  if (stripe) {
-    paymentIntent = await stripe.paymentIntents.create({
-      amount: amountInCents,
+  if (existingTransaction) {
+    return {
+      transactionId: existingTransaction._id,
+      paymentId: existingTransaction.paymentGatewayId,
+      amount: order.totalAmount,
       currency: "usd",
-      payment_method_types: ["card"],
-      metadata,
-    });
-  } else {
-    const mockId = `pi_mock_${Date.now()}`;
-    paymentIntent = { id: mockId, client_secret: `${mockId}_secret` };
+      status: "pending",
+    };
   }
 
+  // Generate sandbox payment ID
+  const paymentId = `pay_${crypto.randomBytes(12).toString("hex")}`;
   const platformFee = Math.round(order.totalAmount * 0.05 * 100) / 100;
 
   const transaction = await Transaction.create({
@@ -98,13 +54,12 @@ export async function initiatePayment(userId: string, input: InitiatePaymentInpu
     sellerAmount: order.totalAmount - platformFee,
     status: "pending",
     paymentMethod: input.paymentMethod,
-    paymentGatewayId: paymentIntent.id,
+    paymentGatewayId: paymentId,
   });
 
   return {
     transactionId: transaction._id,
-    clientSecret: paymentIntent.client_secret,
-    paymentIntentId: paymentIntent.id,
+    paymentId,
     amount: order.totalAmount,
     currency: "usd",
     status: "pending",
@@ -113,10 +68,10 @@ export async function initiatePayment(userId: string, input: InitiatePaymentInpu
 
 export async function confirmPayment(
   userId: string,
-  paymentIntentId: string
+  paymentId: string
 ) {
   const transaction = await Transaction.findOne({
-    paymentGatewayId: paymentIntentId,
+    paymentGatewayId: paymentId,
     buyerId: userId,
   });
 
@@ -128,15 +83,7 @@ export async function confirmPayment(
     throw { status: 400, message: "Payment already confirmed" };
   }
 
-  // Verify payment — real Stripe or sandbox auto-approve
-  if (stripe) {
-    const paymentIntent = await stripe.paymentIntents.retrieve(paymentIntentId);
-    if (paymentIntent.status !== "succeeded") {
-      throw { status: 400, message: `Payment not successful. Status: ${paymentIntent.status}` };
-    }
-  }
-  // In sandbox mode (no Stripe key), auto-approve the payment
-
+  // Sandbox mode — auto-approve payment
   transaction.status = "completed";
   await transaction.save();
 

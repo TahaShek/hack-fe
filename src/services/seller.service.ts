@@ -322,7 +322,11 @@ export async function getOrders(
   status?: string,
   search?: string
 ) {
-  const query: Record<string, unknown> = { sellerId };
+  const query: Record<string, unknown> = {
+    sellerId,
+    // Only show orders where payment completed (exclude failed card attempts)
+    paymentStatus: "completed",
+  };
   if (status) query.orderStatus = status;
   if (search) {
     query.$or = [
